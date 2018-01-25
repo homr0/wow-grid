@@ -1,0 +1,5 @@
+# Ignores all Node modules
+node_modules/
+
+# Ignores Yarn lock file
+yarn.lock
