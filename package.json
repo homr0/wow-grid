@@ -1,0 +1,36 @@
+{
+  "name": "ou-grid",
+  "description": "A tool for generating a grid in the OmniUpdate WYSIWYG editor JustEdit.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-include": "^2.3.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sass": "^3.1.0",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.2.1",
+    "yargs": "^11.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rh0m/ou-grid.git"
+  },
+  "keywords": [
+    "OmniUpdate",
+    "JavaScript",
+    "Sass",
+    "jQuery"
+  ],
+  "author": "Rebecca Hom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rh0m/ou-grid/issues"
+  },
+  "homepage": "https://github.com/rh0m/ou-grid#readme",
+  "dependencies": {}
+}
