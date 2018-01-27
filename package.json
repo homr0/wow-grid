@@ -40,5 +40,9 @@
     "url": "https://github.com/rh0m/ou-grid/issues"
   },
   "homepage": "https://github.com/rh0m/ou-grid#readme",
-  "dependencies": {}
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "html5sortable": "^0.6.3",
+    "magnific-popup": "^1.1.0"
+  }
 }
