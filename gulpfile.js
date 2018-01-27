@@ -64,8 +64,14 @@ gulp.task('javascript', function() {
         }
     })).on('error', onError);
 
-    return gulp.src('js/**/*.js')
-        .pipe($.include())
+    return gulp.src('src/js/**/*.js')
+        .pipe($.include({
+            extensions: 'js',
+            includePaths: [
+                __dirname + '/node-modules',
+                __dirname + '/src/js'
+            ]
+        }))
         .on('error', onError)
         .pipe($.sourcemaps.init())
         .pipe(uglify)
@@ -83,8 +89,8 @@ gulp.task('pages', function() {
 // Waches for any changes in Gulp.
 gulp.task('watch', ['browser', 'sass'], function() {
     gulp.watch('src/scss/**/*.scss', ['sass', browser.reload]);
-    gulp.watch('src/**/*.html', browser.reload);
-    gulp.watch('src/js/**/*.js', browser.reload);
+    gulp.watch('src/**/*.html', ['pages', browser.reload]);
+    gulp.watch('src/js/**/*.js', ['javascript', browser.reload]);
 });
 
 // Builds the site.

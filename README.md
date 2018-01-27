@@ -37,7 +37,6 @@ The OU-Grid will have the following functions:
         - Gulp - Node package that helps automate work flow.
 
 ### Installation for Development
-
 1. Clone this repository.
 2. Make sure that Yarn and Gulp are installed globally.
 3. Use Yarn to install NPM project dependencies.
@@ -45,3 +44,5 @@ The OU-Grid will have the following functions:
     ```sh
     yarn install
     ```
+### Testing Environment
+Run 'gulp' to spin up a server and get to the test page.
