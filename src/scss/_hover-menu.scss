@@ -4,11 +4,11 @@
     max-width: $menu-width;
 
     &.wow-endpoint {
-        max-width: calc(#{$menu-width} - #{$menu-button});
+        max-width: $menu-width - $menu-button;
     }
 
     &.wow-single {
-        max-width: calc(#{$menu-width} - (2 * #{$menu-button}));
+        max-width: $menu-width - (2 * $menu-button);
     }
 
     position: absolute;
@@ -43,13 +43,13 @@
     }
 
     .wow-button {
-        width: 30px;
-        height: 30px;
+        width: $menu-button;
+        height: $menu-button;
         cursor: pointer;
         pointer-events: all;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 20px 20px;
+        background-size: $menu-button-cover $menu-button-cover;
 
         &.wow-edit, &.wow-banner-type, &.wow-banner-media {
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="%23FFF" fill-rule="evenodd" d="M13.05 8.25c0-.225.075-.45.075-.75s0-.525-.075-.75l1.575-1.275c.15-.15.15-.3.075-.45L13.2 2.4c-.075-.075-.225-.15-.45-.075l-1.875.75c-.375-.3-.825-.525-1.275-.75L9.3.375C9.375.15 9.15 0 9 0H6c-.15 0-.375.15-.375.3l-.3 2.025c-.45.15-.825.45-1.275.75l-1.8-.75c-.225-.075-.375 0-.525.15L.225 5.1c-.075.075 0 .3.15.45l1.575 1.2c0 .225-.075.45-.075.75s0 .525.075.75L.375 9.525c-.15.15-.15.3-.075.45L1.8 12.6c.075.075.225.15.45.075l1.875-.75c.375.3.825.525 1.275.75l.3 1.95c0 .15.15.3.375.3h3c.15 0 .375-.15.375-.3l.3-1.95c.45-.225.9-.45 1.275-.75l1.875.75c.15.075.375 0 .45-.15l1.5-2.625c.075-.15.075-.375-.075-.45l-1.725-1.2zM7.5 10.125c-1.425 0-2.625-1.2-2.625-2.625s1.2-2.625 2.625-2.625 2.625 1.2 2.625 2.625-1.2 2.625-2.625 2.625z"/></svg>');
@@ -68,7 +68,7 @@
         }
 
         &.wow-up, &.wow-down {
-            background-size: 20px 25px;
+            background-size: $menu-button-cover calc(#{$menu-button-cover} * 1.25);
             background-position: center bottom;
         }
 
@@ -100,7 +100,7 @@
         .wow-tooltext {
             pointer-events:none;
             display: none;
-            width: 120px;
+            width: $menu-tooltext-width;
             background-color: #000000;
             color: #ffffff;
             text-align: center;
@@ -109,7 +109,7 @@
             position: absolute;
             left: 50%;
             bottom: 37px;
-            margin-left: -60px;
+            margin-left: -$menu-tooltext-center;
             vertical-align: middle;
 
             &::after {
@@ -124,23 +124,23 @@
             }
 
             &.wow-tool-slide {
-                width: 60px;
+                width: $menu-tooltext-width;
                 margin-left: 0;
             }
 
             &.wow-tool-small {
-                width: 80px;
-                margin-left: -40px;
+                width: $menu-tooltext-width * (2 / 3);
+                margin-left: -$menu-tooltext-center * (2 * 3);
             }
 
             &.wow-tool-medium {
-                width: 150px;
-                margin-left: -75px;
+                width: $menu-tooltext-width * 1.25;
+                margin-left: -$menu-tooltext-center * 1.25;
             }
 
             &.wow-tool-large {
-                width: 200px;
-                margin-left: -100px;
+                width: $menu-tooltext-width * 2;
+                margin-left: -$menu-tooltext-center * 2;
             }
 
             &.wow-tool-right {
@@ -170,7 +170,7 @@
     }
 
     &.wow-banner {
-        background-color: blue;
+        background-color: $menu-section;
 
         &:before {
             content: "Banner";
@@ -178,7 +178,7 @@
     }
 
     &.wow-section {
-        background-color: blue;
+        background-color: $menu-section;
 
         &:before {
             content: attr('data-name');
@@ -186,7 +186,7 @@
     }
 
     &.wow-row {
-        background-color: green;
+        background-color: $menu-row;
 
         &:before {
             content: "Row";
@@ -194,7 +194,7 @@
     }
 
     &.wow-column {
-        background-color: purple;
+        background-color: $menu-column;
         &:before {
             content: "Column";
         }
@@ -209,7 +209,7 @@
     }
 
     &.wow-module {
-        background-color: deeppink;
+        background-color: $menu-module;
 
         &:before {
             content: "Module";
