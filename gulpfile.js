@@ -1,11 +1,12 @@
 // Gulp dependencies
-var gulp = require("gulp");
+var gulp = require('gulp');
 var argv = require('yargs').argv;
 var $ = require("gulp-load-plugins")();
 var sequence = require('run-sequence');
 var requireDir = require('require-dir');
 var browser = require('browser-sync');
 var optimizejs = require('gulp-optimize-js');
+var del = require('del');
 
 // Task variables
 // Check for --production flag and runs as production with 'gulp defualt --production'
@@ -64,7 +65,7 @@ gulp.task('javascript', function() {
         }
     })).on('error', onError);
 
-    return gulp.src('src/js/**/*.js')
+    return gulp.src('src/js/wow.js')
         .pipe($.include({
             extensions: 'js',
             includePaths: [
@@ -86,6 +87,11 @@ gulp.task('pages', function() {
         .pipe(gulp.dest('dist/'))
 });
 
+// Deletes the "dist" directory
+gulp.task('clean', function() {
+    return del.sync('./dist');
+});
+
 // Waches for any changes in Gulp.
 gulp.task('watch', ['browser', 'sass'], function() {
     gulp.watch('src/scss/**/*.scss', ['sass', browser.reload]);
@@ -95,7 +101,7 @@ gulp.task('watch', ['browser', 'sass'], function() {
 
 // Builds the site.
 gulp.task('build', function(done) {
-    sequence('sass', ['javascript', 'pages'], done);
+    sequence('clean',['sass', 'javascript', 'pages'], done);
 });
 
 // Builds the site and watches for file changes.
