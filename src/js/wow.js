@@ -1,17 +1,19 @@
+#=include '../node_modules/jquery/dist/jquery.min.js'
+
 $(document).ready(function() {
     console.log("ready!");
 
     // Settings for the Wow Grid.
     var wow = {
-        editor: '.ou-justedit-region',      // Edit region class, tag, or id.
-        editFocus: '.mce-content-body',     // Focused region class, tag, or id.
-        section: '.section',                // Section class name
-        row: '.row',                        // Row class name
-        column: '.column',                  // Column class name
-        module: '.module',                  // Module class name
-        sidebar: '.sidebar',                // Sidebar class name.
-        leftSide: '.left-sidebar',          // Left sidebar class name
-        rightSide: '.right-sidebar',        // Right sidebar class name
+        editor: '.ou-justedit-region',                  // Edit region class, tag, or id.
+        editFocus: '.mce-content-body.mce-edit-focus',  // Focused region class, tag, or id.
+        section: '.section',                            // Section class name
+        row: '.row',                                    // Row class name
+        column: '.column',                              // Column class name
+        module: '.module',                              // Module class name
+        sidebar: '.sidebar',                            // Sidebar class name.
+        leftSide: '.left-sidebar',                      // Left sidebar class name
+        rightSide: '.right-sidebar',                    // Right sidebar class name
 
     };
 
@@ -38,6 +40,11 @@ $(document).ready(function() {
     // Loads up the editor.
     function wowEdit() {
         console.log("Now ready to edit");
+
+        //-------------------------------
+        // initializes the HTML strings
+        #=include 'wow-editor/wow-menus.js'
+
         //-------------------------------
         // initialize Sortable ----------
         #=include '../node_modules/html5sortable/dist/html.sortable.min.js'
