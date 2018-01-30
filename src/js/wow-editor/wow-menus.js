@@ -1,5 +1,5 @@
 // Initializes the HTML strings for various menus and settings.
-var control = {
+var hover = {
     section: "",
     row: "",
     column: "",
@@ -13,6 +13,8 @@ setTimeout(function() {
 }, 0);
 
 setTimeout(function() {
-    control.section = $('.wow-menu.wow-section').detach();
-    console.log(control.section);
+    hover.section = $('.wow-section').detach();
+    hover.row = $('.wow-row').detach();
+    hover.column = $('.wow-column').detach();
+    hover.module = $('.wow-module').detach();
 }, 150);

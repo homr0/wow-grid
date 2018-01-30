@@ -1,4 +1,63 @@
 /* Hover menus for each component. */
+/* Section hover menu styles. */
+.wow-section {
+    background-color: $menu-section;
+    z-index: 0;
+
+    &.wow-hover {
+        box-shadow: inset 0px 0px 0px 3px $hover-section;
+    }
+}
+
+/* Row hover menu styles. */
+.wow-row {
+    background-color: $menu-row;
+    z-index: 1;
+
+    &.wow-hover {
+        box-shadow: inset 0px 0px 0px 3px $hover-row;
+    }
+}
+
+/* Column hover menu styles. */
+.wow-column {
+    background-color: $menu-column;
+    z-index: 2;
+
+    .wow-button.wow-add {
+        left: unset;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 2px 0 0 2px;
+    }
+
+    &.wow-hover {
+        box-shadow: inset 0px 0px 0px 3px $hover-column;
+    }
+}
+
+/* Module hover menu styles. */
+.wow-module {
+    background-color: $menu-module;
+    z-index: 3;
+
+    &.wow-hover {
+        box-shadow: inset 0px 0px 0px 3px $hover-section;
+    }
+}
+
+/* Banner hover menu styles. */
+.wow-banner {
+    background-color: $menu-section;
+    z-index: 4;
+
+    &:before {
+        content: "Banner";
+    }
+}
+
+/* General menu styles. */
 .wow-menu {
     height: $menu-button;
     max-width: $menu-width;
@@ -17,7 +76,7 @@
 
     display: flex;
     text-align: center;
-    border-radius: 4px 0px 0 0;
+    border-radius: 4px 4px 0 0;
     cursor: auto;
 
     text-transform: uppercase;
@@ -34,6 +93,8 @@
         background: rgba(0, 0, 0, 0.15) url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.27' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
         margin-right: 8px;
         background-size: 4px;
+
+        content: attr(data-name);
     }
 
     .disabled {
@@ -41,178 +102,132 @@
         pointer-events: none;
         opacity: 0.5;
     }
+}
 
-    .wow-button {
-        width: $menu-button;
-        height: $menu-button;
-        cursor: pointer;
-        pointer-events: all;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: $menu-button-cover $menu-button-cover;
+.wow-tooltip {
+    position: relative;
+    display: inline-block;
+    text-transform: none;
+    z-index:1;
 
-        &.wow-edit, &.wow-banner-type, &.wow-banner-media {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="%23FFF" fill-rule="evenodd" d="M13.05 8.25c0-.225.075-.45.075-.75s0-.525-.075-.75l1.575-1.275c.15-.15.15-.3.075-.45L13.2 2.4c-.075-.075-.225-.15-.45-.075l-1.875.75c-.375-.3-.825-.525-1.275-.75L9.3.375C9.375.15 9.15 0 9 0H6c-.15 0-.375.15-.375.3l-.3 2.025c-.45.15-.825.45-1.275.75l-1.8-.75c-.225-.075-.375 0-.525.15L.225 5.1c-.075.075 0 .3.15.45l1.575 1.2c0 .225-.075.45-.075.75s0 .525.075.75L.375 9.525c-.15.15-.15.3-.075.45L1.8 12.6c.075.075.225.15.45.075l1.875-.75c.375.3.825.525 1.275.75l.3 1.95c0 .15.15.3.375.3h3c.15 0 .375-.15.375-.3l.3-1.95c.45-.225.9-.45 1.275-.75l1.875.75c.15.075.375 0 .45-.15l1.5-2.625c.075-.15.075-.375-.075-.45l-1.725-1.2zM7.5 10.125c-1.425 0-2.625-1.2-2.625-2.625s1.2-2.625 2.625-2.625 2.625 1.2 2.625 2.625-1.2 2.625-2.625 2.625z"/></svg>');
-        }
+    .wow-tooltext {
+        pointer-events:none;
+        display: none;
+        width: $menu-tooltext-width;
+        background-color: $black;
+        color: $white;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        left: 50%;
+        bottom: 37px;
+        margin-left: -$menu-tooltext-center;
+        vertical-align: middle;
 
-        &.wow-link {
-            background-image: url('data:image/svg+xml;utf8,<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-448.000000, -611.000000)" fill="%23FFF"><g transform="translate(455.500000, 618.500000) rotate(90.000000) translate(-455.500000, -618.500000) translate(448.000000, 611.000000)"><path d="M13.2352941,11.0294118 C13.2352941,10.7843125 13.1495107,10.5759813 12.9779412,10.4044118 L11.0661765,8.49264706 C10.894607,8.32107757 10.6862757,8.23529412 10.4411765,8.23529412 C10.1838222,8.23529412 9.96323621,8.33333235 9.77941176,8.52941176 C9.79779421,8.54779421 9.85600441,8.60447256 9.95404412,8.69944853 C10.0520838,8.79442449 10.1179533,8.86029393 10.1516544,8.89705882 C10.1853556,8.93382371 10.231311,8.99203392 10.2895221,9.07169118 C10.3477331,9.15134844 10.3875612,9.22947266 10.4090074,9.30606618 C10.4304535,9.3826597 10.4411765,9.46691131 10.4411765,9.55882353 C10.4411765,9.80392279 10.355393,10.012254 10.1838235,10.1838235 C10.012254,10.355393 9.80392279,10.4411765 9.55882353,10.4411765 C9.46691131,10.4411765 9.3826597,10.4304535 9.30606618,10.4090074 C9.22947266,10.3875612 9.15134844,10.3477331 9.07169118,10.2895221 C8.99203392,10.231311 8.93382371,10.1853556 8.89705882,10.1516544 C8.86029393,10.1179533 8.79442449,10.0520838 8.69944853,9.95404412 C8.60447256,9.85600441 8.54779421,9.79779421 8.52941176,9.77941176 C8.32720487,9.96936369 8.22610294,10.1930134 8.22610294,10.4503676 C8.22610294,10.6954669 8.3118864,10.9037982 8.48345588,11.0753676 L10.3768382,12.9779412 C10.5422802,13.1433832 10.7506115,13.2261029 11.0018382,13.2261029 C11.2469375,13.2261029 11.4552687,13.1464469 11.6268382,12.9871324 L12.9779412,11.6452206 C13.1495107,11.4736511 13.2352941,11.2683835 13.2352941,11.0294118 L13.2352941,11.0294118 Z M6.77389706,4.54963235 C6.77389706,4.30453309 6.6881136,4.09620184 6.51654412,3.92463235 L4.62316176,2.02205882 C4.45159228,1.85048934 4.24326103,1.76470588 3.99816176,1.76470588 C3.75918998,1.76470588 3.55085873,1.84742564 3.37316176,2.01286765 L2.02205882,3.35477941 C1.85048934,3.5263489 1.76470588,3.73161645 1.76470588,3.97058824 C1.76470588,4.2156875 1.85048934,4.42401875 2.02205882,4.59558824 L3.93382353,6.50735294 C4.09926553,6.67279494 4.30759678,6.75551471 4.55882353,6.75551471 C4.81617776,6.75551471 5.03676379,6.66054017 5.22058824,6.47058824 C5.20220579,6.45220579 5.14399559,6.39552744 5.04595588,6.30055147 C4.94791618,6.20557551 4.88204674,6.13970607 4.84834559,6.10294118 C4.81464444,6.06617629 4.76868902,6.00796608 4.71047794,5.92830882 C4.65226687,5.84865156 4.61243883,5.77052734 4.59099265,5.69393382 C4.56954646,5.6173403 4.55882353,5.53308869 4.55882353,5.44117647 C4.55882353,5.19607721 4.64460699,4.98774596 4.81617647,4.81617647 C4.98774596,4.64460699 5.19607721,4.55882353 5.44117647,4.55882353 C5.53308869,4.55882353 5.6173403,4.56954646 5.69393382,4.59099265 C5.77052734,4.61243883 5.84865156,4.65226687 5.92830882,4.71047794 C6.00796608,4.76868902 6.06617629,4.81464444 6.10294118,4.84834559 C6.13970607,4.88204674 6.20557551,4.94791618 6.30055147,5.04595588 C6.39552744,5.14399559 6.45220579,5.20220579 6.47058824,5.22058824 C6.67279513,5.03063631 6.77389706,4.80698658 6.77389706,4.54963235 L6.77389706,4.54963235 Z M15,11.0294118 C15,11.7647096 14.7395859,12.3866396 14.21875,12.8952206 L12.8676471,14.2371324 C12.3590661,14.7457133 11.737136,15 11.0018382,15 C10.260413,15 9.63541921,14.7395859 9.12683824,14.21875 L7.23345588,12.3161765 C6.72487491,11.8075955 6.47058824,11.1856654 6.47058824,10.4503676 C6.47058824,9.69668741 6.74019338,9.05637518 7.27941176,8.52941176 L6.47058824,7.72058824 C5.94362482,8.25980662 5.30637629,8.52941176 4.55882353,8.52941176 C3.82352574,8.52941176 3.19853199,8.2720614 2.68382353,7.75735294 L0.772058824,5.84558824 C0.257350368,5.33087978 0,4.70588603 0,3.97058824 C0,3.23529044 0.260414062,2.61336039 0.78125,2.10477941 L2.13235294,0.762867647 C2.64093392,0.254286673 3.26286397,0 3.99816176,0 C4.73958704,0 5.36458079,0.260414063 5.87316176,0.78125 L7.76654412,2.68382353 C8.27512509,3.1924045 8.52941176,3.81433456 8.52941176,4.54963235 C8.52941176,5.30331259 8.25980662,5.94362482 7.72058824,6.47058824 L8.52941176,7.27941176 C9.05637518,6.74019338 9.69362371,6.47058824 10.4411765,6.47058824 C11.1764743,6.47058824 11.801468,6.7279386 12.3161765,7.24264706 L14.2279412,9.15441176 C14.7426496,9.66912022 15,10.294114 15,11.0294118 L15,11.0294118 Z" id="primary"></path></g></g></g></svg>');
-        }
-
-        &.wow-duplicate {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15"><path fill="%23FFF" fill-rule="evenodd" d="M18.5 15H20V3h-3v9H3v3h15.5zM0 0h15v10H0V0zm3 3h9v4H3V3z"/></svg>');
-        }
-
-        &.wow-delete, &.wow-slide-delete {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 12 15"><path fill="%23FFF" fill-rule="evenodd" d="M12 .827H9L8.143 0H3.857L3 .827H0V2.48h12V.827zM0 4h12v11H0V4zm2 2h2v7H2V6zm3 0h2v7H5V6zm3 0h2v7H8V6z"/></svg>');
-        }
-
-        &.wow-up, &.wow-down {
-            background-size: $menu-button-cover calc(#{$menu-button-cover} * 1.25);
-            background-position: center bottom;
-        }
-
-        &.wow-up {
-            background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><path fill="%23FFF" fill-rule="evenodd" d="M0 0h15v15H0V0zm6.098 6.99H3l3.55-3.55c.956-.956 1.857-.055 1.857-.055L12.01 6.99H8.858l-.008 4.996L6.08 12l.016-5.01z"/></svg>');
-        }
-
-        &.wow-down {
-            background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><path fill="%23FFF" fill-rule="evenodd" d="M0 15h15V0H0v15zm6.098-6.99H3l3.55 3.55c.956.956 1.857.055 1.857.055L12.01 8.01H8.858L8.85 3.015 6.08 3l.016 5.01z"/></svg>');
-        }
-
-        &.wow-add {
+        &::after {
+            content: " ";
             position: absolute;
-            bottom: 0px;
+            top: 100%;
             left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px 2px 0 0;
-            margin-bottom: 0 !important;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g fill="none" fill-rule="evenodd"><rect width="30" height="30" fill="none"/><path fill="%23FFF" d="M16.72 13.484h5.936v3.47H16.72v6.765h-3.69v-6.767H7.064v-3.47h5.968V7.157h3.69"/></g></svg>');
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: $black transparent transparent transparent;
         }
-    }
 
-    .wow-tooltip {
-        position: relative;
-        display: inline-block;
-        text-transform: none;
-        z-index:1;
-
-        .wow-tooltext {
-            pointer-events:none;
-            display: none;
+        &.wow-tool-slide {
             width: $menu-tooltext-width;
-            background-color: $black;
-            color: $white;
-            text-align: center;
-            padding: 5px 0;
-            border-radius: 6px;
-            position: absolute;
-            left: 50%;
-            bottom: 37px;
-            margin-left: -$menu-tooltext-center;
-            vertical-align: middle;
+            margin-left: 0;
+        }
 
-            &::after {
-                content: " ";
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                margin-left: -5px;
-                border-width: 5px;
-                border-style: solid;
+        &.wow-tool-small {
+            width: $menu-tooltext-width * (2 / 3);
+            margin-left: -$menu-tooltext-center * (2 * 3);
+        }
+
+        &.wow-tool-medium {
+            width: $menu-tooltext-width * 1.5;
+            margin-left: -$menu-tooltext-center * 1.5;
+        }
+
+        &.wow-tool-large {
+            width: $menu-tooltext-width * 2;
+            margin-left: -$menu-tooltext-center * 2;
+        }
+
+        &.wow-tool-right {
+            bottom: 38px;
+            left: -30px;
+
+            &:after {
+                top: 34px;
+                left: 105px;
                 border-color: $black transparent transparent transparent;
             }
-
-            &.wow-tool-slide {
-                width: $menu-tooltext-width;
-                margin-left: 0;
-            }
-
-            &.wow-tool-small {
-                width: $menu-tooltext-width * (2 / 3);
-                margin-left: -$menu-tooltext-center * (2 * 3);
-            }
-
-            &.wow-tool-medium {
-                width: $menu-tooltext-width * 1.25;
-                margin-left: -$menu-tooltext-center * 1.25;
-            }
-
-            &.wow-tool-large {
-                width: $menu-tooltext-width * 2;
-                margin-left: -$menu-tooltext-center * 2;
-            }
-
-            &.wow-tool-right {
-                bottom: 38px;
-                left: -30px;
-
-                &:after {
-                    top: 34px;
-                    left: 105px;
-                    border-color: $black transparent transparent transparent;
-                }
-            }
-
-            &.wow-sidebar.wow-column, &.wow-banner {
-                bottom: -42px;
-
-                &:after {
-                    top: -9px;
-                    border-color: transparent transparent $black transparent;
-                }
-            }
         }
 
-        &:hover .wow-tooltext {
-            display: block;
+        &.wow-sidebar.wow-column, &.wow-banner {
+            bottom: -42px;
+
+            &:after {
+                top: -9px;
+                border-color: transparent transparent $black transparent;
+            }
         }
     }
 
-    &.wow-banner {
-        background-color: $menu-section;
+    &:hover .wow-tooltext {
+        display: block;
+    }
+}
 
-        &:before {
-            content: "Banner";
-        }
+/* Button styles. */
+.wow-button {
+    width: $menu-button;
+    height: $menu-button;
+    cursor: pointer;
+    pointer-events: all;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $menu-button-cover $menu-button-cover;
+
+    &.wow-edit, &.wow-banner-type, &.wow-banner-media {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="%23FFF" fill-rule="evenodd" d="M13.05 8.25c0-.225.075-.45.075-.75s0-.525-.075-.75l1.575-1.275c.15-.15.15-.3.075-.45L13.2 2.4c-.075-.075-.225-.15-.45-.075l-1.875.75c-.375-.3-.825-.525-1.275-.75L9.3.375C9.375.15 9.15 0 9 0H6c-.15 0-.375.15-.375.3l-.3 2.025c-.45.15-.825.45-1.275.75l-1.8-.75c-.225-.075-.375 0-.525.15L.225 5.1c-.075.075 0 .3.15.45l1.575 1.2c0 .225-.075.45-.075.75s0 .525.075.75L.375 9.525c-.15.15-.15.3-.075.45L1.8 12.6c.075.075.225.15.45.075l1.875-.75c.375.3.825.525 1.275.75l.3 1.95c0 .15.15.3.375.3h3c.15 0 .375-.15.375-.3l.3-1.95c.45-.225.9-.45 1.275-.75l1.875.75c.15.075.375 0 .45-.15l1.5-2.625c.075-.15.075-.375-.075-.45l-1.725-1.2zM7.5 10.125c-1.425 0-2.625-1.2-2.625-2.625s1.2-2.625 2.625-2.625 2.625 1.2 2.625 2.625-1.2 2.625-2.625 2.625z"/></svg>');
     }
 
-    &.wow-section {
-        background-color: $menu-section;
-
-        &:before {
-            content: attr('data-name');
-        }
+    &.wow-link {
+        background-image: url('data:image/svg+xml;utf8,<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-448.000000, -611.000000)" fill="%23FFF"><g transform="translate(455.500000, 618.500000) rotate(90.000000) translate(-455.500000, -618.500000) translate(448.000000, 611.000000)"><path d="M13.2352941,11.0294118 C13.2352941,10.7843125 13.1495107,10.5759813 12.9779412,10.4044118 L11.0661765,8.49264706 C10.894607,8.32107757 10.6862757,8.23529412 10.4411765,8.23529412 C10.1838222,8.23529412 9.96323621,8.33333235 9.77941176,8.52941176 C9.79779421,8.54779421 9.85600441,8.60447256 9.95404412,8.69944853 C10.0520838,8.79442449 10.1179533,8.86029393 10.1516544,8.89705882 C10.1853556,8.93382371 10.231311,8.99203392 10.2895221,9.07169118 C10.3477331,9.15134844 10.3875612,9.22947266 10.4090074,9.30606618 C10.4304535,9.3826597 10.4411765,9.46691131 10.4411765,9.55882353 C10.4411765,9.80392279 10.355393,10.012254 10.1838235,10.1838235 C10.012254,10.355393 9.80392279,10.4411765 9.55882353,10.4411765 C9.46691131,10.4411765 9.3826597,10.4304535 9.30606618,10.4090074 C9.22947266,10.3875612 9.15134844,10.3477331 9.07169118,10.2895221 C8.99203392,10.231311 8.93382371,10.1853556 8.89705882,10.1516544 C8.86029393,10.1179533 8.79442449,10.0520838 8.69944853,9.95404412 C8.60447256,9.85600441 8.54779421,9.79779421 8.52941176,9.77941176 C8.32720487,9.96936369 8.22610294,10.1930134 8.22610294,10.4503676 C8.22610294,10.6954669 8.3118864,10.9037982 8.48345588,11.0753676 L10.3768382,12.9779412 C10.5422802,13.1433832 10.7506115,13.2261029 11.0018382,13.2261029 C11.2469375,13.2261029 11.4552687,13.1464469 11.6268382,12.9871324 L12.9779412,11.6452206 C13.1495107,11.4736511 13.2352941,11.2683835 13.2352941,11.0294118 L13.2352941,11.0294118 Z M6.77389706,4.54963235 C6.77389706,4.30453309 6.6881136,4.09620184 6.51654412,3.92463235 L4.62316176,2.02205882 C4.45159228,1.85048934 4.24326103,1.76470588 3.99816176,1.76470588 C3.75918998,1.76470588 3.55085873,1.84742564 3.37316176,2.01286765 L2.02205882,3.35477941 C1.85048934,3.5263489 1.76470588,3.73161645 1.76470588,3.97058824 C1.76470588,4.2156875 1.85048934,4.42401875 2.02205882,4.59558824 L3.93382353,6.50735294 C4.09926553,6.67279494 4.30759678,6.75551471 4.55882353,6.75551471 C4.81617776,6.75551471 5.03676379,6.66054017 5.22058824,6.47058824 C5.20220579,6.45220579 5.14399559,6.39552744 5.04595588,6.30055147 C4.94791618,6.20557551 4.88204674,6.13970607 4.84834559,6.10294118 C4.81464444,6.06617629 4.76868902,6.00796608 4.71047794,5.92830882 C4.65226687,5.84865156 4.61243883,5.77052734 4.59099265,5.69393382 C4.56954646,5.6173403 4.55882353,5.53308869 4.55882353,5.44117647 C4.55882353,5.19607721 4.64460699,4.98774596 4.81617647,4.81617647 C4.98774596,4.64460699 5.19607721,4.55882353 5.44117647,4.55882353 C5.53308869,4.55882353 5.6173403,4.56954646 5.69393382,4.59099265 C5.77052734,4.61243883 5.84865156,4.65226687 5.92830882,4.71047794 C6.00796608,4.76868902 6.06617629,4.81464444 6.10294118,4.84834559 C6.13970607,4.88204674 6.20557551,4.94791618 6.30055147,5.04595588 C6.39552744,5.14399559 6.45220579,5.20220579 6.47058824,5.22058824 C6.67279513,5.03063631 6.77389706,4.80698658 6.77389706,4.54963235 L6.77389706,4.54963235 Z M15,11.0294118 C15,11.7647096 14.7395859,12.3866396 14.21875,12.8952206 L12.8676471,14.2371324 C12.3590661,14.7457133 11.737136,15 11.0018382,15 C10.260413,15 9.63541921,14.7395859 9.12683824,14.21875 L7.23345588,12.3161765 C6.72487491,11.8075955 6.47058824,11.1856654 6.47058824,10.4503676 C6.47058824,9.69668741 6.74019338,9.05637518 7.27941176,8.52941176 L6.47058824,7.72058824 C5.94362482,8.25980662 5.30637629,8.52941176 4.55882353,8.52941176 C3.82352574,8.52941176 3.19853199,8.2720614 2.68382353,7.75735294 L0.772058824,5.84558824 C0.257350368,5.33087978 0,4.70588603 0,3.97058824 C0,3.23529044 0.260414062,2.61336039 0.78125,2.10477941 L2.13235294,0.762867647 C2.64093392,0.254286673 3.26286397,0 3.99816176,0 C4.73958704,0 5.36458079,0.260414063 5.87316176,0.78125 L7.76654412,2.68382353 C8.27512509,3.1924045 8.52941176,3.81433456 8.52941176,4.54963235 C8.52941176,5.30331259 8.25980662,5.94362482 7.72058824,6.47058824 L8.52941176,7.27941176 C9.05637518,6.74019338 9.69362371,6.47058824 10.4411765,6.47058824 C11.1764743,6.47058824 11.801468,6.7279386 12.3161765,7.24264706 L14.2279412,9.15441176 C14.7426496,9.66912022 15,10.294114 15,11.0294118 L15,11.0294118 Z" id="primary"></path></g></g></g></svg>');
     }
 
-    &.wow-row {
-        background-color: $menu-row;
-
-        &:before {
-            content: "Row";
-        }
+    &.wow-duplicate {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15"><path fill="%23FFF" fill-rule="evenodd" d="M18.5 15H20V3h-3v9H3v3h15.5zM0 0h15v10H0V0zm3 3h9v4H3V3z"/></svg>');
     }
 
-    &.wow-column {
-        background-color: $menu-column;
-        &:before {
-            content: "Column";
-        }
-
-        .wow-button.wow-add {
-            left: unset;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            border-radius: 2px 0 0 2px;
-        }
+    &.wow-delete, &.wow-slide-delete {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 12 15"><path fill="%23FFF" fill-rule="evenodd" d="M12 .827H9L8.143 0H3.857L3 .827H0V2.48h12V.827zM0 4h12v11H0V4zm2 2h2v7H2V6zm3 0h2v7H5V6zm3 0h2v7H8V6z"/></svg>');
     }
 
-    &.wow-module {
-        background-color: $menu-module;
+    &.wow-up, &.wow-down {
+        background-size: $menu-button-cover calc(#{$menu-button-cover} * 1.25);
+        background-position: center bottom;
+    }
 
-        &:before {
-            content: "Module";
-        }
+    &.wow-up {
+        background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><path fill="%23FFF" fill-rule="evenodd" d="M0 0h15v15H0V0zm6.098 6.99H3l3.55-3.55c.956-.956 1.857-.055 1.857-.055L12.01 6.99H8.858l-.008 4.996L6.08 12l.016-5.01z"/></svg>');
+    }
+
+    &.wow-down {
+        background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><path fill="%23FFF" fill-rule="evenodd" d="M0 15h15V0H0v15zm6.098-6.99H3l3.55 3.55c.956.956 1.857.055 1.857.055L12.01 8.01H8.858L8.85 3.015 6.08 3l.016 5.01z"/></svg>');
+    }
+
+    &.wow-add {
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px 2px 0 0;
+        margin-bottom: 0 !important;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g fill="none" fill-rule="evenodd"><rect width="30" height="30" fill="none"/><path fill="%23FFF" d="M16.72 13.484h5.936v3.47H16.72v6.765h-3.69v-6.767H7.064v-3.47h5.968V7.157h3.69"/></g></svg>');
     }
 }

@@ -11,15 +11,20 @@ $font-style: normal;
 $white: #ffffff;
 $black: #000000;
 
-//  2. Hover Menu
+//  2. Hover Components
 $menu-width: 310px;
 $menu-button: 30px;
 $menu-button-cover: 20px;
+
+$menu-tooltext-width: 120px;
+$menu-tooltext-center: $menu-tooltext-width / 2;
 
 $menu-section: blue;
 $menu-row: green;
 $menu-column: purple;
 $menu-module: deeppink;
 
-$menu-tooltext-width: 120px;
-$menu-tooltext-center: $menu-tooltext-width / 2;
+$hover-section: lightblue;
+$hover-row: lightgreen;
+$hover-column: violet;
+$hover-module: lightpink;
