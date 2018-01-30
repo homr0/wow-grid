@@ -29,6 +29,8 @@
             margin: 0;
             padding: 0;
             display: flex;
+            position: absolute;
+            top: 100px;
         }
 
         .page .left-sidebar, .page .right-sidebar {
@@ -45,6 +47,20 @@
             position: relative;
             flex: 1 1 0px;
         }
+
+        .mce-widget.mce-btn {
+            position: absolute;
+            z-index: 999;
+            top: 25px;
+        }
+
+        .mce-widget.mce-btn.mce-first {
+            left: 120px;
+        }
+
+        .mce-widget.mce-btn.mce-last {
+            left: 240px;
+        }
     </style>
 </head>
 
@@ -52,6 +68,11 @@
     <header>
 
     </header>
+
+    <div id="mceu_0" class="mce-widget mce-btn mce-first " tabindex="-1" aria-labelledby="mceu_0" role="button" aria-label="Save and Exit"><button class="button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-save"></i>save and exit</button></div>
+
+    <div id="mceu_1" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_1" role="button" aria-label="Exit Without Saving"><button class="button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-close"></i>exit without saving</button></div>
+
     <div class="page">
         <div class="left-sidebar">
             <a class="ou-btn button">Edit Left Sidebar</a>
@@ -86,5 +107,15 @@
     <footer>
 
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            console.log("Inline scripts here...");
+            $('.ou-btn.button').on('click', function() {
+                console.log('clicked');
+                $(this).parent().addClass('ou-justedit-region mce-content-body mce-edit-focus');
+            });
+        });
+    </script>
 </body>
 </html>
