@@ -1,11 +1,18 @@
-$('body').append('<div class="wow-menus"></div>');
+// Initializes the HTML strings for various menus and settings.
+var control = {
+    section: "",
+    row: "",
+    column: "",
+    module: "",
+};
 
-/*var gridMenus = $.get('../../grid.html', function(data) {
-    $('.wow-menus').html(data);
-    console.log("Load was performed");
-});
-*/
-console.log("Loaded the menu strings");
-$('.wow-menus').load('../../grid.html .wow-menu.wow-section');
-var menuSection = $('.wow-button').detach();
-console.log(menuSection);
+// Loads all of the relevant strings from the grid HTML page.
+setTimeout(function() {
+    $('body').append('<div class="wow-strings"></div>');
+    $('.wow-strings').load('../../grid.html .wow-menus');
+}, 0);
+
+setTimeout(function() {
+    control.section = $('.wow-menu.wow-section').detach();
+    console.log(control.section);
+}, 150);

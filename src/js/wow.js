@@ -6,7 +6,7 @@ $(document).ready(function() {
     // Settings for the Wow Grid.
     var wow = {
         editor: '.ou-justedit-region',                  // Edit region class, tag, or id.
-        editFocus: '.mce-content-body.mce-edit-focus',  // Focused region class, tag, or id.
+        editFocus: '.mce-content-body',                 // Focused region class, tag, or id.
         section: '.section',                            // Section class name
         row: '.row',                                    // Row class name
         column: '.column',                              // Column class name
@@ -14,7 +14,8 @@ $(document).ready(function() {
         sidebar: '.sidebar',                            // Sidebar class name.
         leftSide: '.left-sidebar',                      // Left sidebar class name
         rightSide: '.right-sidebar',                    // Right sidebar class name
-
+        saveExit: '[aria-label="Save and Exit"]',       // Element for saving and exiting
+        noSave: '[aria-label="Exit Without Saving"]'    // Element for exiting without saving
     };
 
     // Changes the Wow Grid settings.
@@ -52,5 +53,9 @@ $(document).ready(function() {
         //-------------------------------
         // initialize basic Wow Grid editor
         #=include 'wow-editor/wow-content.js'
+
+        //---------------------------------
+        // initializes the funcionaliity for exiting the editor
+        #=include 'wow-editor/wow-exit.js'
     }
 });
