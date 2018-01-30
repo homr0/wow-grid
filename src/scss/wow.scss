@@ -1,4 +1,9 @@
 @charset "utf-8";
+
+/* Third party CSS/SCSS.*/
+@import
+    'components/animate';
+
 /* Import the global settings first. */
 @import
     "settings",
