@@ -64,6 +64,18 @@
 
     &.wow-endpoint {
         max-width: $menu-width - $menu-button;
+
+        &.wow-end-top {
+            .wow-button.wow-up {
+                display: none;
+            }
+        }
+
+        &.wow-end-bottom {
+            .wow-button.wow-down {
+                display: none;
+            }
+        }
     }
 
     &.wow-single {

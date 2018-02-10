@@ -1,0 +1,30 @@
+.wow-editor {
+    margin-top: $editor-margin !important;
+    margin-bottom: $editor-margin;
+    margin-left: 0;
+    margin-right: 0;
+
+    padding: $editor-padding;
+
+    pointer-events: all;
+
+    &.section {
+        background-color: lightblue;
+    }
+
+    &.row {
+        background-color: lightgreen;
+    }
+
+    &.column {
+        background-color: lavender;
+    }
+
+    &.module {
+        background-color: lightpink;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding: 0;
+        min-height: $editor-module;
+    }
+}
