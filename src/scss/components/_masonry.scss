@@ -12,6 +12,10 @@
         &.wow-hover {
             box-shadow: inset 0px 0px 0px 3px $hover-section;
         }
+
+        &.wow-highlight {
+            box-shadow: 0px 0px 0px 3px $menu-section;
+        }
     }
 
     &.row {
@@ -20,6 +24,10 @@
         &.wow-hover {
             box-shadow: inset 0px 0px 0px 3px $hover-row;
         }
+
+        &.wow-highlight {
+            box-shadow: 0px 0px 0px 3px $menu-row;
+        }
     }
 
     &.column {
@@ -27,6 +35,10 @@
 
         &.wow-hover {
             box-shadow: inset 0px 0px 0px 3px $hover-column;
+        }
+
+        &.wow-highlight {
+            box-shadow: 0px 0px 0px 3px $menu-column;
         }
 
         .content-container {
@@ -40,6 +52,10 @@
 
         &.wow-hover {
             box-shadow: inset 0px 0px 0px 3px $hover-module;
+        }
+
+        &.wow-highlight {
+            box-shadow: 0px 0px 0px 3px $menu-module;
         }
     }
 }
