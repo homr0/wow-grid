@@ -146,15 +146,46 @@ function wowDuplicate(wowFocus) {
     $(wowFocus).children('.wow-menu').removeClass('wow-single');
     $(wowFocus).clone().insertAfter($(wowFocus)).animateCss('zoomIn');
 
+    // Removes any menu classes and extraneous classes and ids.
     var wowCloned = $(wowFocus).next();
     $(wowCloned).removeClass('wow-highlight');
-
-    if($(wowCloned).attr('id') !== "") {
-
-    }
+    $(wowCloned).children('.wow-menu').removeClass('wow-end-top wow-end-bottom');
+    $(wowCloned).removeAttr('id').find('.wow-editor').removeAttr('id');
+    
 }
 
 // Checks to make sure that the component name is valid.
 function wowCheckName(name) {
-    var uniqueID = true;
+    var uniqueId = true;
+
+    // Checks name to make sure there are no spaces or invalid characters.
+    if(name.index(' ') >= 0) {
+        $('.layoutError').hide();
+        $('#errorSpace').show();
+        uniqueId = false;
+    }
+
+    // Checks to make sure that the name is alphanumerical and has only dashes or underscores.
+    uniqueId = /^[a-zA-z0-9-_]+$/.test(name);
+    if(!uniqueId) {
+        $('.layoutError').hide();
+        $('#errorInvalid').show();
+    }
+
+    // Cycles through the id names to make sure that it doesn't already exist.
+    $(wow.editor + ' .wow-editor').each(function() {
+        if($(this).attr('id') === name) {
+            $('.layoutError').hide();
+            $('#errorRepeat').show();
+            uniqueId = false;
+        }
+    });
+
+    // Checks that the name is not blank.
+    if(name === "") {
+        $('.layoutError').hide();
+        uniqueId = true;
+    }
+
+    return uniqueId;
 }
