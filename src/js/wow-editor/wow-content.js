@@ -20,8 +20,7 @@ function wowGrid(preview) {
         mouseenter: function() {
             $('.wow-hover').removeClass('wow-hover');
             $(this).addClass('wow-hover');
-            //hoverMenu();
-            console.log($(this).attr('class'));
+            hoverMenu();
         }
     }, '.wow-editor');
 
@@ -30,33 +29,69 @@ function wowGrid(preview) {
 
 // Handles setting up the hover menu.
 function hoverMenu() {
-    // Detaches any menus that are out.
-    $('.wow-menu').detach();
+    // Cleans and detaches any menus that are out.
+    $('.wow-menu, .wow-add').removeClass('wow-end-top wow-end-bottom wow-single').detach();
+    var component = "";
 
-    // Helper functions
-    // function sortUpDown(): Moving arrows are shown or hidden depending on number of sections/rows and position of current section or row. If there is only one section or row, then no arrows are shown. If the section or row is at the top or bottom of its container, then only the bottom or top arrow is shown respectively.
-    function sortUpDown() {
-        $('.wow-menu').removeClass('wow-endpoint wow-single').children('.wow-up, .wow-down').show();
+    // Shows menu for component and sets the data-name.
+    if($('.wow-hover').hasClass(wow.section.slice(1))) {
+        component = wow.section;
+        $('.wow-hover').append(hover.section);
+        $('.wow-hover .wow-menu').attr('data-name', "Section");
+    } else if($('.wow-hover').hasClass(wow.row.slice(1))) {
+        component = wow.row;
+        $('.wow-hover').append(hover.row);
+        $('.wow-hover .wow-menu').attr('data-name', "Row");
+    } else if($('.wow-hover').hasClass(wow.column.slice(1))) {
+        component = wow.column;
+        $('.wow-hover').append(hover.column);
+        $('.wow-hover .wow-menu').attr('data-name', "Column");
+    } else if($('.wow-hover').hasClass(wow.module.slice(1))) {
+        component = wow.module;
+        $('.wow-hover').append(hover.module);
+        $('.wow-hover .wow-menu').attr('data-name', "Module");
+    }
 
-        // Figures out the number of siblings to the current component.
-        var siblings = $('.wow-hover').parent();
-        if($('.wow-hover').hasClass(wow.section)) {
-            $(siblings).children(wow.section);
-        } else if($('.wow-hover').hasClass(wow.row)) {
-            $(siblings).children(wow.row);
-        }
+    // Sets the data-name for the menu if an id exists.
+    if($('.wow-hover').attr('id') !== "") {
+        $('.wow-menu').attr('data-name', $('.wow-hover').attr('id'));
+    }
 
-        // Shows the proper arrows.
-        if($(siblings).length == 1) {
-            $('wow-menu').addClass('wow-single');
-        } else if($(siblings).first().hasClass('wow-hover')) {
-            $('wow-menu').addClass('wow-endpoint wow-end-top');
-        } else if($(siblings).last().hasClass('wow-hover')) {
-            $('wow-menu').addClass('wow-endpoint wow-end-bottom');
+    // Disables the delete button if there is only one type of the component in its container except for modules.
+    if(($('.wow-hover').parent().children(component).length === 1)  && (component !== wow.module)) {
+        $('.wow-menu').addClass('wow-single');
+    }
+
+    // Hides up or down arrows if the section or row is at the top or bottom of its container.
+    if(((component === wow.section) || (component === wow.row)) && !($('.wow-menu').hasClass('wow-single'))) {
+        if($('.wow-hover').parent().children(component).first().hasClass('wow-hover')) {
+            $('.wow-menu').addClass('wow-end-top');
+        } else if($('.wow-hover').parent().children(component).last().hasClass('wow-hover')) {
+            $('.wow-menu').addClass('wow-end-bottom');
         }
     }
 
-    function sortDrag() {
-        
+    // Sets up the sortables (drag and drop) for columns and modules.
+    if(component == wow.column) {
+        sortable('.wow-editor' + wow.row, {
+            handle: '.wow-column',
+            items: wow.column,
+            forceplaceholderSize: true,
+            placeholder: '<div class="' + wow.column + ' wow-editor"></div>',
+            placeholderClass: 'wow-sort-ghost wow-sort-ghost-placeholder'
+        });
+    } else if(component === wow.module) {
+        sortable('.content-container', {
+            connectWith: 'content',
+            handle: '.wow-module',
+            forcePlaceholderSize: true,
+            placeholder: '<div class="' + wow.module + ' wow-editor"></div>',
+            placeholderClass: 'wow-sort-ghost wow-sort-ghost-placeholder'
+        })[0].addEventListener('sortstart', function(e) {
+            $('.content-container').addClass('wow-sort-ghost');
+        });
+        sortable('.content-container')[0].addEventListener('sortstop', function(e) {
+            $('.wow-sort-ghost').removeClass('wow-sort-ghost');
+        });
     }
 }

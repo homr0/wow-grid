@@ -1,30 +1,51 @@
 .wow-editor {
-    margin-top: $editor-margin !important;
-    margin-bottom: $editor-margin;
-    margin-left: 0;
-    margin-right: 0;
+    margin: $editor-margin !important;
 
     padding: $editor-padding;
+    position: relative;
 
     pointer-events: all;
 
     &.section {
-        background-color: lightblue;
+        background-color: $editor-section;
+
+        &.wow-hover {
+            box-shadow: inset 0px 0px 0px 3px $hover-section;
+        }
     }
 
     &.row {
-        background-color: lightgreen;
+        background-color: $editor-row;
+
+        &.wow-hover {
+            box-shadow: inset 0px 0px 0px 3px $hover-row;
+        }
     }
 
     &.column {
-        background-color: lavender;
+        background-color: $editor-column;
+
+        &.wow-hover {
+            box-shadow: inset 0px 0px 0px 3px $hover-column;
+        }
+
+        .content-container {
+            min-height: $editor-module-height;
+        }
     }
 
     &.module {
-        background-color: lightpink;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding: 0;
-        min-height: $editor-module;
+        background-color: $editor-module;
+        min-height: $editor-module-height;
+
+        &.wow-hover {
+            box-shadow: inset 0px 0px 0px 3px $hover-module;
+        }
     }
+}
+
+.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
 }

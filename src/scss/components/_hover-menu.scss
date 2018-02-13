@@ -1,22 +1,20 @@
 /* Hover menus for each component. */
+
+/* Shared component positioning for hover menus. */
+.wow-section, .wow-row, .wow-column, .wow-module, .wow-banner {
+    position: relative;
+}
+
 /* Section hover menu styles. */
 .wow-section {
     background-color: $menu-section;
     z-index: 0;
-
-    &.wow-hover {
-        box-shadow: inset 0px 0px 0px 3px $hover-section;
-    }
 }
 
 /* Row hover menu styles. */
 .wow-row {
     background-color: $menu-row;
     z-index: 1;
-
-    &.wow-hover {
-        box-shadow: inset 0px 0px 0px 3px $hover-row;
-    }
 }
 
 /* Column hover menu styles. */
@@ -31,20 +29,12 @@
         transform: translateY(-50%);
         border-radius: 2px 0 0 2px;
     }
-
-    &.wow-hover {
-        box-shadow: inset 0px 0px 0px 3px $hover-column;
-    }
 }
 
 /* Module hover menu styles. */
 .wow-module {
     background-color: $menu-module;
     z-index: 3;
-
-    &.wow-hover {
-        box-shadow: inset 0px 0px 0px 3px $hover-section;
-    }
 }
 
 /* Banner hover menu styles. */
@@ -62,24 +52,26 @@
     height: $menu-button;
     max-width: $menu-width;
 
-    &.wow-endpoint {
+    &.wow-end-top, &.wow-end-bottom {
         max-width: $menu-width - $menu-button;
+    }
 
-        &.wow-end-top {
-            .wow-button.wow-up {
-                display: none;
-            }
-        }
-
-        &.wow-end-bottom {
-            .wow-button.wow-down {
-                display: none;
-            }
-        }
+    &.wow-end-top .wow-button.wow-up, &.wow-end-bottom .wow-button.wow-down {
+        display: none;
     }
 
     &.wow-single {
         max-width: $menu-width - (2 * $menu-button);
+
+        .wow-button.wow-up, .wow-button.wow-down {
+            display: none;
+        }
+
+        .wow-button.wow-delete {
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+        }
     }
 
     position: absolute;
@@ -107,12 +99,6 @@
         background-size: 4px;
 
         content: attr(data-name);
-    }
-
-    .disabled {
-        cursor: not-allowed;
-        pointer-events: none;
-        opacity: 0.5;
     }
 }
 
@@ -241,5 +227,14 @@
         border-radius: 2px 2px 0 0;
         margin-bottom: 0 !important;
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g fill="none" fill-rule="evenodd"><rect width="30" height="30" fill="none"/><path fill="%23FFF" d="M16.72 13.484h5.936v3.47H16.72v6.765h-3.69v-6.767H7.064v-3.47h5.968V7.157h3.69"/></g></svg>');
+    }
+}
+
+/* Sortables styles. */
+.wow-sort-ghost {
+    background-color: rgba(230,230,250,0.5);
+
+    &.wow-sort-ghost-placeholder {
+        background-color: rgba(230,230,250,0.75);
     }
 }
