@@ -3,12 +3,12 @@ var hover = {
     section: "",
     row: "",
     column: "",
-    module: "",
+    module: ""
 };
 
 // Loads all of the relevant strings from the grid HTML page.
 setTimeout(function() {
-    $('body').append('<div class="wow-strings"></div>');
+    $('body').append('<div class="wow-strings"></div>').append('<div class="mfp-hide" id="wow-modal-menu"></div>');
     $('.wow-strings').load('../../grid.html .wow-menus');
 }, 0);
 

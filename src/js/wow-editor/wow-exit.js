@@ -1,8 +1,7 @@
 // Functionality for saving and exiting as well as saving without exiting the Wow Grid Editor.
 function wowClean() {
     // Removes the sortables and other event handlers.
-    sortable('.wow-editor' + wow.row, 'destroy');
-    sortable('.content-container', 'destroy');
+    wowSortDestroy();
     $('.wow-editor').removeAttr('data-item-sortable-id');
     $('body').off('mouseenter', '**');
     $('body').off('click', '**');

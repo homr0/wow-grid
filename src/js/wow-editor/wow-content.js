@@ -23,15 +23,19 @@ function wowGrid(preview) {
             wowMenu();
 
             // Configures a component.
-            $('.wow-edit').off().on('click', function() {
-                focused = $(this).parent().parent();
-                wowEdit($(focused));
+            $('.wow-edit').off().on({
+                click: function() {
+                    focused = $(this).parent().parent();
+                    wowEdit($(focused));
+                }
             });
 
             // Duplicates a component.
-            $('.wow-duplicate').off().on('click', function() {
-                focused = $(this).parent().parent();
-                wowDuplicate($(focused));
+            $('.wow-duplicate').off().on({
+                click: function() {
+                    focused = $(this).parent().parent();
+                    wowDuplicate($(focused));
+                }
             });
 
 
@@ -110,29 +114,8 @@ function wowMenu() {
         }
     }
 
-    // Sets up the sortables (drag and drop) for columns and modules.
-    if(component == wow.column) {
-        sortable('.wow-editor' + wow.row, {
-            handle: '.wow-column',
-            items: wow.column,
-            forceplaceholderSize: true,
-            placeholder: '<div class="' + wow.column + ' wow-editor"></div>',
-            placeholderClass: 'wow-sort-ghost wow-sort-ghost-placeholder'
-        });
-    } else if(component === wow.module) {
-        sortable('.content-container', {
-            connectWith: 'content',
-            handle: '.wow-module',
-            forcePlaceholderSize: true,
-            placeholder: '<div class="' + wow.module + ' wow-editor"></div>',
-            placeholderClass: 'wow-sort-ghost wow-sort-ghost-placeholder'
-        })[0].addEventListener('sortstart', function(e) {
-            $('.content-container').addClass('wow-sort-ghost');
-        });
-        sortable('.content-container')[0].addEventListener('sortstop', function(e) {
-            $('.wow-sort-ghost').removeClass('wow-sort-ghost');
-        });
-    }
+    // Reloads the sortables.
+    wowSortables();
 }
 
 // Configures the component.
@@ -140,9 +123,36 @@ function wowEdit() {
 
 }
 
-
 // Duplicates the component.
 function wowDuplicate(wowFocus) {
+    // If component to be duplicated is a column, then change the special layout row into an equal width layout.
+    if($(wowFocus).hasClass(wow.column.slice(1)) && $(wowFocus).hasClass(wow.small + '-12')) {
+        $(wowFocus).parent().children(wow.column).each(function() {
+            // Gets the medium column breaks
+            var mediumSize = "";
+            if($(this).attr('class').indexOf(wow.medium)) {
+                mediumSize = $(this).attr('class').substr($(this).attr('class').indexOf(wow.medium + "-"), wow.medium.length + 2);
+            }
+
+            // Gets the large column breaks.
+            var largeSize = "";
+            if($(this).attr('class').indexOf(wow.large)) {
+                largeSize = $(this).attr('class').substr($(this).attr('class').indexOf(wow.large + "-"), wow.large.length + 2);
+            }
+
+            // Changes the column alignment.
+            var columnNum  = $(wowFocus).parent().children('.wow-editor').length;
+            if((mediumSize === "") && (largeSize === "")) {
+                $(wowFocus).parent().addClass(wow.small + wow.equal + "-" + columnNum);
+            } else if(largeSize === "") {   // Gets medium view columns.
+                $(wowFocus).parent().addClass(wow.small + wow.equal + "-1").addClass(wow.medium + wow.equal + "-" + columnNum);
+            } else {    // Gets large view columns.
+                $(wowFocus).parent().addClass(wow.small + wow.equal + "-1").addClass(wow.medium + wow.equal + "-" + columnNum).addClass(wow.large + wow.equal + "-" + columnNum);
+            }
+        });
+    }
+
+    // Clones the component.
     $(wowFocus).children('.wow-menu').removeClass('wow-single');
     $(wowFocus).clone().insertAfter($(wowFocus)).animateCss('zoomIn');
 
@@ -151,7 +161,6 @@ function wowDuplicate(wowFocus) {
     $(wowCloned).removeClass('wow-highlight');
     $(wowCloned).children('.wow-menu').removeClass('wow-end-top wow-end-bottom');
     $(wowCloned).removeAttr('id').find('.wow-editor').removeAttr('id');
-    
 }
 
 // Checks to make sure that the component name is valid.
