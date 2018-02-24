@@ -18,7 +18,12 @@ $(document).ready(function() {
         rightSide: '.right-sidebar',                    // Right sidebar class name
 
         saveExit: '[aria-label="Save and Exit"]',       // Element for saving and exiting
-        noSave: '[aria-label="Exit Without Saving"]'    // Element for exiting without saving
+        noSave: '[aria-label="Exit Without Saving"]',   // Element for exiting without saving
+
+        small: 'small',                                 // Small scale layout
+        medium: 'medium',                               // Medium scale layout
+        large: 'large',                                 // Large scale layout
+        equal: '-up-'                                   // Equal width column layout
     };
 
     // Changes the Wow Grid settings.
