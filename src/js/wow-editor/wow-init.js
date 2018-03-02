@@ -15,6 +15,20 @@ $(wow.editor + " "  + wow.column).each(function() {
     });
 });
 
+// Functionality for the basic Wow Grid Editor.
+$.fn.extend({
+    animateCss: function(animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+		$(this).addClass('animated ' + animationName).one(animationEnd, function() {
+			$(this).removeClass('animated ' + animationName);
+		});
+    },
+
+    animateRemove: function(animationName) {
+        console.log("Animation for when a component is removed");
+    }
+});
+
 // Sets up the Sortables.
 var sorts = [];
 var sortId = document.getElementById(wow.sortId);

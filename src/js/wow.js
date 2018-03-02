@@ -56,16 +56,15 @@ $(document).ready(function() {
 
         //-------------------------------
         // initialize Sortable ----------
-        //#=include '../node_modules/html5sortable/dist/html.sortable.min.js'
         #=include '../node_modules/sortablejs/Sortable.min.js'
+
+        //-------------------------------
+        // initializes the elements for the Wow Grid editor
+        #=include 'wow-editor/wow-init.js'
 
         //-------------------------------
         // initialize basic Wow Grid editor
         #=include 'wow-editor/wow-content.js'
-
-        //-------------------------------
-        // initializes the elements for the editor
-        #=include 'wow-editor/wow-init.js'
 
         //-------------------------------
         // initializes the funcionaliity for exiting the editor

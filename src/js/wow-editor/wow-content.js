@@ -1,17 +1,3 @@
-// Functionality for the basic Wow Grid Editor.
-$.fn.extend({
-    animateCss: function(animationName) {
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-		$(this).addClass('animated ' + animationName).one(animationEnd, function() {
-			$(this).removeClass('animated ' + animationName);
-		});
-    },
-
-    animateRemove: function(animationName) {
-        console.log("Animation for when a component is removed");
-    }
-});
-
 // Starts the Wow Grid Editor
 function wowGrid(preview) {
     // Button functions.
@@ -21,11 +7,11 @@ function wowGrid(preview) {
             $('.wow-hover').removeClass('wow-hover');
             $(this).addClass('wow-hover');
             wowMenu();
+            var focused = $('.wow-hover');
 
             // Configures a component.
             $('.wow-edit').off().on({
                 click: function() {
-                    focused = $(this).parent().parent();
                     wowEdit($(focused));
                 }
             });
@@ -33,12 +19,32 @@ function wowGrid(preview) {
             // Duplicates a component.
             $('.wow-duplicate').off().on({
                 click: function() {
-                    focused = $(this).parent().parent();
                     wowDuplicate($(focused));
                 }
             });
 
+            // Moves a component down.
+            $('.wow-down').off().on({
+                click: function() {
+                    $(focused).fadeOut(500, function() {
+                        $(focused).next().fadeOut(500);
+                        $(focused).before($(focused).next());
+                        $(focused).prev().fadeIn(500);
+                    }).fadeIn(500);
+                }
+            });
 
+            // Moves a component up.
+            $('.wow-up').off().on({
+                click: function() {
+                    $(focused).fadeOut(500, function() {
+                        $(focused).prev().fadeOut(500);
+                        $(focused).after($(focused).next());
+                        $(focused).next().fadeIn(500);
+                    }).fadeIn(500);
+                    wowMenu();
+                }
+            });
         },
         click: function(e) {
             e.preventDefault();
