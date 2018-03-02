@@ -233,9 +233,22 @@
 
 /* Sortables styles. */
 .wow-sort-ghost {
-    background-color: $hover-sort-ghost;
+    opacity: 0.5;
+    border: 1px dashed rgba(230,230,250,1);
 
-    &.wow-sort-ghost-placeholder {
-        background-color: $hover-sort-place;
+    &.section {
+        border-color: $editor-section;
+    }
+
+    &.row {
+        border-color: $editor-row;
+    }
+
+    &.column {
+        border-color: $editor-column;
+    }
+
+    &.module {
+        border-color: $editor-module;
     }
 }

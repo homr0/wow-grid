@@ -2,7 +2,6 @@
 function wowClean() {
     // Removes the sortables and other event handlers.
     wowSortDestroy();
-    $('.wow-editor').removeAttr('data-item-sortable-id');
     $('body').off('mouseenter', '**');
     $('body').off('click', '**');
     $('body').off('mouseleave', '**');
@@ -30,11 +29,10 @@ function wowClean() {
             var wowContent = $(this).find('.editable-bounds').contents();
             $(this).find('.editable-bounds').replaceWith(wowContent);
         });
-
-        var modules = $(this).find(wow.module).detach();
-        $(this).find('.content-container').remove();
-        $(this).append(modules);
     });
+
+    // Removes the sortable container.
+    $('#' + wow.sortId + " " + wow.section).unwrap();
 }
 
 $(wow.saveExit).on('click', function() {

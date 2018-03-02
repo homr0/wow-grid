@@ -19,12 +19,16 @@ Editable regions are now split into 4 containers:
 ---
 
 ## Objectives
-The OU-Grid will have the following functions:
+The Wow-Grid will have the following functions:
 
 - Generate, edit, and delete responsive 12-column grid components.
     - This will include layout of columns and general alignments.
 - Change background colors of masonry.
 - Edit source code of modules.
+
+---
+
+## Known Issues
 
 ---
 

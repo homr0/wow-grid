@@ -5,47 +5,72 @@ $(wow.editor + " " + wow.section + ", "
     + wow.editor + " " + wow.column + ", "
     + wow.editor + " " + wow.module).addClass('wow-editor');
 
+// Wraps the top-most component into a div with the sortable container.
+$('.wow-editor' + wow.section).wrap('<div id="' + wow.sortId + '"></div>');
+
 // Sets up the modules by adding in content containers and editable bounds.
 $(wow.editor + " "  + wow.column).each(function() {
-    $(this).append('<div class="wow-container"></div>');
-
-    var modules = $(this).children(wow.module).detach();
-    $(this).children('.wow-container').append(modules);
     $(this).find(wow.module).each(function() {
         $(this).wrapInner('<div class="editable-bounds" contenteditable="true"></div>');
     });
 });
 
-// Sets up the sortables.
-// Sets up the column sortable.
-sortable('.wow-editor' + wow.row, {
-    handle: '.wow-menu',
-    items: wow.column,
-    forceplaceholderSize: true,
-    placeholder: '<div class="' + wow.column + ' wow-editor"></div>',
-    placeholderClass: 'wow-sort-ghost wow-sort-ghost-placeholder'
+// Sets up the Sortables.
+var sorts = [];
+var sortId = document.getElementById(wow.sortId);
+
+// Initializes sortables for sections.
+var master = Sortable.create(sortId, {
+    group: 'sections',
+    animation: 150,
+    draggable: wow.section,
+    handle: '.wow-menu.wow-section',
+    ghostClass: 'wow-sort-ghost'
 });
 
-// Sets up the module sortable.
-sortable('.wow-container', {
-    connectWith: 'content',
-    handle: '.wow-menu',
-    forcePlaceholderSize: true,
-    placeholder: '<div class="' + wow.module + ' wow-editor"></div>',
-    placeholderClass: 'wow-sort-ghost wow-sort-ghost-placeholder'
-})[0].addEventListener('sortstart', function(e) {
-    $('.wow-container').addClass('wow-sort-ghost');
-});
-sortable('.wow-container')[0].addEventListener('sortstop', function(e) {
-    $('.wow-sort-ghost').removeClass('wow-sort-ghost');
-});
-
-function wowSortables() {
-    sortable('.wow-editor' + wow.row);
-    sortable('.wow-container');
-}
-
+// Destroys existing sortables to prevent overloading the RAM.
 function wowSortDestroy() {
-    sortable('.wow-editor' + wow.row, 'destroy');
-    sortable('.wow-container', 'destroy');
+    if(sorts.length !== 0) {
+        for(var i = sorts.length - 1; i >= 0; i--) {
+            sorts[i].destroy();
+            sorts.splice(i, 1);
+        }
+    }
 }
+
+function wowSortReload() {
+    wowSortDestroy();
+
+    // Initializes the sortables for rows.
+    $(wow.section).each(function(i, e) {
+        sorts.push(Sortable.create(e, {
+            group: 'rows',
+            animation: 150,
+            draggable: wow.row,
+            handle: '.wow-menu.wow-row',
+            ghostClass: 'wow-sort-ghost'
+        }));
+    });
+
+    // Initializes the sortables for columns.
+    $(wow.row).each(function(i, e) {
+        sorts.push(Sortable.create(e, {
+            //group: 'columns',
+            animation: 150,
+            draggable: wow.column,
+            handle: '.wow-menu.wow-column',
+            ghostClass: 'wow-sort-ghost'
+        }))
+    });
+
+    // Initializes the sortables for modules.
+    $(wow.column).each(function(i, e) {
+        sorts.push(Sortable.create(e, {
+            group: 'modules',
+            animation: 150,
+            draggable: wow.module,
+            handle: '.wow-menu.wow-module',
+            ghostClass: 'wow-sort-ghost'
+        }));
+    });
+} wowSortReload();

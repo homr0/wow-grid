@@ -61,11 +61,16 @@ function wowGrid(preview) {
     }, '.wow-editor');
 
     // Removes any Wow Editor components when not in a valid area.
-    $('body').on('click', ':not(.wow-editor)', function() {
-        $('.wow-editor.wow-highlight').removeClass('wow-highlight');
-        $('.wow-hover').removeClass('wow-hover');
-        $('.wow-menu, .wow-add').remove();
-    });
+    $('body').on({
+        mouseenter: function() {
+            $('.wow-hover').removeClass('wow-hover');
+        },
+        click: function() {
+            $('.wow-editor.wow-highlight').removeClass('wow-highlight');
+            $('.wow-hover').removeClass('wow-hover');
+            $('.wow-menu, .wow-add').remove();
+        }
+    }, ':not(.wow-editor)');
 
     $(preview).after('<div id="wow-modal-menu" class="mfp-hide"></div>');
 } wowGrid(wow.editor);
@@ -115,7 +120,6 @@ function wowMenu() {
     }
 
     // Reloads the sortables.
-    wowSortables();
 }
 
 // Configures the component.
@@ -161,6 +165,9 @@ function wowDuplicate(wowFocus) {
     $(wowCloned).removeClass('wow-highlight');
     $(wowCloned).children('.wow-menu').removeClass('wow-end-top wow-end-bottom');
     $(wowCloned).removeAttr('id').find('.wow-editor').removeAttr('id');
+
+    // Reloads the sortables.
+    wowSortReload();
 }
 
 // Checks to make sure that the component name is valid.
