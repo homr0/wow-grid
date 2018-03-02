@@ -47,24 +47,15 @@ function wowGrid(preview) {
             $(this).addClass('wow-highlight');
         },
         mouseleave: function() {
-            // Since modules are not direct children of columns, the parent for the modules need to move to the next level parent to reach the column.
-            var parent = $(this).parent();
-            if($(this).hasClass(wow.module.slice(1))) {
-                parent = $(parent).parent();
-            }
-
             // Puts the menu on to the parent component due to hovering issue.
             $('.wow-hover').removeClass('wow-hover');
-            $(parent).addClass('wow-hover');
+            $(this).parent().addClass('wow-hover');
             wowMenu();
         }
     }, '.wow-editor');
 
     // Removes any Wow Editor components when not in a valid area.
     $('body').on({
-        mouseenter: function() {
-            $('.wow-hover').removeClass('wow-hover');
-        },
         click: function() {
             $('.wow-editor.wow-highlight').removeClass('wow-highlight');
             $('.wow-hover').removeClass('wow-hover');
@@ -118,8 +109,6 @@ function wowMenu() {
             $('.wow-menu').addClass('wow-end-bottom');
         }
     }
-
-    // Reloads the sortables.
 }
 
 // Configures the component.
