@@ -39,10 +39,22 @@ function wowGrid(preview) {
                 click: function() {
                     $(focused).fadeOut(500, function() {
                         $(focused).prev().fadeOut(500);
-                        $(focused).after($(focused).next());
+                        $(focused).after($(focused).prev());
                         $(focused).next().fadeIn(500);
                     }).fadeIn(500);
                     wowMenu();
+                }
+            });
+
+            // Deletes a component.
+            $('.wow-delete:not(.disabled)').off().on({
+                click: function() {
+                    var focusedParent = $(focused).parent();
+                    $('.wow-editor.wow-highlight').removeClass('wow-highlight');
+                    $(focused).addClass('wow-highlight');
+                    //$(focused).animateRemove('zoomOut');
+
+
                 }
             });
         },
@@ -69,7 +81,7 @@ function wowGrid(preview) {
         }
     }, ':not(.wow-editor)');
 
-    $(preview).after('<div id="wow-modal-menu" class="mfp-hide"></div>');
+    //$(preview).after('<div id="wow-modal-menu" class="mfp-hide"></div>');
 } wowGrid(wow.editor);
 
 // Sets up the hover menu.

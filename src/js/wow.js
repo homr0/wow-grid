@@ -23,9 +23,7 @@ $(document).ready(function() {
         small: 'small',                                 // Small scale layout
         medium: 'medium',                               // Medium scale layout
         large: 'large',                                 // Large scale layout
-        equal: '-up-',                                  // Equal width column layout
-
-        sortId: 'wow-container'
+        equal: '-up-'                                   // Equal width column layout
     };
 
     // Changes the Wow Grid settings.
@@ -57,6 +55,10 @@ $(document).ready(function() {
         //-------------------------------
         // initialize Sortable ----------
         #=include '../node_modules/sortablejs/Sortable.min.js'
+
+        //-------------------------------
+        //  initializes Magnific Popups -
+        #=include '../node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
 
         //-------------------------------
         // initializes the elements for the Wow Grid editor

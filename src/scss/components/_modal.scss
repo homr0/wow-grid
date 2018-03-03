@@ -1,0 +1,25 @@
+/* Magnific Popup styles. */
+
+// Modal menu.
+#wow-modal-menu {
+    background-color: $white;
+    width: 20%;
+    margin: 0 auto;
+    padding: 1rem;
+
+    button {
+        display: inline-block;
+        text-align: center;
+        line-height: 1;
+        cursor: pointer;
+        transition: background-color .25s ease-out, color .25s ease-out;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        padding: 1rem 2rem;
+        margin: 0 0 1rem;
+        font-size: 0.9rem;
+        background-color: $button-background;
+        color: $button-color;
+    }
+}
