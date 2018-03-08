@@ -9,8 +9,8 @@ $(document).ready(function() {
         editFocus: '.mce-content-body',                 // Focused region class, tag, or id.
 
         section: '.section',                            // Section class name
-        row: '.row',                                    // Row class name
-        column: '.column',                              // Column class name
+        row: '.grid-x',                                 // Row class name
+        column: '.cell',                                // Column class name
         module: '.module',                              // Module class name
 
         sidebar: '.sidebar',                            // Sidebar class name.
@@ -23,7 +23,9 @@ $(document).ready(function() {
         small: 'small',                                 // Small scale layout
         medium: 'medium',                               // Medium scale layout
         large: 'large',                                 // Large scale layout
-        equal: '-up-'                                   // Equal width column layout
+        equal: '-up-',                                  // Equal width column layout
+        columns: 12,                                  // Maximum number of columns per row.
+        maxEqual: 4                                   // Maximum number of equal width columns.
     };
 
     // Changes the Wow Grid settings.

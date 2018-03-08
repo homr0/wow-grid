@@ -24,7 +24,7 @@
         }
     }
 
-    &.row {
+    &.row, &.grid-x {
         background-color: $editor-row;
 
         &.wow-hover {
@@ -36,7 +36,7 @@
         }
     }
 
-    &.column {
+    &.column, &.cell {
         background-color: $editor-column;
 
         &.wow-hover {

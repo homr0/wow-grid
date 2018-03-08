@@ -240,11 +240,11 @@
         border-color: $editor-section;
     }
 
-    &.row {
+    &.row, &.grid-x {
         border-color: $editor-row;
     }
 
-    &.column {
+    &.column, &.cell {
         border-color: $editor-column;
     }
 
