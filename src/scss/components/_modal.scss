@@ -1,12 +1,26 @@
 /* Magnific Popup styles. */
+// Default Magnific Popup modal styles.
+.mfp-ready {
+    z-index: 9999999999999;
+}
 
-// Modal menu.
-#wow-modal-menu {
+.mfp-container {
+    height: 100%;
+    position: relative;
+
+    .mfp-content {
+        width: 90%;
+        margin: auto;
+        pointer-events: all;
+        padding: 1rem;
+    }
+}
+
+// Modal menus.
+#wow-modal-menu .wow-modal {
     background-color: $white;
-    width: 20%;
-    margin: 0 auto;
-    padding: 1rem;
 
+    // Modal button styles.
     button {
         display: inline-block;
         text-align: center;
@@ -21,5 +35,13 @@
         font-size: 0.9rem;
         background-color: $button-background;
         color: $button-color;
+    }
+
+    // Modal for deleting a component.
+    &.wow-modal-delete {
+        margin: auto;
+        padding: 10px 20px;
+        text-align: center;
+        width: 20%;
     }
 }
