@@ -24,8 +24,8 @@ $(document).ready(function() {
         medium: 'medium',                               // Medium scale layout
         large: 'large',                                 // Large scale layout
         equal: '-up-',                                  // Equal width column layout
-        columns: 12,                                  // Maximum number of columns per row.
-        maxEqual: 4                                   // Maximum number of equal width columns.
+        maxColumns: 12,                                 // Maximum number of columns per row.
+        maxEqual: 4                                     // Maximum number of equal width columns.
     };
 
     // Changes the Wow Grid settings.

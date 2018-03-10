@@ -26,23 +26,14 @@ function wowGrid(preview) {
             // Moves a component down.
             $('.wow-down').off().on({
                 click: function() {
-                    $(focused).fadeOut(500, function() {
-                        $(focused).next().fadeOut(500);
-                        $(focused).before($(focused).next());
-                        $(focused).prev().fadeIn(500);
-                    }).fadeIn(500);
+                    wowDown($(focused));
                 }
             });
 
             // Moves a component up.
             $('.wow-up').off().on({
                 click: function() {
-                    $(focused).fadeOut(500, function() {
-                        $(focused).prev().fadeOut(500);
-                        $(focused).after($(focused).prev());
-                        $(focused).next().fadeIn(500);
-                    }).fadeIn(500);
-                    wowMenu();
+                    wowUp($(focused));
                 }
             });
 
@@ -52,7 +43,7 @@ function wowGrid(preview) {
                     var focusedParent = $(focused).parent();
                     $('.wow-editor.wow-highlight').removeClass('wow-highlight');
                     $(focused).addClass('wow-highlight');
-                    //$(focused).animateRemove('zoomOut');
+                    $(focused).animateRemove('zoomOut');
 
 
                 }
@@ -80,38 +71,39 @@ function wowGrid(preview) {
             $('.wow-menu, .wow-add').remove();
         }
     }, ':not(.wow-editor)');
-
-    //$(preview).after('<div id="wow-modal-menu" class="mfp-hide"></div>');
 } wowGrid(wow.editor);
 
+//  Wow Grid Hover Menu
+//  -------------------
 // Sets up the hover menu.
+// Sets up the data-wow-name, which is the hovered component's id.
 function wowMenu() {
     // Cleans and detaches any menus that are out.
     $('.wow-menu, .wow-add').removeClass('wow-end-top wow-end-bottom wow-single').detach();
     var component = "";
 
-    // Shows menu for component and sets the data-name.
+    // Shows menu for component and sets the data-wow-name.
     if($('.wow-hover').hasClass(wow.section.slice(1))) {
         component = wow.section;
         $('.wow-hover').append(hover.section);
-        $('.wow-hover .wow-menu').attr('data-name', "Section");
+        $('.wow-hover .wow-menu').attr('data-wow-name', "Section");
     } else if($('.wow-hover').hasClass(wow.row.slice(1))) {
         component = wow.row;
         $('.wow-hover').append(hover.row);
-        $('.wow-hover .wow-menu').attr('data-name', "Row");
+        $('.wow-hover .wow-menu').attr('data-wow-name', "Row");
     } else if($('.wow-hover').hasClass(wow.column.slice(1))) {
         component = wow.column;
         $('.wow-hover').append(hover.column);
-        $('.wow-hover .wow-menu').attr('data-name', "Column");
+        $('.wow-hover .wow-menu').attr('data-wow-name', "Column");
     } else if($('.wow-hover').hasClass(wow.module.slice(1))) {
         component = wow.module;
         $('.wow-hover').append(hover.module);
-        $('.wow-hover .wow-menu').attr('data-name', "Module");
+        $('.wow-hover .wow-menu').attr('data-wow-name', "Module");
     }
 
-    // Sets the data-name for the menu if an id exists.
+    // Sets the data-wow-name for the menu if an id exists.
     if($('.wow-hover').attr('id') !== "") {
-        $('.wow-menu').attr('data-name', $('.wow-hover').attr('id'));
+        $('.wow-menu').attr('data-wow-name', $('.wow-hover').attr('id'));
     }
 
     // Disables the delete button if there is only one type of the component in its container except for modules.
@@ -129,6 +121,157 @@ function wowMenu() {
     }
 }
 
+//  Wow Grid Helper Functions (for button functions)
+//  ------------------------------------------------
+// Adjusts block widths when a block is added, duplicated, or deleted.
+// For equal width columns, there are breakpoints for equal width column layouts.
+//  data-wow-break-small = small breakpoint column layouts
+//  data-wow-break-medium = medium breakpoint column layouts
+//  data-wow-break-large = large breakpoint column layouts
+// For special layout rows, the columns in the row are converted to equal width columns.
+function wowColumnChange() {
+    // For each row, check if there is an equal width class.
+    $('.wow-editor' + wow.row).each(function() {
+        // Gets the number of columns in the row.
+        var columnLength = $(this).children(wow.column).length;
+        var rowClass = $(this).attr('class');
+
+        // If the number of columns is less than the equal width layout, then the layout is adjusted to have equal width while the actual number is saved. Otherwise, the equal width breakpoint attribute is removed.
+        if(rowClass.indexOf(wow.equal) >= 0) {
+            // Gets the small breakpoint equal length.
+            if(rowClass.indexOf(wow.small) >= 0) {
+                // Gets the number of equal width columns allowed currently.
+                var breakSmall = wowRowEqual($(this), wow.small);
+
+                if((columnLength <= $(this).attr('data-wow-break-small')) || (columnLength < breakSmall)) {
+                    $(this).removeClass(wow.small + wow.equal + breakSmall).addClass(wow.small + wow.equal + columnLength);
+
+                    if(columnLength == $(this).attr('data-wow-break-small')) {
+                        $(this).removeAttr('data-wow-break-small');
+                    } else if($(this).attr('data-wow-break-small') === undefined) {
+                        $(this).attr('data-wow-break-small', breakSmall);
+                    }
+                }
+            }
+
+            // Gets the medium breakpoint equal length.
+            if(rowClass.indexOf(wow.medium) >= 0) {
+                var breakMedium = wowRowEqual($(this), wow.medium);
+
+                if((columnLength <= $(this).attr('data-wow-break-medium')) || (columnLength < breakMedium)) {
+                    $(this).removeClass(wow.large + wow.equal + breakMedium).addClass(wow.medium + wow.equal + columnLength);
+                    if(columnLength == $(this).attr('data-wow-break-medium')) {
+                        $(this).removeAttr('data-wow-break-medium');
+                    } else if($(this).attr('data-wow-break-medium') === undefined) {
+                        $(this).attr('data-wow-break-medium', breakMedium);
+                    }
+                }
+            }
+
+            // Gets the large breakpoint equal length.
+            if(rowClass.indexOf(wow.large) >= 0) {
+                var breakLarge = wowRowEqual($(this), wow.large);
+
+                if((columnLength <= $(this).attr('data-wow-break-large')) || (columnLength < breakLarge)) {
+                    $(this).removeClass(wow.large + wow.equal + breakLarge).addClass(wow.large + wow.equal + columnLength);
+                    if(columnLength == $(this).attr('data-wow-break-large')) {
+                        $(this).removeAttr('data-wow-break-large');
+                    } else if($(this).attr('data-wow-break-large') === undefined) {
+                        $(this).attr('data-wow-break-large', breakLarge);
+                    }
+                }
+            }
+        } else {
+            // When a column is added, duplicated, or deleted from a row with a special layout, then the layout is adjusted to an equal width layout.
+            var countSmall = countMedium = countLarge = 0;
+
+            // If the number of columns is greater than the maximum number of columns, then the number of columns used is changed to the maximum number of columns.
+            if(columnLength > wow.maxEqual) {
+                columnLength = wow.maxEqual;
+            }
+
+            // Counts up each of the column breakpoint's class numbers.
+            $(this).children(wow.column).each(function() {
+                var columnClass = $(this).attr('class');
+                if(columnClass.indexOf(wow.small) >= 0) {
+                    countSmall += wowColumnNum($(this), wow.small);
+                }
+
+                if(columnClass.indexOf(wow.medium) >= 0) {
+                    countMedium += wowColumnNum($(this), wow.medium);
+                }
+
+                if(columnClass.indexOf(wow.large) >= 0) {
+                    countLarge += wowColumnNum($(this), wow.large);
+                }
+            });
+
+            // Checks if the special columns in each breakpoint do not add up to the maximum number of columns per row.
+            if((countSmall % wow.maxColumns > 0) || (countMedium % wow.maxColumns > 0) || (countLarge % wow.maxColumns > 0)) {
+                if(countSmall > 0) {
+                    // Removes any existing equal width classes.
+                    wowRowEqRemove($(this), wow.small);
+                    if((countSmall / wow.maxColumns > 1) &&  (countSmall % wow.maxColumns === 0)) {
+                        // If the columns add up to more than the maximum and its modulus is 0, then turn it into an equal width one-column row.
+                        $(this).addClass(wow.small + wow.equal + 1);
+                    } else {
+                        $(this).addClass(wow.small + wow.equal + columnLength);
+                    }
+                    wowColumnClassRemove($(this), wow.small);
+                }
+
+                if(countMedium > 0) {
+                    wowRowEqRemove($(this), wow.medium);
+                    if((countMedium / wow.maxColumns > 1) &&  (countMedium % wow.maxColumns === 0)) {
+                        $(this).addClass(wow.medium + wow.equal + 1);
+                    } else {
+                        $(this).addClass(wow.medium + wow.equal + columnLength);
+                    }
+                    wowColumnClassRemove($(this), wow.medium);
+                }
+
+                if(countLarge > 0) {
+                    wowRowEqRemove($(this), wow.large);
+                    if((countLarge / wow.maxColumns > 1) &&  (countLarge % wow.maxColumns === 0)) {
+                        $(this).addClass(wow.large + wow.equal + 1);
+                    } else {
+                        $(this).addClass(wow.large + wow.equal + columnLength);
+                    }
+                    wowColumnClassRemove($(this), wow.large);
+                }
+            }
+        }
+    });
+}
+
+// Gets the equal width row number.
+function wowRowEqual(row, breakpoint) {
+    var rowClass = $(row).attr('class')
+    return parseInt(rowClass.substr(rowClass.indexOf(breakpoint), breakpoint.length + wow.equal.length + 2).match(/\d+/));
+}
+
+// Gets the column class number.
+function wowColumnNum(column, breakpoint) {
+    var columnClass = $(column).attr('class');
+    return parseInt(columnClass.substr(columnClass.indexOf(breakpoint), breakpoint.length + 3).match(/\d+/));
+}
+
+// Removes the special column classes for a breakpoint.
+function wowColumnClassRemove(row, breakpoint) {
+    for(var i = 1; i <= wow.maxColumns; ++i) {
+        $(row).children(wow.column).removeClass(breakpoint + "-" + i);
+    }
+}
+
+// Removes equal width row classes.
+function wowRowEqRemove(row, breakpoint) {
+    for(var i = 1; i <= wow.maxEqual; ++i) {
+        $(row).removeClass(breakpoint + wow.equal + i);
+    }
+}
+
+// Wow Grid Button Functions
+//  ------------------------
 // Configures the component.
 function wowEdit() {
 
@@ -136,33 +279,6 @@ function wowEdit() {
 
 // Duplicates the component.
 function wowDuplicate(wowFocus) {
-    // If component to be duplicated is a column, then change the special layout row into an equal width layout.
-    if($(wowFocus).hasClass(wow.column.slice(1)) && $(wowFocus).hasClass(wow.small + '-12')) {
-        $(wowFocus).parent().children(wow.column).each(function() {
-            // Gets the medium column breaks
-            var mediumSize = "";
-            if($(this).attr('class').indexOf(wow.medium)) {
-                mediumSize = $(this).attr('class').substr($(this).attr('class').indexOf(wow.medium + "-"), wow.medium.length + 2);
-            }
-
-            // Gets the large column breaks.
-            var largeSize = "";
-            if($(this).attr('class').indexOf(wow.large)) {
-                largeSize = $(this).attr('class').substr($(this).attr('class').indexOf(wow.large + "-"), wow.large.length + 2);
-            }
-
-            // Changes the column alignment.
-            var columnNum  = $(wowFocus).parent().children('.wow-editor').length;
-            if((mediumSize === "") && (largeSize === "")) {
-                $(wowFocus).parent().addClass(wow.small + wow.equal + "-" + columnNum);
-            } else if(largeSize === "") {   // Gets medium view columns.
-                $(wowFocus).parent().addClass(wow.small + wow.equal + "-1").addClass(wow.medium + wow.equal + "-" + columnNum);
-            } else {    // Gets large view columns.
-                $(wowFocus).parent().addClass(wow.small + wow.equal + "-1").addClass(wow.medium + wow.equal + "-" + columnNum).addClass(wow.large + wow.equal + "-" + columnNum);
-            }
-        });
-    }
-
     // Clones the component.
     $(wowFocus).children('.wow-menu').removeClass('wow-single');
     $(wowFocus).clone().insertAfter($(wowFocus)).animateCss('zoomIn');
@@ -175,6 +291,25 @@ function wowDuplicate(wowFocus) {
 
     // Reloads the sortables.
     wowSortReload();
+    wowColumnChange();
+}
+
+// Moves a component down.
+function wowDown(wowFocus) {
+    $(wowFocus).fadeOut(500, function() {
+        $(wowFocus).next().fadeOut(500);
+        $(wowFocus).before($(wowFocus).next());
+        $(wowFocus).prev().fadeIn(500);
+    }).fadeIn(500);
+}
+
+// Moves a component up.
+function wowUp(wowFocus) {
+    $(wowFocus).fadeOut(500, function() {
+        $(wowFocus).prev().fadeOut(500);
+        $(wowFocus).after($(wowFocus).prev());
+        $(wowFocus).next().fadeIn(500);
+    }).fadeIn(500);
 }
 
 // Checks to make sure that the component name is valid.
