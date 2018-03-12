@@ -37,7 +37,7 @@ $(document).ready(function() {
     function wowWait() {
         if($(wow.editor + wow.editFocus).length) {
             setTimeout(function() {
-                wowEdit();
+                wowEditor();
             }, 0);
         } else {
             setTimeout(function() {
@@ -47,7 +47,7 @@ $(document).ready(function() {
     } wowWait();
 
     // Loads up the editor.
-    function wowEdit() {
+    function wowEditor() {
         console.log("Now ready to edit");
 
         //-------------------------------

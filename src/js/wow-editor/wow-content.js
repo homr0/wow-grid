@@ -297,8 +297,8 @@ function wowDelete(wowFocus) {
             $(wowFocus).animateCss('zoomOut');
             setTimeout(function() {
                 $(wowFocus).remove();
+                wowColumnChange();
             }, 300);
-            wowColumnChange();
         }
     });
 }
