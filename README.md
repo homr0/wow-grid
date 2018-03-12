@@ -26,10 +26,11 @@ The Wow-Grid will have the following functions:
 - Change background colors of masonry.
 - Edit source code of modules.
 
+[Demo](https://homr0.github.io/wow-grid)
 ---
 
 ## Known Issues
-
+- Issue with dragging and dropping rows and sections vertically.
 ---
 
 ## Dependencies

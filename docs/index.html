@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wow Grid Test Page</title>
+
+    <!-- Foundation 6 CSS and JavaScript -->
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" crossorigin="anonymous">
+
+    <!-- Local stylesheet -->
+    <link rel="stylesheet" href="css/wow.css">
+
+    <!-- Local JavaScript-->
+    <script src="js/wow.js"></script>
+
+    <!-- Embedded Stylesheet -->
+    <style>
+        html {
+            font-size: 100%;
+            font-family: sans-serif;
+        }
+        .page {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            position: absolute;
+            top: 100px;
+        }
+
+        .page .left-sidebar, .page .right-sidebar {
+            max-width: 25%;
+            width: 100%;
+            z-index: auto !important;
+            min-width: 0;
+            flex: 0 0 25%;
+        }
+
+        .page main {
+            max-width: 100%;
+            min-width: 0;
+            position: relative;
+            flex: 1 1 0px;
+        }
+
+        .mce-widget.mce-btn {
+            position: absolute;
+            z-index: 999;
+            top: 25px;
+        }
+
+        .mce-widget.mce-btn.mce-first {
+            left: 120px;
+        }
+
+        .mce-widget.mce-btn.mce-last {
+            left: 240px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <div id="mceu_0" class="mce-widget mce-btn mce-first " tabindex="-1" aria-labelledby="mceu_0" role="button" aria-label="Save and Exit"><button class="button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-save"></i>save and exit</button></div>
+
+    <div id="mceu_1" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_1" role="button" aria-label="Exit Without Saving"><button class="button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-close"></i>exit without saving</button></div>
+
+    <div class="page">
+        <div class="left-sidebar">
+            <a class="ou-btn button">Edit Left Sidebar</a>
+        </div>
+
+        <main id="main-content">
+            <div class="banner">
+                <a class="ou-btn button">Edit Banner</a>
+
+            </div>
+
+            <div class="content">
+                <a class="ou-btn button">Edit Main Content</a>
+
+                <!-- Test Area -->
+                <div class="section" id="something">
+                    <div class="grid-x small-up-1 medium-up-2 large-up-3">
+                        <div class="cell">
+                            <div class="module">
+                                <h1>Hello world</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-x">
+                        <div class="cell small-4">
+                            <div class="module">
+                                <h2>Testing...</h2>
+                            </div>
+                        </div>
+
+                        <div class="cell small-8">
+                            <div class="module">
+                                <h2>Some different layouts.</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-x">
+                        <div class="cell small-12 medium-3">
+                            <div class="module">
+                                <h3>Column 1</h3>
+                            </div>
+                        </div>
+
+                        <div class="cell small-12 medium-6">
+                            <div class="module">
+                                <h3>Column 2</h3>
+                            </div>
+                        </div>
+
+                        <div class="cell small-12 medium-3">
+                            <div class="module">
+                                <h3>Column 3</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-x">
+                        <div class="cell small-12 medium-4 large-6">
+                            <div class="module">
+                                <p>Text 1</p>
+                            </div>
+                        </div>
+
+                        <div class="cell small-12 medium-2 large-3">
+                            <div class="module">
+                                <p>Text 2</p>
+                            </div>
+                        </div>
+
+                        <div class="cell small-12 medium-2 large-2">
+                            <div class="module">
+                                <p>Text 3</p>
+                            </div>
+                        </div>
+
+                        <div class="cell small-12 medium-4 large-1">
+                            <div class="module">
+                                <p>Text 4</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="right-sidebar">
+            <a class="ou-btn button">Edit Right Sidebar</a>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            console.log("Inline scripts here...");
+
+            // Initiates editor.
+            $('.ou-btn.button').on('click', function() {
+                console.log('clicked');
+                $(this).parent().addClass('ou-justedit-region mce-content-body mce-edit-focus');
+            });
+
+            // Emulates the save functionality.
+            $('[aria-label="Save and Exit"]').on('click', function() {
+                console.log("Saved the document.");
+            });
+
+            // Emulates the exit without saving functionality
+            $('[aria-label="Exit Without Saving"]').on('click', function() {
+                console.log("Exited without saving");
+                $('.ou-justedit-region.mce-content-body').removeClass('ou-justedit-region mce-content-body');
+            });
+        });
+    </script>
+</body>
+</html>

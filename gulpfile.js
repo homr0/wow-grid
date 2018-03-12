@@ -107,4 +107,10 @@ gulp.task('build', function(done) {
 // Builds the site and watches for file changes.
 gulp.task('default', function(done) {
     sequence('build', 'watch', done);
-})
+});
+
+// Sets up the GitHub pages.
+gulp.task('docs', function() {
+    return gulp.src('dist/**/*')
+        .pipe(gulp.dest('docs/'))
+});

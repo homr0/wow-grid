@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rh0m/wow-grid.git"
+    "url": "git+https://github.com/homr0/wow-grid.git"
   },
   "keywords": [
     "OmniUpdate",
@@ -38,9 +38,9 @@
   "author": "Rebecca Hom",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rh0m/wow-grid/issues"
+    "url": "https://github.com/homr0/wow-grid/issues"
   },
-  "homepage": "https://github.com/rh0m/wow-grid#readme",
+  "homepage": "https://github.com/homr0/wow-grid#readme",
   "dependencies": {
     "animate.css": "^3.5.2",
     "jquery": "^3.3.1",
