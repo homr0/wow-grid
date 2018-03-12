@@ -40,12 +40,7 @@ function wowGrid(preview) {
             // Deletes a component.
             $('.wow-delete:not(.disabled)').off().on({
                 click: function() {
-                    var focusedParent = $(focused).parent();
-                    $('.wow-editor.wow-highlight').removeClass('wow-highlight');
-                    $(focused).addClass('wow-highlight');
-                    $(focused).animateRemove('zoomOut');
-
-
+                    wowDelete($(focused, 'zoomOut'));
                 }
             });
         },
@@ -107,8 +102,10 @@ function wowMenu() {
     }
 
     // Disables the delete button if there is only one type of the component in its container except for modules.
-    if(($('.wow-hover').parent().children(component).length === 1)  && (component !== wow.module)) {
-        $('.wow-menu').addClass('wow-single');
+    if(($('.wow-hover').parent().children(component).length === 1) && (component !== wow.module)) {
+        $('.wow-button.wow-delete').addClass('disabled');
+    } else {
+        $('.wow-button.wow-delete').removeClass('disabled');
     }
 
     // Hides up or down arrows if the section or row is at the top or bottom of its container.
@@ -121,7 +118,7 @@ function wowMenu() {
     }
 }
 
-//  Wow Grid Helper Functions (for button functions)
+//  Wow Grid Helper Functions (for column and row adjustments)
 //  ------------------------------------------------
 // Adjusts block widths when a block is added, duplicated, or deleted.
 function wowColumnChange() {
@@ -274,7 +271,36 @@ function wowUp(wowFocus) {
 
 // Deletes a component.
 function wowDelete(wowFocus) {
+    $('.wow-highlight').removeClass('wow-highlight');
+    $(wowFocus).addClass('wow-highlight');
 
+    // Opens the component deletion modal.
+    $('#wow-modal-menu').html(mfp.remove);
+    $.magnificPopup.open({
+        items: {
+            src: '#wow-modal-menu',
+            type: 'inline'
+        },
+        modal: true
+    });
+
+    // Both buttons will close the modal.
+    $('.wow-modal-cancel, .wow-modal-remove').on({
+        click: function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        }
+    });
+
+    $('.wow-modal-remove').on({
+        click: function() {
+            $(wowFocus).animateCss('zoomOut');
+            setTimeout(function() {
+                $(wowFocus).remove();
+            }, 300);
+            wowColumnChange();
+        }
+    });
 }
 
 // Checks to make sure that the component name is valid.
