@@ -101,7 +101,7 @@ gulp.task('watch', ['browser', 'sass'], function() {
 
 // Builds the site.
 gulp.task('build', function(done) {
-    sequence('clean',['sass', 'javascript', 'pages'], done);
+    sequence('clean',['sass', 'javascript', 'pages'], 'docs', done);
 });
 
 // Builds the site and watches for file changes.
@@ -113,4 +113,8 @@ gulp.task('default', function(done) {
 gulp.task('docs', function() {
     return gulp.src('dist/**/*')
         .pipe(gulp.dest('docs/'))
+});
+
+gulp.task('docs:clean', function() {
+    return del.sync('./docs');
 });

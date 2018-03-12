@@ -27,6 +27,7 @@ The Wow-Grid will have the following functions:
 - Edit source code of modules.
 
 [Demo](https://homr0.github.io/wow-grid)
+
 ---
 
 ## Known Issues
