@@ -21,14 +21,6 @@
 .wow-column {
     background-color: $menu-column;
     z-index: 2;
-
-    .wow-button.wow-add {
-        left: unset;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        border-radius: 2px 0 0 2px;
-    }
 }
 
 /* Module hover menu styles. */
@@ -228,6 +220,14 @@
         border-radius: 2px 2px 0 0;
         margin-bottom: 0 !important;
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g fill="none" fill-rule="evenodd"><rect width="30" height="30" fill="none"/><path fill="%23FFF" d="M16.72 13.484h5.936v3.47H16.72v6.765h-3.69v-6.767H7.064v-3.47h5.968V7.157h3.69"/></g></svg>');
+
+        &.wow-column:not(.wow-module) {
+            left: unset;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 2px 0 0 2px;
+        }
     }
 }
 
