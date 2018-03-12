@@ -101,7 +101,7 @@ gulp.task('watch', ['browser', 'sass'], function() {
 
 // Builds the site.
 gulp.task('build', function(done) {
-    sequence('clean',['sass', 'javascript', 'pages'], 'docs', done);
+    sequence(['clean', 'docs:clean'],['sass', 'javascript', 'pages'], 'docs', done);
 });
 
 // Builds the site and watches for file changes.
