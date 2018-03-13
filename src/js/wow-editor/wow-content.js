@@ -40,7 +40,14 @@ function wowGrid(preview) {
             // Deletes a component.
             $('.wow-delete:not(.disabled)').off().on({
                 click: function() {
-                    wowDelete($(focused, 'zoomOut'));
+                    wowDelete($(focused));
+                }
+            });
+
+            // Adds a component.
+            $('.wow-add').off().on({
+                click: function() {
+                    wowAdd($(focused), $(this).attr('class'));
                 }
             });
         },
@@ -120,7 +127,7 @@ function wowMenu() {
 
 ///-------------------------------
 // functionality for adjusting layouts
-#=include 'wow-layouts.js'
+#=include 'wow-editor/wow-layouts.js'
 
 // Wow Grid Button Functions
 //  ------------------------
@@ -198,7 +205,47 @@ function wowDelete(wowFocus) {
     });
 }
 
-// Wow Grid Helper Functions
+// Adds a component
+function wowAdd(wowFocus, wowAddButton) {
+    var addedContent = $(html.content).wrapInner(html.editable).wrapInner(html.module);
+
+    // Modifies the added content.
+    if((wowAddButton.indexOf('wow-column') >= 0) && (wowAddButton.indexOf('wow-module') < 0)) {
+        addedContent = $(addedContent).wrapInner(html.column);
+    } else if(wowAddButton.indexOf('wow-row') >= 0) {
+        addedContent = $(addedContent).wrapInner(html.column).wrapInner(html.row);
+    } else if(wowAddButton.indexOf('wow-section') >= 0) {
+        addedContent = $(addedContent).wrapInner(html.column).wrapInner(html.row).wrapInner(html.section);
+    }
+
+    // Adds and animates the newly added component.
+    if((wowAddButton.indexOf('wow-column') >= 0) && (wowAddButton.indexOf('wow-module') >= 0)) {
+        // A module is appended to the focused column.
+        $(wowFocus).append(addedContent);
+        $(wowFocus).children(wow.module).last().animateCss('zoomIn');
+    } else {
+        // A new component is added after the focused component.
+        $(wowFocus).after($(addedContent).html());
+
+        // For columns if it is a special layout, then the new column will have breakpoint classes.
+        if($(wowFocus).hasClass(wow.column.slice(1))) {
+            if($(wowFocus).attr('class').indexOf(wow.small) >= 0) {
+                $(wowFocus).next().addClass(wow.small + "-" + wow.maxEqual);
+            }
+
+            if($(wowFocus).attr('class').indexOf(wow.medium) >= 0) {
+                $(wowFocus).next().addClass(wow.medium + "-" + wow.maxEqual);
+            }
+
+            if($(wowFocus).attr('class').indexOf(wow.large) >= 0) {
+                $(wowFocus).next().addClass(wow.large + "-" + wow.maxEqual);
+            }
+            wowColumnChange();
+        }
+
+        $(wowFocus).next().animateCss('zoomIn');
+    }
+}
 
 // Checks to make sure that the component name is valid.
 function wowCheckName(name) {

@@ -5,13 +5,24 @@ $(wow.editor + " " + wow.section + ", "
     + wow.editor + " " + wow.column + ", "
     + wow.editor + " " + wow.module).addClass('wow-editor');
 
+// HTML Component Strings.
+var html = {
+    container: '<div id="wow-container"></div>',
+    content: '<p>Add new content here.</p>',
+    editable: '<div class="editable-bounds" contenteditable="true"></div>',
+    module: '<div class="wow-editor ' + wow.module.slice(1) + '"></div>',
+    column: '<div class="wow-editor ' + wow.column.slice(1) + '"></div>',
+    row: '<div class="wow-editor ' + wow.row.slice(1) + '"></div>',
+    section: '<div class="wow-editor ' + wow.section.slice(1) + '"></div>'
+}
+
 // Wraps the top-most component into a div with the sortable container.
-$('.wow-editor' + wow.section).wrap('<div id="wow-container"></div>');
+$('.wow-editor' + wow.section).wrap(html.container);
 
 // Sets up the modules by adding in content containers and editable bounds.
 $(wow.editor + " "  + wow.column).each(function() {
     $(this).find(wow.module).each(function() {
-        $(this).wrapInner('<div class="editable-bounds" contenteditable="true"></div>');
+        $(this).wrapInner(html.editable);
     });
 });
 
