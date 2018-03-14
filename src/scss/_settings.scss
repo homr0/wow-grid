@@ -39,6 +39,7 @@ $editor-section: skyblue;
 $editor-row: lime;
 $editor-column: lavender;
 $editor-module: pink;
+$editor-shadow: inset 0px 0px 0px 3px;
 
 //  3. Editor Components
 //  --------------------
@@ -88,3 +89,17 @@ $mfp-caption-subtitle-color:          #BDBDBD !default;                    // Ca
 
 // A11y
 $mfp-use-visuallyhidden:              false !default;                      // Hide content from browsers, but make it available for screen readers
+
+//  5. Modal Custom Styles
+//  ----------------------
+$modal-background: $white;
+$modal-padding: 1rem;
+$modal-margin: 1rem;
+
+$modal-button-background: $button-background;
+$modal-button-color: $button-color;
+
+$modal-input-selected: pink;
+
+$modal-grid-columns: 12;
+$modal-grid-equal-width: 4;

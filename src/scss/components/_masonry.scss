@@ -1,4 +1,29 @@
-/* Wow Editor masonry. */
+/* Wow Editor masonry.*/
+// Default font size.
+html {
+    font-size: 100%;
+    line-height: 1.15;
+    font-family: sans-serif;
+
+    blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, th, ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        color: inherit;
+        text-rendering: optimizeLegibility;
+        line-height: 1.5;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+// Wow editor containers.
 #wow-container {
     padding-top: $editor-padding;
     padding-bottom: $editor-padding;
@@ -16,11 +41,11 @@
         background-color: $editor-section;
 
         &.wow-hover {
-            box-shadow: inset 0px 0px 0px 3px $hover-section;
+            box-shadow: $editor-shadow $hover-section;
         }
 
         &.wow-highlight {
-            box-shadow: 0px 0px 0px 3px $menu-section;
+            box-shadow: $editor-shadow $menu-section;
         }
     }
 
@@ -28,11 +53,11 @@
         background-color: $editor-row;
 
         &.wow-hover {
-            box-shadow: inset 0px 0px 0px 3px $hover-row;
+            box-shadow: $editor-shadow $hover-row;
         }
 
         &.wow-highlight {
-            box-shadow: 0px 0px 0px 3px $menu-row;
+            box-shadow: $editor-shadow $menu-row;
         }
     }
 
@@ -40,15 +65,11 @@
         background-color: $editor-column;
 
         &.wow-hover {
-            box-shadow: inset 0px 0px 0px 3px $hover-column;
+            box-shadow: $editor-shadow $hover-column;
         }
 
         &.wow-highlight {
-            box-shadow: 0px 0px 0px 3px $menu-column;
-        }
-
-        .wow-container {
-            min-height: $editor-module-height;
+            box-shadow: $editor-shadow $menu-column;
         }
     }
 
@@ -57,11 +78,11 @@
         min-height: $editor-module-height;
 
         &.wow-hover {
-            box-shadow: inset 0px 0px 0px 3px $hover-module;
+            box-shadow: $editor-shadow $hover-module;
         }
 
         &.wow-highlight {
-            box-shadow: 0px 0px 0px 3px $menu-module;
+            box-shadow: $editor-shadow $menu-module;
         }
     }
 }
@@ -73,5 +94,40 @@
 
     &.wow-tooltip:hover .wow-tooltext {
         display: none;
+    }
+}
+
+// Modal rows and columns.
+%rows {
+    display: flex;
+}
+
+%columns {
+    padding: (0.25 * $modal-padding);
+    width: 100%;
+}
+
+.row {
+    @extend %rows;
+
+    [class*='column-'] {
+        @extend %columns;
+    }
+
+    @for $i from 1 through $modal-grid-columns {
+         > .column-#{$i} {
+            max-width: 100% / $modal-grid-columns * $i;
+        }
+    }
+}
+
+@for $i from 1 through $modal-grid-equal-width {
+    .row-#{$i} {
+        @extend %rows;
+
+        > .column {
+            max-width: 100% / $i;
+            @extend %columns;
+        }
     }
 }

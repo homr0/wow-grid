@@ -18,23 +18,72 @@
 
 // Modal menus.
 #wow-modal-menu .wow-modal {
-    background-color: $white;
+    background-color: $modal-background;
+    text-align: center;
 
     // Modal button styles.
     button {
         display: inline-block;
-        text-align: center;
         line-height: 1;
         cursor: pointer;
         transition: background-color .25s ease-out, color .25s ease-out;
         vertical-align: middle;
         border: 1px solid transparent;
         border-radius: 2px;
-        padding: 1rem 2rem;
-        margin: 0 0 1rem;
+        padding: $modal-padding (2 * $modal-padding);
+        margin: 0 0 $modal-margin;
         font-size: 0.9rem;
-        background-color: $button-background;
-        color: $button-color;
+        background-color: $modal-button-background;
+        color: $modal-button-color;
+    }
+
+    // Modal title styles.
+    .wow-modal-title {
+        //text-align: center;
+    }
+
+    // Modal form inputs.
+    .wow-modal-options {
+        input[type=number] {
+            text-align: center;
+        }
+
+        input[type=radio] {
+            visibility: hidden;
+        }
+
+        input[type=radio] + label {
+            cursor: pointer;
+            padding: ($modal-padding * 0.25);
+            display: inline-block;
+            vertical-align: baseline;
+            margin-left: (0.5 * $modal-margin);
+            margin-right: $modal-margin;
+            margin-bottom: 0;
+        }
+
+        input[type=radio]:checked + label {
+            background-color: $modal-input-selected;
+        }
+
+        .wow-image {
+            width: 100%;
+
+            .row, [class*='row-'] {
+                .column, [class*='column-'] {
+                    background-color: lavender;
+                    margin: (0.25 * $modal-margin);
+                }
+            }
+
+            &.wow-image-equal {
+                [class*='row-'] {
+                    .column {
+                        background-color: violet;
+                    }
+                }
+            }
+        }
     }
 
     // Modal for deleting a component.
@@ -43,5 +92,11 @@
         padding: 10px 20px;
         text-align: center;
         width: 20%;
+    }
+
+    // Modal for adding in a layout.
+    &.wow-modal-layout {
+        margin: auto;
+        width: 80%;
     }
 }
