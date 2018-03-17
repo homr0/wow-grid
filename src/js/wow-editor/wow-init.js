@@ -16,6 +16,12 @@ var html = {
     section: '<div class="wow-editor ' + wow.section.slice(1) + '"></div>'
 }
 
+// Error strings.
+var error = {
+    container: '<div class="row-1 wow-modal-error"><div class="column"></div></div>',
+    columns: '<p>Enabled columns do not add up to the total or do not all take up the entirety of the row.</p>'
+}
+
 // Wraps the top-most component into a div with the sortable container.
 $('.wow-editor' + wow.section).wrap(html.container);
 

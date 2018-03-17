@@ -177,7 +177,7 @@ function wowDelete(wowFocus) {
     $(wowFocus).addClass('wow-highlight');
 
     // Opens the component deletion modal.
-    $('#wow-modal-menu').html(mfp.remove);
+    $('#wow-modal-menu').html(mfp.delete);
     $.magnificPopup.open({
         items: {
             src: '#wow-modal-menu',
@@ -227,18 +227,23 @@ function wowAdd(wowFocus, wowAddButton) {
         // A new component is added after the focused component.
         $(wowFocus).after($(addedContent).html());
 
-        // For columns if it is a special layout, then the new column will have breakpoint classes.
-        if($(wowFocus).hasClass(wow.column.slice(1))) {
-            if($(wowFocus).attr('class').indexOf(wow.small) >= 0) {
-                $(wowFocus).next().addClass(wow.small + "-" + wow.maxEqual);
-            }
+        if($(wowFocus.hasClass(wow.module.slice(1)))) {
+            if($(wowFocus).hasClass(wow.column.slice(1))) {
+                // For columns if it is a special layout, then the new column will have breakpoint classes.
+                if($(wowFocus).attr('class').indexOf(wow.small) >= 0) {
+                    $(wowFocus).next().addClass(wow.small + "-" + wow.maxEqual);
+                }
 
-            if($(wowFocus).attr('class').indexOf(wow.medium) >= 0) {
-                $(wowFocus).next().addClass(wow.medium + "-" + wow.maxEqual);
-            }
+                if($(wowFocus).attr('class').indexOf(wow.medium) >= 0) {
+                    $(wowFocus).next().addClass(wow.medium + "-" + wow.maxEqual);
+                }
 
-            if($(wowFocus).attr('class').indexOf(wow.large) >= 0) {
-                $(wowFocus).next().addClass(wow.large + "-" + wow.maxEqual);
+                if($(wowFocus).attr('class').indexOf(wow.large) >= 0) {
+                    $(wowFocus).next().addClass(wow.large + "-" + wow.maxEqual);
+                }
+            } else if($(wowFocus).hasClass(wow.row.slice(1))) {
+                // For new rows, a layout is selected for the new row.
+                wowLayout($(wowFocus).next());
             }
             wowColumnChange();
         }

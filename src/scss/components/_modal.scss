@@ -35,31 +35,58 @@
         font-size: 0.9rem;
         background-color: $modal-button-background;
         color: $modal-button-color;
+        margin: $modal-margin 0;
     }
 
     // Modal title styles.
     .wow-modal-title {
-        //text-align: center;
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.4rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+        }
     }
 
     // Modal form inputs.
     .wow-modal-options {
+        input {
+            width: auto !important;
+            margin: auto;
+        }
+
         input[type=number] {
             text-align: center;
         }
 
         input[type=radio] {
             visibility: hidden;
+            display: none;
+        }
+
+        input[type=checkbox] {
+            text-align: left;
         }
 
         input[type=radio] + label {
             cursor: pointer;
-            padding: ($modal-padding * 0.25);
+            padding: ($modal-padding * 0.125);
             display: inline-block;
             vertical-align: baseline;
-            margin-left: (0.5 * $modal-margin);
-            margin-right: $modal-margin;
-            margin-bottom: 0;
+            margin: 0 !important;
         }
 
         input[type=radio]:checked + label {
@@ -71,16 +98,8 @@
 
             .row, [class*='row-'] {
                 .column, [class*='column-'] {
-                    background-color: lavender;
-                    margin: (0.25 * $modal-margin);
-                }
-            }
-
-            &.wow-image-equal {
-                [class*='row-'] {
-                    .column {
-                        background-color: violet;
-                    }
+                    background-color: $modal-column;
+                    margin: (0.125 * $modal-margin);
                 }
             }
         }

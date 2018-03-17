@@ -1,4 +1,5 @@
 // Initializes the HTML strings for various menus and settings.
+// Hover menus.
 var hover = {
     section: "",
     row: "",
@@ -6,8 +7,10 @@ var hover = {
     module: ""
 };
 
+// Modal screens.
 var mfp = {
-    remove: ""
+    delete: "",
+    layout: ""
 };
 
 // Loads all of the relevant strings from the grid HTML page.
@@ -27,5 +30,6 @@ setTimeout(function() {
 
 // Sets the Magnific popup modals.
 setTimeout(function() {
-    mfp.remove = $('.wow-modal-delete').detach();
+    mfp.delete = $('.wow-modal-delete').detach();
+    mfp.layout = $('.wow-modal-layout').detach();
 }, 150);

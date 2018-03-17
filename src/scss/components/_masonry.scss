@@ -76,6 +76,7 @@ html {
     &.module {
         background-color: $editor-module;
         min-height: $editor-module-height;
+        word-wrap: break-word;
 
         &.wow-hover {
             box-shadow: $editor-shadow $hover-module;
@@ -100,11 +101,12 @@ html {
 // Modal rows and columns.
 %rows {
     display: flex;
+    flex-wrap: row;
 }
 
 %columns {
-    padding: (0.25 * $modal-padding);
-    width: 100%;
+    padding: (0.5 * $modal-padding);
+    max-width: 100%;
 }
 
 .row {
@@ -116,7 +118,7 @@ html {
 
     @for $i from 1 through $modal-grid-columns {
          > .column-#{$i} {
-            max-width: 100% / $modal-grid-columns * $i;
+            width: 100% / $modal-grid-columns * $i;
         }
     }
 }
@@ -126,7 +128,7 @@ html {
         @extend %rows;
 
         > .column {
-            max-width: 100% / $i;
+            width: 100% / $i;
             @extend %columns;
         }
     }
