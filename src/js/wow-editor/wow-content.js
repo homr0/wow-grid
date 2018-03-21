@@ -243,6 +243,7 @@ function wowAdd(wowFocus, wowAddButton) {
                 }
             } else if($(wowFocus).hasClass(wow.row.slice(1))) {
                 // For new rows, a layout is selected for the new row.
+                $(wowFocus).next().addClass(wow.small + wow.equal + 1).addClass(wow.medium + wow.equal + 2);
                 wowLayout($(wowFocus).next());
             }
             wowColumnChange();
