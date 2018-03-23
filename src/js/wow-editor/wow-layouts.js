@@ -150,7 +150,6 @@ function wowLayout(row, edit) {
     breakpointSet('#wowBreakpointSmall', '#wowColumnSmall');
     breakpointSet('#wowBreakpointMedium', '#wowColumnMedium');
     breakpointSet('#wowBreakpointLarge', '#wowColumnLarge');
-    $('#wowBreakpointMedium').trigger('click');
 
     // Enables/disables breakpoints.
     function breakpointDisable(button, section) {
@@ -315,8 +314,9 @@ function wowLayout(row, edit) {
     breakSmall = getBreakpoint(row, wow.small, '[name=breakpointDisabledS]');
     breakMedium = getBreakpoint(row, wow.medium, '[name=breakpointDisabledM]');
     breakLarge = getBreakpoint(row, wow.large, '[name=breakpointDisabledL]');
+    console.log(breakSmall, breakMedium, breakLarge);
 
-    // Changes the number of rows per column.
+    // Gets the existing number of columns per row.
     function getRow(row, breakpoint) {
         if(rowEqual) {
             return wowRowEqual($(row), breakpoint);
@@ -325,60 +325,171 @@ function wowLayout(row, edit) {
         }
     }
 
-    // Changes the column in the row.
-    function getColumns(row, perRow) {
-        var breakpoint = $(perRow).attr('name').slice(-1);
-        for(var i = 1; i <= $(perRow).val(); ++i) {
-            if(rowEqual) {
-                $('[name=column' + i + breakpoint + ']').val(wow.maxColumns / parseInt($(perRow).val()));
+    // Gets the existing column class quntities in the row.
+    function getColumns(row, breakpoint, perRow, breakSize) {
+        if(breakSize) {
+            if($(row).attr('data-wow-break-' + breakpoint) !== undefined) {
+                $(perRow).val($(row).attr('data-wow-break-' + breakpoint));
             } else {
-                $('[name=column' + i + breakpoint + ']').val(wowColumnNum($(row).children(wow.column).eq(i - 1), breakpoint));
+                $(perRow).val(getRow($(row), breakpoint));
+            }
+
+            var breakpoint = $(perRow).attr('name').slice(-1);
+            for(var i = 1; i <= $(perRow).val(); ++i) {
+                if(rowEqual) {
+                    $('[name=column' + i + breakpoint + ']').val(wow.maxColumns / parseInt($(perRow).val()));
+                } else {
+                    $('[name=column' + i + breakpoint + ']').val(wowColumnNum($(row).children(wow.column).eq(i - 1), breakpoint));
+                }
             }
         }
     }
-
-    // Sets the columns for each breakpoint.
-    if(breakSmall) {
-        if($(row).attr('data-wow-break-small') !== undefined) {
-            $('[name=columnPerRowS]').val($(row).attr('data-wow-break-small'));
-        } else {
-            $('[name=columnPerRowS]').val(getRow($(row), wow.small));
-        }
-        getColumns(row, '[name=columnPerRowS]');
-    }
-
-    if(breakMedium) {
-        if($(row).attr('data-wow-break-medium') !== undefined) {
-            $('[name=columnPerRowM]').val($(row).attr('data-wow-break-medium'));
-        } else {
-            $('[name=columnPerRowM]').val(getRow($(row), wow.medium));
-        }
-        getColumns(row, '[name=columnPerRowM]');
-    }
-
-    if(breakLarge) {
-        if($(row).attr('data-wow-break-large') !== undefined) {
-            $('[name=columnPerRowL]').val($(row).attr('data-wow-break-large'));
-        } else {
-            $('[name=columnPerRowL]').val(getRow($(row), wow.large));
-        }
-        getColumns(row, '[name=columnPerRowL]');
-    }
+    getColumns(row, wow.small, '[name=columnPerRowS]', breakSmall);
+    getColumns(row, wow.medium, '[name=columnPerRowM]', breakMedium);
+    getColumns(row, wow.large, '[name=columnPerRowL]', breakLarge);
 
     // Since the medium viewpoint is opened by default, then trigger the medium breakpoint.
-    $('[name=columnPerRowM]').trigger('blur');
+    if(breakMedium) {
+        $('[name=columnPerRowM]').trigger('blur');
+        $('#wowBreakpointMedium').trigger('click');
+    } else if(breakSmall) {
+        $('[name=columnPerRowS]').trigger('blur');
+        $('#wowBreakpointSmall').trigger('click');
+    } else if(breakLarge) {
+        $('[name=columnPerRowL]').trigger('blur');
+        $('#wowBreakpointLarge').trigger('click');
+    }
 
     // Closes modal and updates row if "Confirm" is pressed.
     $('.wow-modal-cancel, .wow-modal-confirm').on({
         click: function(e) {
             e.preventDefault();
-            $.magnificPopup.close();
-        }
-    });
 
-    $('.wow-modal-confirm').on({
-        click: function() {
-            console.log("Going to update row!");
+            if($(this).hasClass('wow-modal-confirm')) {
+                // Checks which breakpoints are enabled.
+                function checkBreakpoint(button) {
+                    if($(button).prop('checked') == true) {
+                        return false;
+                    }
+                    return true;
+                }
+                breakSmall = checkBreakpoint('[name=breakpointDisabledS]');
+                breakMedium = checkBreakpoint('[name=breakpointDisabledM]');
+                breakLarge = checkBreakpoint('[name=breakpointDisabledL]');
+                console.log(breakSmall, breakMedium, breakLarge);
+
+
+                // Checks if all inputs are equal rows.
+                rowEqual = true;
+
+                function getRowEqual(perRow) {
+                    var columnNum = $(perRow).val();
+                    var breakpoint = $(perRow).attr('name').slice(-1);
+                    if(columnNum > 1) {
+                        for(var i = 1; i < columnNum; ++i) {
+                            if(($('[name=column' + i + breakpoint + ']').val() != $('[name=column' + (i + 1) + breakpoint + ']').val()) && rowEqual) {
+                                rowEqual = false;
+                                return;
+                            }
+                        }
+                    }
+                }
+                if(breakSmall && rowEqual) {
+                    getRowEqual('[name=columnPerRowS]');
+                } if(breakMedium && rowEqual) {
+                    getRowEqual('[name=columnPerRowM]')
+                } if(breakLarge && rowEqual) {
+                    getRowEqual('[name=columnPerRowL]');
+                }
+
+                // Clears all of the row and column classes, and breakpoints.
+                wowRowEqRemove(row, wow.small);
+                wowRowEqRemove(row, wow.medium);
+                wowRowEqRemove(row, wow.large);
+                wowColumnClassRemove(row, wow.small);
+                wowColumnClassRemove(row, wow.medium);
+                wowColumnClassRemove(row, wow.large);
+                $(row).removeAttr('data-wow-break-' + wow.small + ' data-wow-break-' + wow.medium + ' data-wow-break-'+ wow.large);
+
+                // Makes sure that the breakpoints have the same number of columns per row for non-equal width layouts.
+                var fixPerRow = false;
+                var setBreak = "";
+                if(!rowEqual) {
+                    if(breakSmall == breakMedium == breakLarge) {
+                        if(($('[name=columnPerRowS]').val() >= $('[name=columnPerRowM]').val()) && ($('[name=columnPerRowS]').val() >= $('[name=columnPerRowL]').val())) {
+                            setBreak = '[name=columnPerRowS]';
+                        } else if (($('[name=columnPerRowM]').val() > $('[name=columnPerRowL]').val()) && ($('[name=columnPerRowM]').val() > $('[name=columnPerRowS]').val())){
+                            setBreak = '[name=columnPerRowM]';
+                        } else {
+                            setBreak = '[name=columnPerRowL]';
+                        }
+                    } else if(breakSmall == breakMedium) {
+                        if($('[name=columnPerRowS]').val() > $('[name=columnPerRowM]').val()) {
+                            setBreak = '[name=columnPerRowS]';
+                        } else {
+                            setBreak = '[name=columnPerRowM]';
+                        }
+                    } else if(breakSmall == breakLarge) {
+                        if($('[name=columnPerRowS]').val() > $('[name=columnPerRowL]').val()) {
+                            setBreak = '[name=columnPerRowS]';
+                        } else {
+                            setBreak = '[name=columnPerRowL]';
+                        }
+                    } else if(breakMedium == breakLarge) {
+                        if($('[name=columnPerRowM]').val() > $('[name=columnPerRowL]').val()) {
+                            setBreak = '[name=columnPerRowM]';
+                        } else {
+                            setBreak = '[name=columnPerRowL]';
+                        }
+                    }
+
+                    // If the number of columns in a row is not the same as the largest breakpoint class, then add or remove columns in the row.
+                    if((setBreak !== "") && ($(setBreak).val() > $(row).children(wow.column).length)) {
+                        // Columns are appended to the row.
+                        for(var i = $(row).children(wow.column).length; i < $(setBreak).val(); ++i) {
+                            var contentColumn = $(html.content).wrapInner(html.editable).wrapInner(html.module).wrapInner(html.column);
+                            $(row).append($(contentColumn).html());
+                        }
+                    } else if((setBreak !== "") && ($(setBreak).val() < $(row).children(wow.column).length)) {
+                        // Columns are removed from the row, but their modules are moved over to the column to its left.
+                        for(var i = $(row).children(wow.column).length; i > $(setBreak).val(); --i) {
+                            var modules = $(row).children(wow.column).last().children(wow.module).detach();
+                            $(row).children(wow.column).last().remove();
+                            $(row).children(wow.column).last().append(modules);
+                        }
+                    }
+                }
+
+                // Sets the column classes up.
+                function setColumns(row, perRow, breakpoint) {
+                    if(rowEqual) {
+                        // If there is an equal width row, then just set the breakpoint row class to the value of the number of columns per row.
+                        $(row).addClass(breakpoint + wow.equal + $(perRow).val());
+                    } else {
+                        // For uneven layouts, sets each column to the class.
+                        for(var i = 1; i <= $(row).children(wow.column).length; ++i) {
+                            $(row).children(wow.column).eq(i - 1).addClass(breakpoint + "-" + $('[name=column' + i + $(perRow).attr('name').slice(-1) + ']').val());
+                        }
+                    }
+                }
+                if(breakSmall) {
+                    console.log("Setting small columns");
+                    setColumns(row, '[name=columnPerRowS]', wow.small);
+                }
+
+                if(breakMedium) {
+                    console.log("Setting medium columns");
+                    setColumns(row, '[name=columnPerRowM]', wow.medium);
+                }
+
+                if(breakLarge) {
+                    console.log("Setting large columns");
+                    setColumns(row, '[name=columnPerRowL]', wow.large);
+                }
+            }
+            wowColumnChange();
+            wowSortReload();
+            $.magnificPopup.close();
         }
     });
 }

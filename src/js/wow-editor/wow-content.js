@@ -190,17 +190,16 @@ function wowDelete(wowFocus) {
     $('.wow-modal-cancel, .wow-modal-remove').on({
         click: function(e) {
             e.preventDefault();
-            $.magnificPopup.close();
-        }
-    });
 
-    $('.wow-modal-remove').on({
-        click: function() {
-            $(wowFocus).animateCss('zoomOut');
-            setTimeout(function() {
-                $(wowFocus).remove();
-                wowColumnChange();
-            }, 300);
+            if($(this).hasClass('wow-modal-remove')) {
+                $(wowFocus).animateCss('zoomOut');
+                setTimeout(function() {
+                    $(wowFocus).remove();
+                    wowColumnChange();
+                }, 300);
+            }
+
+            $.magnificPopup.close();
         }
     });
 }
@@ -241,12 +240,17 @@ function wowAdd(wowFocus, wowAddButton) {
                 if($(wowFocus).attr('class').indexOf(wow.large) >= 0) {
                     $(wowFocus).next().addClass(wow.large + "-" + wow.maxEqual);
                 }
+                wowColumnChange();
+                wowSortReload();
             } else if($(wowFocus).hasClass(wow.row.slice(1))) {
                 // For new rows, a layout is selected for the new row.
-                $(wowFocus).next().addClass(wow.small + wow.equal + 1).addClass(wow.medium + wow.equal + 2);
+                $(wowFocus).next().addClass(wow.small + wow.equal + 1);
                 wowLayout($(wowFocus).next());
+            } else if($(wowFocus).hasClass(wow.section.slice(1))) {
+                // For new sections, a layout is selected for the row in the new section.
+                $(wowFocus).next().children(wow.row).addClass(wow.small + wow.equal + 1);
+                wowLayout($(wowFocus).next().children(wow.row));
             }
-            wowColumnChange();
         }
 
         $(wowFocus).next().animateCss('zoomIn');
