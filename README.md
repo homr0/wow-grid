@@ -28,10 +28,18 @@ The Wow-Grid will have the following functions:
 
 [Demo](https://homr0.github.io/wow-grid)
 
+### Completed Objectives
+- Components can be rearranged.
+- Components can be duplicated.
+- Components can be deleted.
+- Blank components can be added.
+- Rows and sections can be added with a specific layout (see Known Issues for bug regarding that).
+
 ---
 
 ## Known Issues
 - Issue with dragging and dropping rows and sections vertically.
+- Bug where adding a row or section via modal results in breakpoints not being added in correctly on every even insertion (currently being worked on).
 ---
 
 ## Dependencies
