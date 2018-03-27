@@ -16,8 +16,8 @@ var mfp = {
 // Loads all of the relevant strings from the grid HTML page.
 setTimeout(function() {
     $('body').append('<div class="wow-strings"></div>').append('<div class="wow-popups"></div>');
-    $('.wow-strings').load('/js/grid.html .wow-menus');
-    $('.wow-popups').load('/js/grid.html .wow-modals');
+    $('.wow-strings').load('https://homr0.github.io/wow-grid/js/grid.html .wow-menus');
+    $('.wow-popups').load('https://homr0.github.io/wow-grid/js/grid.html .wow-modals');
 }, 0);
 
 // Sets the hover menu strings.

@@ -295,6 +295,8 @@ function wowLayout(row, edit) {
     // Takes in the current row's classes and its columns' classes and sets up the modal.
     var rowEqual =  breakSmall = breakMedium = breakLarge = false;
     var columnLength = $(row).children(wow.column).length;
+    $('[name=breakpointDisabledS], [name=breakpointDisabledM], [name=breakpointDisabledL]').prop('checked', false);
+    $('[name=columnPerRowS], [name=columnPerRowM], [name=columnPerRowL]').val(1).trigger('blur');
 
     // Gets if a breakpoint size exists.
     function getBreakpoint(row, breakpoint, button) {
@@ -314,7 +316,6 @@ function wowLayout(row, edit) {
     breakSmall = getBreakpoint(row, wow.small, '[name=breakpointDisabledS]');
     breakMedium = getBreakpoint(row, wow.medium, '[name=breakpointDisabledM]');
     breakLarge = getBreakpoint(row, wow.large, '[name=breakpointDisabledL]');
-    console.log(breakSmall, breakMedium, breakLarge);
 
     // Gets the existing number of columns per row.
     function getRow(row, breakpoint) {
@@ -373,15 +374,14 @@ function wowLayout(row, edit) {
                     }
                     return true;
                 }
+                breakSmall = breakMedium = breakLarge = false;
                 breakSmall = checkBreakpoint('[name=breakpointDisabledS]');
                 breakMedium = checkBreakpoint('[name=breakpointDisabledM]');
                 breakLarge = checkBreakpoint('[name=breakpointDisabledL]');
-                console.log(breakSmall, breakMedium, breakLarge);
 
 
                 // Checks if all inputs are equal rows.
                 rowEqual = true;
-
                 function getRowEqual(perRow) {
                     var columnNum = $(perRow).val();
                     var breakpoint = $(perRow).attr('name').slice(-1);
@@ -473,17 +473,14 @@ function wowLayout(row, edit) {
                     }
                 }
                 if(breakSmall) {
-                    console.log("Setting small columns");
                     setColumns(row, '[name=columnPerRowS]', wow.small);
                 }
 
                 if(breakMedium) {
-                    console.log("Setting medium columns");
                     setColumns(row, '[name=columnPerRowM]', wow.medium);
                 }
 
                 if(breakLarge) {
-                    console.log("Setting large columns");
                     setColumns(row, '[name=columnPerRowL]', wow.large);
                 }
             }
