@@ -9,6 +9,8 @@ var hover = {
 
 // Modal screens.
 var mfp = {
+    confirm: "",
+    edit: "",
     delete: "",
     layout: ""
 };
@@ -16,8 +18,8 @@ var mfp = {
 // Loads all of the relevant strings from the grid HTML page.
 setTimeout(function() {
     $('body').append('<div class="wow-strings"></div>').append('<div class="wow-popups"></div>');
-    $('.wow-strings').load('https://homr0.github.io/wow-grid/js/grid.html .wow-menus');
-    $('.wow-popups').load('https://homr0.github.io/wow-grid/js/grid.html .wow-modals');
+    $('.wow-strings').load(wow.strings + ' .wow-menus');
+    $('.wow-popups').load(wow.strings + ' .wow-modals');
 }, 0);
 
 // Sets the hover menu strings.
@@ -30,6 +32,8 @@ setTimeout(function() {
 
 // Sets the Magnific popup modals.
 setTimeout(function() {
+    mfp.confirm = $('.wow-modal-choice').detach();
+    mfp.edit = $('.wow-modal-edit').detach();
     mfp.delete = $('.wow-modal-delete').detach();
     mfp.layout = $('.wow-modal-layout').detach();
 }, 150);

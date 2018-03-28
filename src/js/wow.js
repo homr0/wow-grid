@@ -25,7 +25,9 @@ $(document).ready(function() {
         large: 'large',                                 // Large scale layout
         equal: '-up-',                                  // Equal width column layout
         maxColumns: 12,                                 // Maximum number of columns per row.
-        maxEqual: 4                                     // Maximum number of equal width columns.
+        maxEqual: 4,                                    // Maximum number of equal width columns.
+
+        strings: '/js/grid.html'                        // URL for the HTML strings
     };
 
     // Changes the Wow Grid settings.
@@ -55,19 +57,23 @@ $(document).ready(function() {
         #=include 'wow-editor/wow-menus.js'
 
         //-------------------------------
-        // initialize Sortable ----------
+        // initializes Sortable ---------
         #=include '../node_modules/sortablejs/Sortable.min.js'
 
         //-------------------------------
         //  initializes Magnific Popups -
         #=include '../node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
 
+        // ------------------------------
+        //  initializes Squishi accordion tabs
+        #= include 'scripts/accordion-tabs.js'
+
         //-------------------------------
         // initializes the elements for the Wow Grid editor
         #=include 'wow-editor/wow-init.js'
 
         //-------------------------------
-        // initialize basic Wow Grid editor
+        // initializes basic Wow Grid editor
         #=include 'wow-editor/wow-content.js'
 
         //-------------------------------
