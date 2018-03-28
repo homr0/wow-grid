@@ -166,6 +166,18 @@
 
     <!-- Magnific popups -->
     <div class="wow-modals" id="wow-modal-menu">
+        <!-- Confirmation -->
+        <div class="wow-modal wow-modal-choice">
+            <div class="section">
+                <div class="row-1">
+                    <div class="column">
+                        <button class="wow-modal-confirm">Confirm</button>
+                        <button class="wow-modal-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Delete modal -->
         <div class="wow-modal wow-modal-delete">
             <div class="section">
@@ -580,13 +592,85 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="section">
-                <div class="row-1">
-                    <div class="column">
-                        <button class="wow-modal-confirm">Confirm</button>
-                        <button class="wow-modal-cancel">Cancel</button>
+        <!-- Edit modal -->
+        <div class="wow-modal wow-modal-edit">
+            <ul class="squishi squishi-tabs">
+                <li class="squishi-title active">
+                    <a href="#selectStyle">Style</a>
+                </li>
+
+                <li class="squishi-title">
+                    <a href="#selectLayout">Layout</a>
+                </li>
+
+                <li class="squishi-title">
+                    <a href="#selectCollapse">Row/Column Collapse</a>
+                </li>
+
+                <li class="squishi-title">
+                    <a href="#selectAlignColumn">Column Alignment</a>
+                </li>
+
+                <li class="squishi-title">
+                    <a href="#selectAlignModule">Module Alignment</a>
+                </li>
+
+                <li class="squishi-title">
+                    <a href="#selectSource">HTML Code</a>
+                </li>
+            </ul>
+
+            <div class="squishi-content">
+                <div class="section active" id="selectStyle">
+                    <div class="row" id="colorChoice">
+                        <div class="column-3">
+                            <p><strong>Select Background Color</strong></p>
+                        </div>
+
+                        <div class="column-6">
+                            <p><strong>Select Shade</strong></p>
+                        </div>
+
+                        <div class="column-3">
+                            <p><strong>Preview</strong></p>
+                        </div>
                     </div>
+
+                    <div class="row" id="idChoice">
+                        <div class="column-1">
+                            <label for="componentId"><strong>Component ID:</strong></label>
+                        </div>
+
+                        <div class="column-5">
+                            <input id="componentId" name="id" type="text">
+                        </div>
+
+                        <div class="column-6">
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="selectLayout">
+                    
+                </div>
+
+                <div class="section" id="selectCollapse">
+
+                </div>
+
+                <div class="section" id="selectAlignColumn">
+
+                </div>
+
+                <div class="section" id="selectAlignModule">
+
+                </div>
+
+                <div class="section" id="selectSource">
+
                 </div>
             </div>
         </div>

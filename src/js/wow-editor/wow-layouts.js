@@ -111,10 +111,11 @@ function wowRedistributeRow(row, breakpoint, count) {
 function wowLayout(row, edit) {
     if(edit) {
         // If this will be a layouts tab in the edit modal, then remove certain elements of the modal.
-
+        $('#selectLayout').append(mfp.layout);
     } else {
         // Otherwise, open the layouts modal on its own.
         $('#wow-modal-menu').html(mfp.layout);
+        $('.wow-modal-layout').append(mfp.confirm);
         $.magnificPopup.open({
             items: {
                 src: '#wow-modal-menu',

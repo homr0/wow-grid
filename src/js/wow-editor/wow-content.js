@@ -129,11 +129,45 @@ function wowMenu() {
 // functionality for adjusting layouts
 #=include 'wow-editor/wow-layouts.js'
 
+///--------------------------------
+// functionality for editing components
+#=include 'wow-editor/wow-edit.js'
+
 // Wow Grid Button Functions
 //  ------------------------
 // Configures the component.
 function wowEdit(wowFocus) {
+    $('#wow-modal-menu').html(mfp.edit);
+    $.magnificPopup.open({
+        items: {
+            src: '#wow-modal-menu',
+            type: 'inline'
+        },
+        modal: true
+    });
 
+    // Hides all of the title tabs.
+    $('.squishi-title').hide();
+
+    // Background color/image and id change functionality called.
+    $('.squishi-title a[href="#selectStyle"]').parent().show();
+
+    // Layout tab is called.
+    if((wowFocus).hasClass(wow.row.slice(1))) {
+        $('.squishi-title a[href="#selectLayout"]').parent().show();
+        wowLayout(wowFocus, true);
+    }
+
+    // Adds in the confirmation area.
+    $('.wow-modal-edit').append(mfp.confirm);
+
+    // Both buttons will close the modal.
+    $('.wow-modal-cancel, .wow-modal-confirm').on({
+        click: function(e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        }
+    })
 }
 
 // Duplicates the component.
