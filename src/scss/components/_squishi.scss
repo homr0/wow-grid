@@ -1,0 +1,32 @@
+/* Squishi Accordion Tabs styles. */
+.squishi {
+    padding: $squishi-padding;
+    text-align: left;
+
+    .squishi-title {
+        text-transform: uppercase;
+        color: $squishi-color;
+        display: inline;
+        padding: $squishi-padding;
+        font-weight: 700;
+        text-align: center;
+
+        &.active {
+            box-shadow: $squishi-shadow;
+        }
+
+        a {
+            color: $squishi-color;
+        }
+    }
+}
+
+.squishi-content {
+    > * {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
