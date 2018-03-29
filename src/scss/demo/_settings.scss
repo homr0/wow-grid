@@ -1,0 +1,32 @@
+// Internal map used for iterating through colors to generate CSS classes.
+$white: #ffffff;
+$black: #000000;
+
+$denim: #1779ba;
+$boulder: #767676;
+$shamrock: #3adb76;
+$yellow-sea: #ffae00;
+$mojo: #cc4b37;
+
+$primary: $denim;
+$secondary: $boulder;
+$success: $shamrock;
+$warning: $yellow-sea;
+$alert: $mojo;
+
+$demo-palette: (
+    primary: $primary,
+
+    secondary: $secondary,
+
+    success: $success,
+
+    alert: $alert,
+
+    warning: $warning,
+
+    black: $black,
+    white: $white
+) !default;
+
+$body-font-color: rgba(0,0,0,.75) !default;

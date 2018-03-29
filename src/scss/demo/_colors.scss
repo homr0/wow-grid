@@ -1,0 +1,131 @@
+// CSS color classes for demo.
+@mixin background($color) {
+    background-color: $color !important;
+    color: foreground($color);
+
+    a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }
+}
+
+/// Checks the lightness of `$color`, and if it passes the `$threshold` of lightness, it returns the `$yes` color. Otherwise, it returns the `$no` color. Use this function to dynamically output a foreground color based on a given background color.
+///
+/// @param {Color} $color - Color to check the lightness of.
+/// @param {Color} $yes [$black] - Color to return if `$color` is light.
+/// @param {Color} $no [$white] - Color to return if `$color` is dark.
+/// @param {Percentage} $threshold [60%] - Threshold of lightness to check against.
+///
+/// @returns {Color} The $yes color or $no color.
+@function foreground($color, $yes: $body-font-color, $no: $white, $threshold: 65%) {
+    @if lightness($color) > 90% {
+        @return $body-font-color;
+    }
+
+    @if lightness($color) > $threshold {
+        @return $yes;
+    }
+    @else {
+        @return $no;
+    }
+}
+
+//tint and shade over lighten and darken sass functions
+// http://www.sassmeister.com/gist/5df3b36554bbdc15ffbb
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
+
+//hsb color function
+@function hsba($h, $s: 50, $b: 50, $a: 1) {
+    @if $b == 0 {
+        @return hsla(0, 0, 0, $a);
+    }
+    @else {
+        $l: $b / 2 * (2 - $s / 100);
+        $s: $b * $s / if($l < 50, $l * 2, 200 - $l * 2);
+
+        @return hsla($h, $s, $l, $a);
+    }
+}
+
+@function mix-brightness($color, $percentage: 0) {
+    @if $percentage >= 0 {
+        @return mix(white, $color, $percentage);
+    }
+
+    @if $percentage < 0 {
+        $percentage: $percentage * -1;
+
+        @return mix(black, $color, $percentage);
+    }
+}
+
+@function mix-saturation($color, $percentage: 0) {
+    @if $percentage >= 0 {
+        $saturated-color: hsba(hue($color), 100, 100);
+
+        @return mix($saturated-color, $color, $percentage);
+    }
+
+    @if $percentage < 0 {
+        $percentage: $percentage * -1;
+
+        @return mix(grey, $color, $percentage);
+    }
+}
+
+@function alpha-opacity($color, $percentage: 0) {
+    $percentage: 1 - $percentage;
+
+    @return transparentize($color, $percentage);
+}
+
+@function color($color, $s: 0, $b: 0, $a: 1) {
+    @if saturation($color) == 0 {
+        $s: 0;
+    }
+
+    $processed-saturation: mix-saturation($color, $s);
+    $processed-brightness: mix-brightness($processed-saturation, $b);
+
+    @return alpha-opacity($processed-brightness, $a);
+}
+
+// Color classes
+@each $name, $color in $demo-palette {
+    &.text-#{$name} {
+        $color: color($color, $b: 0);
+
+        color: $color;
+
+        a {
+            color: $color;
+        }
+    }
+
+    &.#{$name} {
+        $color: color($color, $b: 0);
+
+        @include background($color);
+    }
+}
