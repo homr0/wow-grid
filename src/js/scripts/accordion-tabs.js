@@ -1,8 +1,9 @@
 // Accordion tabs for use in the Wow grid.
 $('body').on({
-    click: function() {
+    click: function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         var panelLink = $(this).children('a').attr('href');
-        console.log(panelLink);
         if($(this).parent().hasClass('active') && $(this).parent().hasClass('squishi-accordion')) {
             // If the squishi is not a set of tabs, then the
             $(this).removeClass('active');

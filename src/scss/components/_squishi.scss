@@ -19,6 +19,22 @@
             color: $squishi-color;
         }
     }
+
+    &.squishi-tabs.vertical {
+        float: left;
+
+        .squishi-title {
+            display: block;
+        }
+
+        + .squishi-content {
+            display: flex;
+
+            > .active {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .squishi-content {
