@@ -11,7 +11,8 @@ $('body').on({
         } else {
             if($(this).parent().hasClass('squishi-tabs')) {
                 // If the squishi is a set of tabs, then the other active tabs are closed.
-                $('.active').removeClass('active');
+                $(this).parent().children('.active').removeClass('active');
+                $(panelLink).parent().children('.active').removeClass('active');
             }
             $(this).addClass('active');
 
