@@ -138,19 +138,20 @@ function wowMenu() {
 // Configures the component.
 function wowEdit(wowFocus) {
     $('#wow-modal-menu').html(mfp.edit);
+    // Sets up the class names.
+    wowColorClasses();
     $.magnificPopup.open({
         items: {
             src: '#wow-modal-menu',
             type: 'inline'
-        },
-        modal: true
+        }
     });
 
     // Hides all of the title tabs.
-    $('.squishi-title').hide();
+    $('.wow-modal-edit').children('.squishi').first().children('.squishi-title').hide();
 
     // Background color/image and id change functionality called.
-    $('.squishi-title a[href="#selectStyle"]').parent().show();
+    $('.squishi-title a[href="#selectStyle"]').parent().show().trigger('click');
 
     // Layout tab is called.
     if((wowFocus).hasClass(wow.row.slice(1))) {

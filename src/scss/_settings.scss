@@ -12,8 +12,40 @@ $font-style: normal;
 $white: #ffffff;
 $black: #000000;
 
+$blue: #0000ff;
+$japan-laurel: #008000;
+$fresh-eggplant: #800080;
+$persian-rose: #ff1493;
+
+$regent-blue: #add8e6;
+$pastel-green: #90ee90;
+$magenta: #ee82ee;
+$pink: #ffb6c1;
+
+$seagull: #87ceeb;
+$green: #00ff00;
+$moon-raker: #e6e6fa;
+$sundown: #ffb1b3;
+
+$denim: #1779ba;
+$boulder: #767676;
+$shamrock: #3adb76;
+$yellow-sea: #ffae00;
+$mojo: #cc4b37;
+
+$primary: $denim;
+$secondary: $boulder;
+$success: $shamrock;
+$warning: $yellow-sea;
+$alert: $mojo;
+
+$section: $blue;
+$row: $japan-laurel;
+$column: $fresh-eggplant;
+$module: $persian-rose;
+
 // Buttons
-$button-background: #266ecd;
+$button-background: $primary;
 $button-color: $white;
 
 //  2. Hover Components
@@ -25,20 +57,20 @@ $menu-button-cover: 20px;
 $menu-tooltext-width: 120px;
 $menu-tooltext-center: $menu-tooltext-width / 2;
 
-$menu-section: blue;
-$menu-row: green;
-$menu-column: purple;
-$menu-module: deeppink;
+$menu-section: $section;
+$menu-row: $row;
+$menu-column: $column;
+$menu-module: $module;
 
-$hover-section: lightblue;
-$hover-row: lightgreen;
-$hover-column: violet;
-$hover-module: lightpink;
+$hover-section: $regent-blue;
+$hover-row: $pastel-green;
+$hover-column: $magenta;
+$hover-module: $pink;
 
-$editor-section: skyblue;
-$editor-row: lime;
-$editor-column: lavender;
-$editor-module: pink;
+$editor-section: $seagull;
+$editor-row: $green;
+$editor-column: $moon-raker;
+$editor-module: $sundown;
 $editor-shadow: inset 0px 0px 0px 3px;
 
 //  3. Editor Components
@@ -99,12 +131,12 @@ $modal-margin: 1rem;
 $modal-button-background: $button-background;
 $modal-button-color: $button-color;
 
-$modal-input-selected: pink;
+$modal-input-selected: $pink;
 
 $modal-grid-columns: 12;
 $modal-grid-equal-width: 4;
-$modal-column: lavender;
-$modal-border: violet;
+$modal-column: $editor-column;
+$modal-border: $hover-column;
 $modal-shadow: inset 0 0 0 0.125rem $modal-border;
 
 //  6. Squishi Custom Styles

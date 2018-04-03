@@ -625,12 +625,120 @@
             <div class="squishi-content">
                 <div class="section active" id="selectStyle">
                     <div class="row" id="colorChoice">
-                        <div class="column-3">
+                        <div class="column-3" id="colorBackground">
                             <p><strong>Select Background Color</strong></p>
+                            <ul class="squishi squishi-tabs vertical wow-color-choice">
+                                <li class="squishi-title" id="colorNone">
+                                    <a href="#nocolor">No Background Color</a>
+                                </li>
+
+                                <li class="squishi-title gray" id="colorGray">
+                                    <a href="#grayscale">Grayscale</a>
+                                </li>
+
+                                <li class="squishi-title primary" id="colorPrimary">
+                                    <a href="#primary">Primary</a>
+                                </li>
+
+                                <li class="squishi-title secondary" id="colorSecondary">
+                                    <a href="#secondary">Secondary</a>
+                                </li>
+
+                                <li class="squishi-title alternate" id="colorAlternate">
+                                    <a href="#alternate">Alternate</a>
+                                </li>
+
+                                <li class="squishi-title accent" id="colorAccent">
+                                    <a href="#accent">Accent</a>
+                                </li>
+
+                                <li class="squishi-title success" id="colorSuccess">
+                                    <a href="#success">Success</a>
+                                </li>
+
+                                <li class="squishi-title warning" id="colorWarning">
+                                    <a href="#warning">Warning</a>
+                                </li>
+
+                                <li class="squishi-title alert" id="colorAlert">
+                                    <a href="#alert">Alert</a>
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="column-6">
+                        <div class="column-6" id="colorShade">
                             <p><strong>Select Shade</strong></p>
+                            <div class="squishi-content wow-modal-options">
+                                <div id="nocolor">
+                                    <input type="radio" name="backgroundColor" id="wowColorNone" value="none">
+                                </div>
+
+                                <div id="grayscale">
+                                    <input type="radio" name="backgroundColor" id="wowColorWhite">
+                                    <label for="wowColorWhite">
+                                        White
+                                    </label>
+
+                                    <input type="radio" name="backgroundColor" id="wowColorGray">
+                                    <label for="wowColorGray">
+                                        Gray
+                                    </label>
+
+                                    <input type="radio" name="backgroundColor" id="wowColorBlack">
+                                    <label for="wowColorBlack">
+                                        Black
+                                    </label>
+                                </div>
+
+                                <div id="primary">
+                                    <input type="radio" name="backgroundColor" id="wowColorPrimary" value="primary">
+                                    <label for="wowColorPrimary">
+                                        Primary
+                                    </label>
+                                </div>
+
+                                <div id="secondary">
+                                    <input type="radio" name="backgroundColor" id="wowColorSecondary" value="secondary">
+                                    <label for="wowColorSecondary">
+                                        Secondary
+                                    </label>
+                                </div>
+
+                                <div id="alternate">
+                                    <input type="radio" name="backgroundColor" id="wowColorAlternate" value="alternate">
+                                    <label for="wowColorAlternate">
+                                        Alternate
+                                    </label>
+                                </div>
+
+                                <div id="accent">
+                                    <input type="radio" name="backgroundColor" id="wowColorAccent" value="accent">
+                                    <label for="wowColorAccent">
+                                        Accent
+                                    </label>
+                                </div>
+
+                                <div id="success">
+                                    <input type="radio" name="backgroundColor" id="wowColorSuccess" value="success">
+                                    <label for="wowColorSuccess">
+                                        Success
+                                    </label>
+                                </div>
+
+                                <div id="warning">
+                                    <input type="radio" name="backgroundColor" id="wowColorWarning" value="warning">
+                                    <label for="wowColorWarning">
+                                        Warning
+                                    </label>
+                                </div>
+
+                                <div id="alert">
+                                    <input type="radio" name="backgroundColor" id="wowColorAlert" value="alert">
+                                    <label for="wowColorAlert">
+                                        Alert
+                                    </label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="column-3">
@@ -654,7 +762,7 @@
                 </div>
 
                 <div class="section" id="selectLayout">
-                    
+
                 </div>
 
                 <div class="section" id="selectCollapse">

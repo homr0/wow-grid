@@ -123,4 +123,53 @@
         margin: auto;
         width: 80%;
     }
+
+    // Modal for editing a component.
+    &.wow-modal-edit {
+
+        #colorChoice {
+            #colorBackground {
+                .wow-color-choice.squishi {
+                    width: 100%;
+
+                    .squishi-title {
+                        text-align: center;
+                        height: 30px;
+                        padding: 0;
+                        opacity: 0.75;
+                        text-transform: none;
+
+                        &.active {
+                            box-shadow: none;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .squishi-content {
+                .wow-color-button {
+                    display: inline-table;
+                    width: 100px;
+                    height: 100px;
+                    position: relative;
+                    border: 1px dotted $module;
+
+                    p {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                }
+
+                input[type=radio]:checked + .wow-color-button {
+                    opacity: 0.9;
+
+                    :before {
+                        content: '\2714';
+                    }
+                }
+            }
+        }
+    }
 }
