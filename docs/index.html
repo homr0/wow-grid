@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" crossorigin="anonymous">
 
     <!-- Local stylesheet -->
+    <link rel="stylesheet" href="css/demo.css">
     <link rel="stylesheet" href="css/wow.css">
 
     <!-- Local JavaScript-->
@@ -165,11 +166,8 @@
 
     <script>
         $(document).ready(function() {
-            console.log("Inline scripts here...");
-
             // Initiates editor.
             $('.ou-btn.button').on('click', function() {
-                console.log('clicked');
                 $(this).parent().addClass('ou-justedit-region mce-content-body mce-edit-focus');
             });
 
@@ -180,7 +178,6 @@
 
             // Emulates the exit without saving functionality
             $('[aria-label="Exit Without Saving"]').on('click', function() {
-                console.log("Exited without saving");
                 $('.ou-justedit-region.mce-content-body').removeClass('ou-justedit-region mce-content-body');
             });
         });

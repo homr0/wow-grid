@@ -2889,50 +2889,50 @@ html {
   pointer-events: all; }
   /* line 40, src/scss/components/_masonry.scss */
   .wow-editor.section {
-    background-color: skyblue; }
+    background-color: #87ceeb; }
     /* line 43, src/scss/components/_masonry.scss */
     .wow-editor.section.wow-hover {
-      -webkit-box-shadow: inset 0px 0px 0px 3px lightblue;
-              box-shadow: inset 0px 0px 0px 3px lightblue; }
+      -webkit-box-shadow: inset 0px 0px 0px 3px #add8e6;
+              box-shadow: inset 0px 0px 0px 3px #add8e6; }
     /* line 47, src/scss/components/_masonry.scss */
     .wow-editor.section.wow-highlight {
-      -webkit-box-shadow: inset 0px 0px 0px 3px blue;
-              box-shadow: inset 0px 0px 0px 3px blue; }
+      -webkit-box-shadow: inset 0px 0px 0px 3px #0000ff;
+              box-shadow: inset 0px 0px 0px 3px #0000ff; }
   /* line 52, src/scss/components/_masonry.scss */
   .wow-editor.row, .wow-editor.grid-x {
-    background-color: lime; }
+    background-color: #00ff00; }
     /* line 55, src/scss/components/_masonry.scss */
     .wow-editor.row.wow-hover, .wow-editor.grid-x.wow-hover {
-      -webkit-box-shadow: inset 0px 0px 0px 3px lightgreen;
-              box-shadow: inset 0px 0px 0px 3px lightgreen; }
+      -webkit-box-shadow: inset 0px 0px 0px 3px #90ee90;
+              box-shadow: inset 0px 0px 0px 3px #90ee90; }
     /* line 59, src/scss/components/_masonry.scss */
     .wow-editor.row.wow-highlight, .wow-editor.grid-x.wow-highlight {
-      -webkit-box-shadow: inset 0px 0px 0px 3px green;
-              box-shadow: inset 0px 0px 0px 3px green; }
+      -webkit-box-shadow: inset 0px 0px 0px 3px #008000;
+              box-shadow: inset 0px 0px 0px 3px #008000; }
   /* line 64, src/scss/components/_masonry.scss */
   .wow-editor.column, .wow-editor.cell {
-    background-color: lavender; }
+    background-color: #e6e6fa; }
     /* line 67, src/scss/components/_masonry.scss */
     .wow-editor.column.wow-hover, .wow-editor.cell.wow-hover {
-      -webkit-box-shadow: inset 0px 0px 0px 3px violet;
-              box-shadow: inset 0px 0px 0px 3px violet; }
+      -webkit-box-shadow: inset 0px 0px 0px 3px #ee82ee;
+              box-shadow: inset 0px 0px 0px 3px #ee82ee; }
     /* line 71, src/scss/components/_masonry.scss */
     .wow-editor.column.wow-highlight, .wow-editor.cell.wow-highlight {
-      -webkit-box-shadow: inset 0px 0px 0px 3px purple;
-              box-shadow: inset 0px 0px 0px 3px purple; }
+      -webkit-box-shadow: inset 0px 0px 0px 3px #800080;
+              box-shadow: inset 0px 0px 0px 3px #800080; }
   /* line 76, src/scss/components/_masonry.scss */
   .wow-editor.module {
-    background-color: pink;
+    background-color: #ffb1b3;
     min-height: 30px;
     word-wrap: break-word; }
     /* line 81, src/scss/components/_masonry.scss */
     .wow-editor.module.wow-hover {
-      -webkit-box-shadow: inset 0px 0px 0px 3px lightpink;
-              box-shadow: inset 0px 0px 0px 3px lightpink; }
+      -webkit-box-shadow: inset 0px 0px 0px 3px #ffb6c1;
+              box-shadow: inset 0px 0px 0px 3px #ffb6c1; }
     /* line 85, src/scss/components/_masonry.scss */
     .wow-editor.module.wow-highlight {
-      -webkit-box-shadow: inset 0px 0px 0px 3px deeppink;
-              box-shadow: inset 0px 0px 0px 3px deeppink; }
+      -webkit-box-shadow: inset 0px 0px 0px 3px #ff1493;
+              box-shadow: inset 0px 0px 0px 3px #ff1493; }
 
 /* line 91, src/scss/components/_masonry.scss */
 .disabled {
@@ -3029,31 +3029,31 @@ html {
 /* Section hover menu styles. */
 /* line 9, src/scss/components/_hover-menu.scss */
 .wow-section {
-  background-color: blue;
+  background-color: #0000ff;
   z-index: 0; }
 
 /* Row hover menu styles. */
 /* line 15, src/scss/components/_hover-menu.scss */
 .wow-row {
-  background-color: green;
+  background-color: #008000;
   z-index: 1; }
 
 /* Column hover menu styles. */
 /* line 21, src/scss/components/_hover-menu.scss */
 .wow-column {
-  background-color: purple;
+  background-color: #800080;
   z-index: 2; }
 
 /* Module hover menu styles. */
 /* line 27, src/scss/components/_hover-menu.scss */
 .wow-module {
-  background-color: deeppink;
+  background-color: #ff1493;
   z-index: 3; }
 
 /* Banner hover menu styles. */
 /* line 33, src/scss/components/_hover-menu.scss */
 .wow-banner {
-  background-color: blue;
+  background-color: #0000ff;
   z-index: 4; }
   /* line 37, src/scss/components/_hover-menu.scss */
   .wow-banner:before {
@@ -3233,16 +3233,16 @@ html {
   border: 1px dashed lavender; }
   /* line 239, src/scss/components/_hover-menu.scss */
   .wow-sort-ghost.section {
-    border-color: skyblue; }
+    border-color: #87ceeb; }
   /* line 243, src/scss/components/_hover-menu.scss */
   .wow-sort-ghost.row, .wow-sort-ghost.grid-x {
-    border-color: lime; }
+    border-color: #00ff00; }
   /* line 247, src/scss/components/_hover-menu.scss */
   .wow-sort-ghost.column, .wow-sort-ghost.cell {
-    border-color: lavender; }
+    border-color: #e6e6fa; }
   /* line 251, src/scss/components/_hover-menu.scss */
   .wow-sort-ghost.module {
-    border-color: pink; }
+    border-color: #ffb1b3; }
 
 /* Magnific Popup styles. */
 /* line 3, src/scss/components/_modal.scss */
@@ -3277,7 +3277,7 @@ html {
     padding: 1rem 2rem;
     margin: 0 0 1rem;
     font-size: 0.9rem;
-    background-color: #266ecd;
+    background-color: #1779ba;
     color: #ffffff;
     margin: 1rem 0; }
   /* line 43, src/scss/components/_modal.scss */
@@ -3300,41 +3300,120 @@ html {
     width: auto !important;
     margin: auto; }
   /* line 71, src/scss/components/_modal.scss */
+  #wow-modal-menu .wow-modal .wow-modal-options label > input[type=text] {
+    display: inline-block;
+    width: 100%; }
+  /* line 76, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal .wow-modal-options input[type=number] {
     text-align: center; }
-  /* line 75, src/scss/components/_modal.scss */
+  /* line 80, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal .wow-modal-options input[type=radio] {
     visibility: hidden;
     display: none; }
-  /* line 80, src/scss/components/_modal.scss */
+  /* line 85, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal .wow-modal-options input[type=checkbox] {
     text-align: left; }
-  /* line 84, src/scss/components/_modal.scss */
+  /* line 89, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal .wow-modal-options input[type=radio] + label {
     cursor: pointer;
     padding: 0.125rem;
     display: inline-block;
     vertical-align: baseline;
     margin: 0 !important; }
-  /* line 92, src/scss/components/_modal.scss */
+  /* line 97, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal .wow-modal-options input[type=radio]:checked + label {
-    background-color: pink; }
-  /* line 96, src/scss/components/_modal.scss */
+    background-color: #ffb6c1; }
+  /* line 101, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal .wow-modal-options .wow-image {
     width: 100%; }
-    /* line 100, src/scss/components/_modal.scss */
+    /* line 105, src/scss/components/_modal.scss */
     #wow-modal-menu .wow-modal .wow-modal-options .wow-image .row .column, #wow-modal-menu .wow-modal .wow-modal-options .wow-image .row [class*='column-'], #wow-modal-menu .wow-modal .wow-modal-options .wow-image [class*='row-'] .column, #wow-modal-menu .wow-modal .wow-modal-options .wow-image [class*='row-'] [class*='column-'] {
-      background-color: lavender;
+      background-color: #e6e6fa;
       margin: 0.125rem; }
-  /* line 109, src/scss/components/_modal.scss */
+  /* line 114, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal.wow-modal-delete {
     margin: auto;
     padding: 10px 20px;
     text-align: center;
     width: 20%; }
-  /* line 117, src/scss/components/_modal.scss */
+  /* line 122, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal.wow-modal-layout {
     margin: auto;
     width: 80%; }
+  /* line 132, src/scss/components/_modal.scss */
+  #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice #colorBackground .wow-color-choice.squishi {
+    width: 100%; }
+    /* line 135, src/scss/components/_modal.scss */
+    #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice #colorBackground .wow-color-choice.squishi .squishi-title {
+      text-align: center;
+      height: 30px;
+      padding: 0;
+      opacity: 0.75;
+      text-transform: none; }
+      /* line 142, src/scss/components/_modal.scss */
+      #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice #colorBackground .wow-color-choice.squishi .squishi-title.active {
+        -webkit-box-shadow: none;
+                box-shadow: none;
+        opacity: 1; }
+  /* line 151, src/scss/components/_modal.scss */
+  #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content .wow-color-button {
+    display: inline-table;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border: 1px dotted #ff1493; }
+    /* line 158, src/scss/components/_modal.scss */
+    #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content .wow-color-button p {
+      position: absolute;
+      bottom: 0;
+      width: 100%; }
+  /* line 165, src/scss/components/_modal.scss */
+  #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content input[type=radio]:checked + .wow-color-button {
+    opacity: 0.9; }
+    /* line 168, src/scss/components/_modal.scss */
+    #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content input[type=radio]:checked + .wow-color-button :before {
+      content: '\2714'; }
+
+/* Squishi Accordion Tabs styles. */
+/* line 2, src/scss/components/_squishi.scss */
+.squishi {
+  padding: 1rem;
+  text-align: left; }
+  /* line 6, src/scss/components/_squishi.scss */
+  .squishi .squishi-title {
+    text-transform: uppercase;
+    color: #000000;
+    display: inline;
+    padding: 1rem;
+    font-weight: 700;
+    text-align: center; }
+    /* line 14, src/scss/components/_squishi.scss */
+    .squishi .squishi-title.active {
+      -webkit-box-shadow: inset 0px -3px 0px 0px blue;
+              box-shadow: inset 0px -3px 0px 0px blue; }
+    /* line 18, src/scss/components/_squishi.scss */
+    .squishi .squishi-title a {
+      color: #000000; }
+  /* line 23, src/scss/components/_squishi.scss */
+  .squishi.squishi-tabs.vertical {
+    float: left; }
+    /* line 26, src/scss/components/_squishi.scss */
+    .squishi.squishi-tabs.vertical .squishi-title {
+      display: block; }
+    /* line 30, src/scss/components/_squishi.scss */
+    .squishi.squishi-tabs.vertical + .squishi-content {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      /* line 33, src/scss/components/_squishi.scss */
+      .squishi.squishi-tabs.vertical + .squishi-content > .active {
+        width: 100%; }
+
+/* line 41, src/scss/components/_squishi.scss */
+.squishi-content > * {
+  display: none; }
+  /* line 44, src/scss/components/_squishi.scss */
+  .squishi-content > *.active {
+    display: block; }
 
 /*# sourceMappingURL=wow.css.map */
