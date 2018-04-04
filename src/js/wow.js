@@ -1,8 +1,14 @@
 #=include '../node_modules/jquery/dist/jquery.min.js'
 
-$(document).ready(function() {
-    console.log("ready!");
+//-------------------------------
+// initializes Sortable ---------
+#=include '../node_modules/sortablejs/Sortable.min.js'
 
+//-------------------------------
+//  initializes Magnific Popups -
+#=include '../node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
+
+$(document).ready(function() {
     // Settings for the Wow Grid.
     var wow = {
         editor: '.ou-justedit-region',                  // Edit region class, tag, or id.
@@ -29,6 +35,13 @@ $(document).ready(function() {
 
         strings: '/js/grid.html'                        // URL for the HTML strings
     };
+        // ------------------------------
+        //  initializes Squishi accordion tabs
+        #= include 'scripts/accordion-tabs.js'
+
+        //-------------------------------
+        // initializes the HTML strings
+        #=include 'wow-editor/wow-menus.js'
 
     // Changes the Wow Grid settings.
     function wowSet() {
@@ -50,23 +63,6 @@ $(document).ready(function() {
 
     // Loads up the editor.
     function wowEditor() {
-        console.log("Now ready to edit");
-
-        //-------------------------------
-        // initializes the HTML strings
-        #=include 'wow-editor/wow-menus.js'
-
-        //-------------------------------
-        // initializes Sortable ---------
-        #=include '../node_modules/sortablejs/Sortable.min.js'
-
-        //-------------------------------
-        //  initializes Magnific Popups -
-        #=include '../node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
-
-        // ------------------------------
-        //  initializes Squishi accordion tabs
-        #= include 'scripts/accordion-tabs.js'
 
         //-------------------------------
         // initializes the elements for the Wow Grid editor

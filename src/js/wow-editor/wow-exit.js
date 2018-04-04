@@ -6,8 +6,10 @@ function wowClean() {
     $('body').off('click', '**');
     $('body').off('mouseleave', '**');
 
-    // Attaches all strings to be deleted.
-    $('.wow-strings').append(hover.section, hover.row, hover.column, hover.module).remove();
+    // Removes all strings and popup divs.
+    $('.wow-strings').remove();
+    $('.wow-popups').remove();
+    $('.mfp-hide').remove();
 
     // Cleans up any empty class, style, and id attributes.
     $('*[class=""]').removeAttr('class');
@@ -18,21 +20,19 @@ function wowClean() {
     });
     $('*[style=""]').removeAttr('style');
 
+    // Saves module content.
+    $('#wow-container ' + wow.column).each(function(index) {
+        $(this).find(wow.module).each(function() {
+            var wowContent = $(this).find('.editable-bounds').contents();
+            $(this).html(wowContent);
+        });
+    });
+    $('#wow-container ' + wow.section).unwrap();
+
     // Removes the editor indicators.
     $('.wow-editor').removeClass('wow-editor');
     $('.wow-hover').removeClass('wow-hover');
     $('.wow-highlight').removeClass('wow-highlight');
-
-    // Saves module content.
-    $(wow.editor + " " + wow.column).each(function(index) {
-        $(this).find(wow.module).each(function() {
-            var wowContent = $(this).find('.editable-bounds').contents();
-            $(this).find('.editable-bounds').replaceWith(wowContent);
-        });
-    });
-
-    // Removes the sortable container.
-    $('#' + wow.sortId + " " + wow.section).unwrap();
 }
 
 $(wow.saveExit).on('click', function() {

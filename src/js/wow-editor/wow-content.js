@@ -152,6 +152,7 @@ function wowEdit(wowFocus) {
 
     // Background color/image and id change functionality called.
     $('.squishi-title a[href="#selectStyle"]').parent().show().trigger('click');
+    wowColorChange(wowFocus);
 
     // Layout tab is called.
     if((wowFocus).hasClass(wow.row.slice(1))) {
