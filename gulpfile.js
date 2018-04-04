@@ -89,7 +89,7 @@ gulp.task('pages', function() {
 
 // Deletes the "dist" directory
 gulp.task('clean', function() {
-    return del.sync('./dist');
+    return del.sync('dist');
 });
 
 // Waches for any changes in Gulp.
@@ -101,20 +101,24 @@ gulp.task('watch', ['browser', 'sass'], function() {
 
 // Builds the site.
 gulp.task('build', function(done) {
-    sequence(['clean', 'docs:clean'],['sass', 'javascript', 'pages'], 'docs', done);
+    sequence(['clean'],['sass', 'javascript', 'pages'], done);
 });
 
 // Builds the site and watches for file changes.
 gulp.task('default', function(done) {
-    sequence('build', 'watch', done);
+    sequence('build', 'docs:build', 'watch', done);
 });
 
 // Sets up the GitHub pages.
 gulp.task('docs', function() {
-    return gulp.src('dist/**/*')
+    return gulp.src('dist/**/*.*')
         .pipe(gulp.dest('docs/'))
 });
 
 gulp.task('docs:clean', function() {
-    return del.sync('./docs');
+    return del.sync('docs');
+});
+
+gulp.task('docs:build', function(done) {
+    sequence('docs:clean', 'docs', done);
 });
