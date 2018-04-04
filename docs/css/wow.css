@@ -3367,12 +3367,9 @@ html {
       position: absolute;
       bottom: 0;
       width: 100%; }
-  /* line 165, src/scss/components/_modal.scss */
-  #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content input[type=radio]:checked + .wow-color-button {
-    opacity: 0.9; }
-    /* line 168, src/scss/components/_modal.scss */
-    #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content input[type=radio]:checked + .wow-color-button :before {
-      content: '\2714'; }
+  /* line 168, src/scss/components/_modal.scss */
+  #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content input[type=radio]:checked + .wow-color-button :before {
+    content: '\2714'; }
 
 /* Squishi Accordion Tabs styles. */
 /* line 2, src/scss/components/_squishi.scss */
@@ -3386,33 +3383,34 @@ html {
     display: inline;
     padding: 1rem;
     font-weight: 700;
-    text-align: center; }
-    /* line 14, src/scss/components/_squishi.scss */
+    text-align: center;
+    cursor: pointer; }
+    /* line 15, src/scss/components/_squishi.scss */
     .squishi .squishi-title.active {
       -webkit-box-shadow: inset 0px -3px 0px 0px blue;
               box-shadow: inset 0px -3px 0px 0px blue; }
-    /* line 18, src/scss/components/_squishi.scss */
+    /* line 19, src/scss/components/_squishi.scss */
     .squishi .squishi-title a {
       color: #000000; }
-  /* line 23, src/scss/components/_squishi.scss */
+  /* line 24, src/scss/components/_squishi.scss */
   .squishi.squishi-tabs.vertical {
     float: left; }
-    /* line 26, src/scss/components/_squishi.scss */
+    /* line 27, src/scss/components/_squishi.scss */
     .squishi.squishi-tabs.vertical .squishi-title {
       display: block; }
-    /* line 30, src/scss/components/_squishi.scss */
+    /* line 31, src/scss/components/_squishi.scss */
     .squishi.squishi-tabs.vertical + .squishi-content {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex; }
-      /* line 33, src/scss/components/_squishi.scss */
+      /* line 34, src/scss/components/_squishi.scss */
       .squishi.squishi-tabs.vertical + .squishi-content > .active {
         width: 100%; }
 
-/* line 41, src/scss/components/_squishi.scss */
+/* line 42, src/scss/components/_squishi.scss */
 .squishi-content > * {
   display: none; }
-  /* line 44, src/scss/components/_squishi.scss */
+  /* line 45, src/scss/components/_squishi.scss */
   .squishi-content > *.active {
     display: block; }
 

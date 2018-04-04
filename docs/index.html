@@ -20,12 +20,18 @@
             font-size: 100%;
             font-family: sans-serif;
         }
+
+        header {
+            padding: 1rem;
+            margin: 1rem;
+            text-align: center;
+        }
         .page {
             width: 100%;
             margin: 0;
             padding: 0;
             display: flex;
-            position: absolute;
+            position: relative;
             top: 100px;
         }
 
@@ -42,6 +48,12 @@
             min-width: 0;
             position: relative;
             flex: 1 1 0px;
+        }
+
+        .btn-toolbar {
+            margin: 0;
+            padding: 0;
+            position: relative;
         }
 
         .mce-widget.mce-btn {
@@ -62,12 +74,14 @@
 
 <body>
     <header>
-
+        <h1>Wow Grid Demo</h1>
+        <p>This is the demo for the Wow Grid. To start, click "Edit Main Content" below. When finished, click either "save and exit" or "exit without saving". If you click "save and exit", the page will need to be refreshed to use the demo again.</p>
     </header>
+    <div class="btn-toolbar">
+        <div id="mceu_0" class="mce-widget mce-btn mce-first " tabindex="-1" aria-labelledby="mceu_0" role="button" aria-label="Save and Exit"><button class="button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-save"></i>save and exit</button></div>
 
-    <div id="mceu_0" class="mce-widget mce-btn mce-first " tabindex="-1" aria-labelledby="mceu_0" role="button" aria-label="Save and Exit"><button class="button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-save"></i>save and exit</button></div>
-
-    <div id="mceu_1" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_1" role="button" aria-label="Exit Without Saving"><button class="button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-close"></i>exit without saving</button></div>
+        <div id="mceu_1" class="mce-widget mce-btn mce-last" tabindex="-1" aria-labelledby="mceu_1" role="button" aria-label="Exit Without Saving"><button class="button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-close"></i>exit without saving</button></div>
+    </div>
 
     <div class="page">
         <div class="left-sidebar">

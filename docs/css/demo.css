@@ -1,11 +1,11 @@
-/* line 116, src/scss/demo/_colors.scss */
+/* line 179, src/scss/demo/_colors.scss */
 .text-primary {
   color: #1779ba; }
-  /* line 121, src/scss/demo/_colors.scss */
+  /* line 184, src/scss/demo/_colors.scss */
   .text-primary a {
     color: #1779ba; }
 
-/* line 126, src/scss/demo/_colors.scss */
+/* line 189, src/scss/demo/_colors.scss */
 .primary {
   background-color: #1779ba !important;
   color: #ffffff;
@@ -18,14 +18,114 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
+/* line 179, src/scss/demo/_colors.scss */
+.text-primary-tint {
+  color: #d4e4ef; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-primary-tint a {
+    color: #d4e4ef; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.primary-tint {
+  background-color: #d4e4ef !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-primary-shade {
+  color: #0e4970; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-primary-shade a {
+    color: #0e4970; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.primary-shade {
+  background-color: #0e4970 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-primary-strong {
+  color: #1083cf; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-primary-strong a {
+    color: #1083cf; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.primary-strong {
+  background-color: #1083cf !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-primary-weak {
+  color: #617e91; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-primary-weak a {
+    color: #617e91; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.primary-weak {
+  background-color: #617e91 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-primary-transparent {
+  color: rgba(23, 121, 186, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-primary-transparent a {
+    color: rgba(23, 121, 186, 0.64); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.primary-transparent {
+  background-color: rgba(23, 121, 186, 0.64) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
 .text-secondary {
   color: #767676; }
-  /* line 121, src/scss/demo/_colors.scss */
+  /* line 184, src/scss/demo/_colors.scss */
   .text-secondary a {
     color: #767676; }
 
-/* line 126, src/scss/demo/_colors.scss */
+/* line 189, src/scss/demo/_colors.scss */
 .secondary {
   background-color: #767676 !important;
   color: #ffffff;
@@ -38,16 +138,36 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
-.text-success {
-  color: #3adb76; }
-  /* line 121, src/scss/demo/_colors.scss */
-  .text-success a {
-    color: #3adb76; }
+/* line 179, src/scss/demo/_colors.scss */
+.text-secondary-tint {
+  color: #e4e4e4; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-secondary-tint a {
+    color: #e4e4e4; }
 
-/* line 126, src/scss/demo/_colors.scss */
-.success {
-  background-color: #3adb76 !important;
+/* line 189, src/scss/demo/_colors.scss */
+.secondary-tint {
+  background-color: #e4e4e4 !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-secondary-shade {
+  color: #474747; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-secondary-shade a {
+    color: #474747; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.secondary-shade {
+  background-color: #474747 !important;
   color: #ffffff;
   /*a:not(.button) {
         color: currentColor;
@@ -58,16 +178,16 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
-.text-alert {
-  color: #cc4b37; }
-  /* line 121, src/scss/demo/_colors.scss */
-  .text-alert a {
-    color: #cc4b37; }
+/* line 179, src/scss/demo/_colors.scss */
+.text-secondary-strong {
+  color: #767676; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-secondary-strong a {
+    color: #767676; }
 
-/* line 126, src/scss/demo/_colors.scss */
-.alert {
-  background-color: #cc4b37 !important;
+/* line 189, src/scss/demo/_colors.scss */
+.secondary-strong {
+  background-color: #767676 !important;
   color: #ffffff;
   /*a:not(.button) {
         color: currentColor;
@@ -78,14 +198,54 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
+/* line 179, src/scss/demo/_colors.scss */
+.text-secondary-weak {
+  color: #767676; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-secondary-weak a {
+    color: #767676; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.secondary-weak {
+  background-color: #767676 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-secondary-transparent {
+  color: rgba(118, 118, 118, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-secondary-transparent a {
+    color: rgba(118, 118, 118, 0.64); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.secondary-transparent {
+  background-color: rgba(118, 118, 118, 0.64) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
 .text-alternate {
   color: #00b5ff; }
-  /* line 121, src/scss/demo/_colors.scss */
+  /* line 184, src/scss/demo/_colors.scss */
   .text-alternate a {
     color: #00b5ff; }
 
-/* line 126, src/scss/demo/_colors.scss */
+/* line 189, src/scss/demo/_colors.scss */
 .alternate {
   background-color: #00b5ff !important;
   color: #ffffff;
@@ -98,14 +258,114 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
+/* line 179, src/scss/demo/_colors.scss */
+.text-alternate-tint {
+  color: #d0effb; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alternate-tint a {
+    color: #d0effb; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alternate-tint {
+  background-color: #d0effb !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alternate-shade {
+  color: #006d99; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alternate-shade a {
+    color: #006d99; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alternate-shade {
+  background-color: #006d99 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alternate-strong {
+  color: #00b5ff; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alternate-strong a {
+    color: #00b5ff; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alternate-strong {
+  background-color: #00b5ff !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alternate-weak {
+  color: #5a90a6; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alternate-weak a {
+    color: #5a90a6; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alternate-weak {
+  background-color: #5a90a6 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alternate-transparent {
+  color: rgba(0, 181, 255, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alternate-transparent a {
+    color: rgba(0, 181, 255, 0.64); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alternate-transparent {
+  background-color: rgba(0, 181, 255, 0.64) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
 .text-accent {
   color: #c54b4e; }
-  /* line 121, src/scss/demo/_colors.scss */
+  /* line 184, src/scss/demo/_colors.scss */
   .text-accent a {
     color: #c54b4e; }
 
-/* line 126, src/scss/demo/_colors.scss */
+/* line 189, src/scss/demo/_colors.scss */
 .accent {
   background-color: #c54b4e !important;
   color: #ffffff;
@@ -118,14 +378,354 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
+/* line 179, src/scss/demo/_colors.scss */
+.text-accent-tint {
+  color: #f1dddd; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-accent-tint a {
+    color: #f1dddd; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.accent-tint {
+  background-color: #f1dddd !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-accent-shade {
+  color: #762d2f; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-accent-shade a {
+    color: #762d2f; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.accent-shade {
+  background-color: #762d2f !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-accent-strong {
+  color: #d63538; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-accent-strong a {
+    color: #d63538; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.accent-strong {
+  background-color: #d63538 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-accent-weak {
+  color: #957071; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-accent-weak a {
+    color: #957071; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.accent-weak {
+  background-color: #957071 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-accent-transparent {
+  color: rgba(197, 75, 78, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-accent-transparent a {
+    color: rgba(197, 75, 78, 0.64); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.accent-transparent {
+  background-color: rgba(197, 75, 78, 0.64) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-success {
+  color: #3adb76; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-success a {
+    color: #3adb76; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.success {
+  background-color: #3adb76 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-success-tint {
+  color: #daf5e4; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-success-tint a {
+    color: #daf5e4; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.success-tint {
+  background-color: #daf5e4 !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-success-shade {
+  color: #238347; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-success-shade a {
+    color: #238347; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.success-shade {
+  background-color: #238347 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-success-strong {
+  color: #29e66f; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-success-strong a {
+    color: #29e66f; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.success-strong {
+  background-color: #29e66f !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-success-weak {
+  color: #6b9b7d; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-success-weak a {
+    color: #6b9b7d; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.success-weak {
+  background-color: #6b9b7d !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-success-transparent {
+  color: rgba(58, 219, 118, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-success-transparent a {
+    color: rgba(58, 219, 118, 0.64); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.success-transparent {
+  background-color: rgba(58, 219, 118, 0.64) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alert {
+  color: #cc4b37; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alert a {
+    color: #cc4b37; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alert {
+  background-color: #cc4b37 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alert-tint {
+  color: #f3ddd9; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alert-tint a {
+    color: #f3ddd9; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alert-tint {
+  background-color: #f3ddd9 !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alert-shade {
+  color: #7a2d21; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alert-shade a {
+    color: #7a2d21; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alert-shade {
+  background-color: #7a2d21 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alert-strong {
+  color: #db3f27; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alert-strong a {
+    color: #db3f27; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alert-strong {
+  background-color: #db3f27 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alert-weak {
+  color: #97706a; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alert-weak a {
+    color: #97706a; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alert-weak {
+  background-color: #97706a !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-alert-transparent {
+  color: rgba(204, 75, 55, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-alert-transparent a {
+    color: rgba(204, 75, 55, 0.64); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.alert-transparent {
+  background-color: rgba(204, 75, 55, 0.64) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
 .text-warning {
   color: #ffae00; }
-  /* line 121, src/scss/demo/_colors.scss */
+  /* line 184, src/scss/demo/_colors.scss */
   .text-warning a {
     color: #ffae00; }
 
-/* line 126, src/scss/demo/_colors.scss */
+/* line 189, src/scss/demo/_colors.scss */
 .warning {
   background-color: #ffae00 !important;
   color: #ffffff;
@@ -138,14 +738,174 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
+/* line 179, src/scss/demo/_colors.scss */
+.text-warning-tint {
+  color: #fbedd0; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-warning-tint a {
+    color: #fbedd0; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.warning-tint {
+  background-color: #fbedd0 !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-warning-shade {
+  color: #996800; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-warning-shade a {
+    color: #996800; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.warning-shade {
+  background-color: #996800 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-warning-strong {
+  color: #ffae00; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-warning-strong a {
+    color: #ffae00; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.warning-strong {
+  background-color: #ffae00 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-warning-weak {
+  color: #a68e5a; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-warning-weak a {
+    color: #a68e5a; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.warning-weak {
+  background-color: #a68e5a !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-warning-transparent {
+  color: rgba(255, 174, 0, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-warning-transparent a {
+    color: rgba(255, 174, 0, 0.64); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.warning-transparent {
+  background-color: rgba(255, 174, 0, 0.64) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-gray {
+  color: #cacaca; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-gray a {
+    color: #cacaca; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.gray {
+  background-color: #cacaca !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-gray-tint {
+  color: #f4f4f4; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-gray-tint a {
+    color: #f4f4f4; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.gray-tint {
+  background-color: #f4f4f4 !important;
+  color: rgba(0, 0, 0, 0.75);
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-gray-shade {
+  color: #797979; }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-gray-shade a {
+    color: #797979; }
+
+/* line 189, src/scss/demo/_colors.scss */
+.gray-shade {
+  background-color: #797979 !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
 .text-black {
   color: black; }
-  /* line 121, src/scss/demo/_colors.scss */
+  /* line 184, src/scss/demo/_colors.scss */
   .text-black a {
     color: black; }
 
-/* line 126, src/scss/demo/_colors.scss */
+/* line 189, src/scss/demo/_colors.scss */
 .black {
   background-color: black !important;
   color: #ffffff;
@@ -158,14 +918,54 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
+/* line 179, src/scss/demo/_colors.scss */
+.text-gray-transparent {
+  color: rgba(0, 0, 0, 0.3); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-gray-transparent a {
+    color: rgba(0, 0, 0, 0.3); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.gray-transparent {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
+.text-black-transparent {
+  color: rgba(0, 0, 0, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-black-transparent a {
+    color: rgba(0, 0, 0, 0.64); }
+
+/* line 189, src/scss/demo/_colors.scss */
+.black-transparent {
+  background-color: rgba(0, 0, 0, 0.64) !important;
+  color: #ffffff;
+  /*a:not(.button) {
+        color: currentColor;
+
+        &:hover, &:active, &:focus {
+            background: fade-out(foreground($color), .5);
+            color: invert(foreground($color));
+        }
+    }*/ }
+
+/* line 179, src/scss/demo/_colors.scss */
 .text-white {
   color: white; }
-  /* line 121, src/scss/demo/_colors.scss */
+  /* line 184, src/scss/demo/_colors.scss */
   .text-white a {
     color: white; }
 
-/* line 126, src/scss/demo/_colors.scss */
+/* line 189, src/scss/demo/_colors.scss */
 .white {
   background-color: white !important;
   color: rgba(0, 0, 0, 0.75);
@@ -178,16 +978,16 @@
         }
     }*/ }
 
-/* line 116, src/scss/demo/_colors.scss */
-.text-gray {
-  color: #cacaca; }
-  /* line 121, src/scss/demo/_colors.scss */
-  .text-gray a {
-    color: #cacaca; }
+/* line 179, src/scss/demo/_colors.scss */
+.text-white-transparent {
+  color: rgba(255, 255, 255, 0.64); }
+  /* line 184, src/scss/demo/_colors.scss */
+  .text-white-transparent a {
+    color: rgba(255, 255, 255, 0.64); }
 
-/* line 126, src/scss/demo/_colors.scss */
-.gray {
-  background-color: #cacaca !important;
+/* line 189, src/scss/demo/_colors.scss */
+.white-transparent {
+  background-color: rgba(255, 255, 255, 0.64) !important;
   color: rgba(0, 0, 0, 0.75);
   /*a:not(.button) {
         color: currentColor;
