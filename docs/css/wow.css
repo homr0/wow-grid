@@ -3340,36 +3340,45 @@ html {
   #wow-modal-menu .wow-modal.wow-modal-layout {
     margin: auto;
     width: 80%; }
-  /* line 132, src/scss/components/_modal.scss */
+  /* line 129, src/scss/components/_modal.scss */
+  #wow-modal-menu .wow-modal.wow-modal-edit .wow-modal-preview {
+    width: 90%;
+    height: 75%; }
+    /* line 133, src/scss/components/_modal.scss */
+    #wow-modal-menu .wow-modal.wow-modal-edit .wow-modal-preview p {
+      padding: 25%; }
+  /* line 140, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice #colorBackground .wow-color-choice.squishi {
     width: 100%; }
-    /* line 135, src/scss/components/_modal.scss */
+    /* line 143, src/scss/components/_modal.scss */
     #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice #colorBackground .wow-color-choice.squishi .squishi-title {
       text-align: center;
       height: 30px;
       padding: 0;
       opacity: 0.75;
       text-transform: none; }
-      /* line 142, src/scss/components/_modal.scss */
+      /* line 150, src/scss/components/_modal.scss */
       #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice #colorBackground .wow-color-choice.squishi .squishi-title.active {
         -webkit-box-shadow: none;
                 box-shadow: none;
         opacity: 1; }
-  /* line 151, src/scss/components/_modal.scss */
+  /* line 159, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content .wow-color-button {
     display: inline-table;
     width: 100px;
     height: 100px;
     position: relative;
     border: 1px dotted #ff1493; }
-    /* line 158, src/scss/components/_modal.scss */
+    /* line 166, src/scss/components/_modal.scss */
     #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content .wow-color-button p {
       position: absolute;
       bottom: 0;
       width: 100%; }
-  /* line 168, src/scss/components/_modal.scss */
+  /* line 176, src/scss/components/_modal.scss */
   #wow-modal-menu .wow-modal.wow-modal-edit #colorChoice .squishi-content input[type=radio]:checked + .wow-color-button :before {
-    content: '\2714'; }
+    content: '\2714';
+    font-size: 2rem;
+    display: block; }
 
 /* Squishi Accordion Tabs styles. */
 /* line 2, src/scss/components/_squishi.scss */

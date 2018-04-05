@@ -65,7 +65,7 @@ gulp.task('javascript', function() {
         }
     })).on('error', onError);
 
-    return gulp.src('src/js/wow.js')
+    return gulp.src('src/js/*.js')
         .pipe($.include({
             extensions: 'js',
             includePaths: [

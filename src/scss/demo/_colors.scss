@@ -3,14 +3,14 @@
     background-color: $color !important;
     color: foreground($color);
 
-    a:not(.button) {
+    /*a:not(.button) {
         color: currentColor;
 
         &:hover, &:active, &:focus {
             background: fade-out(foreground($color), .5);
             color: invert(foreground($color));
         }
-    }
+    }*/
 }
 
 /// Checks the lightness of `$color`, and if it passes the `$threshold` of lightness, it returns the `$yes` color. Otherwise, it returns the `$no` color. Use this function to dynamically output a foreground color based on a given background color.
@@ -112,6 +112,69 @@
 }
 
 // Color classes
+
+
+$demo-palette: (
+    primary: $primary,
+    primary-tint: color($primary, $b: 80, $s: -15),
+    primary-shade: color($primary, $b: -40),
+    primary-strong: color($primary, $s: 30),
+    primary-weak: color($primary, $s: -70),
+    primary-transparent: color($primary, $a: 0.64),
+
+    secondary: $secondary,
+    secondary-tint: color($secondary, $b: 80, $s: -15),
+    secondary-shade: color($secondary, $b: -40),
+    secondary-strong: color($secondary, $s: 30),
+    secondary-weak: color($secondary, $s: -70),
+    secondary-transparent: color($secondary, $a: 0.64),
+
+    alternate: $alternate,
+    alternate-tint: color($alternate, $b: 80, $s: -15),
+    alternate-shade: color($alternate, $b: -40),
+    alternate-strong: color($alternate, $s: 30),
+    alternate-weak: color($alternate, $s: -70),
+    alternate-transparent: color($alternate, $a: 0.64),
+
+    accent: $accent,
+    accent-tint: color($accent, $b: 80, $s: -15),
+    accent-shade: color($accent, $b: -40),
+    accent-strong: color($accent, $s: 30),
+    accent-weak: color($accent, $s: -70),
+    accent-transparent: color($accent, $a: 0.64),
+
+    success: $success,
+    success-tint: color($success, $b: 80, $s: -15),
+    success-shade: color($success, $b: -40),
+    success-strong: color($success, $s: 30),
+    success-weak: color($success, $s: -70),
+    success-transparent: color($success, $a: 0.64),
+
+    alert: $alert,
+    alert-tint: color($alert, $b: 80, $s: -15),
+    alert-shade: color($alert, $b: -40),
+    alert-strong: color($alert, $s: 30),
+    alert-weak: color($alert, $s: -70),
+    alert-transparent: color($alert, $a: 0.64),
+
+    warning: $warning,
+    warning-tint: color($warning, $b: 80, $s: -15),
+    warning-shade: color($warning, $b: -40),
+    warning-strong: color($warning, $s: 30),
+    warning-weak: color($warning, $s: -70),
+    warning-transparent: color($warning, $a: 0.64),
+
+    gray: $silver,
+    gray-tint: color($silver, $b: 80),
+    gray-shade: color($silver, $b: -40),
+
+    black: $black,
+    gray-transparent: color($black, $a: 0.30),
+    black-transparent: color($black, $a: 0.64),
+    white: $white,
+    white-transparent: color($white, $a: 0.64)
+) !default;
+
 @each $name, $color in $demo-palette {
     &.text-#{$name} {
         $color: color($color, $b: 0);

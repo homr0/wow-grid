@@ -1,32 +1,24 @@
-// Internal map used for iterating through colors to generate CSS classes.
+// Sets the variables for the demo styles.
+// Colors variables used to set up the palletes.
 $white: #ffffff;
 $black: #000000;
+$silver: #cacaca;
 
 $denim: #1779ba;
 $boulder: #767676;
+$dodger-blue: #00b5ff;
+$fuzzy-brown: #c54b4e;
 $shamrock: #3adb76;
 $yellow-sea: #ffae00;
 $mojo: #cc4b37;
 
 $primary: $denim;
 $secondary: $boulder;
+$alternate: $dodger-blue;
+$accent: $fuzzy-brown;
 $success: $shamrock;
 $warning: $yellow-sea;
 $alert: $mojo;
 
-$demo-palette: (
-    primary: $primary,
-
-    secondary: $secondary,
-
-    success: $success,
-
-    alert: $alert,
-
-    warning: $warning,
-
-    black: $black,
-    white: $white
-) !default;
-
+// Font styles
 $body-font-color: rgba(0,0,0,.75) !default;
