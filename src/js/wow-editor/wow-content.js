@@ -152,7 +152,11 @@ function wowEdit(wowFocus) {
 
     // Background color/image and id change functionality called.
     $('.squishi-title a[href="#selectStyle"]').parent().show().trigger('click');
-    wowColorChange(wowFocus);
+    $('body').on({
+        change: function() {
+            wowColorChange('#wowPreviewColor');
+        }
+    }, '[name=backgroundColor]');
 
     // Layout tab is called.
     if((wowFocus).hasClass(wow.row.slice(1))) {
@@ -168,6 +172,9 @@ function wowEdit(wowFocus) {
         click: function(e) {
             e.preventDefault();
             $.magnificPopup.close();
+
+            // Changes the background color class.
+            wowColorChange(wowFocus);
         }
     })
 }

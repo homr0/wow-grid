@@ -1,101 +1,5 @@
 //  Wow Grid Helper Functions (for edit modals)
 //  ------------------------------------------------
-// Class names for styles.
-var wowStyles = {
-    background: {
-        grayscale: {
-            white: "white",
-            transparentWhite: "white-transparent",
-            gray: "gray",
-            lighterGray: "gray-tint",
-            darkerGray: "gray-shade",
-            transparentGray: "gray-transparent",
-            black: "black",
-            transparentBlack: "black-transparent"
-        },
-
-        primary: {
-            default: "primary",
-            lighter: "primary-tint",
-            darker: "primary-shade",
-            saturated: "primary-strong",
-            desaturated: "primary-weak",
-            transparent: "primary-transparent"
-        },
-
-        secondary: {
-            default: "secondary",
-            lighter: "secondary-tint",
-            darker: "secondary-shade",
-            saturated: "secondary-strong",
-            desaturated: "secondary-weak",
-            transparent: "secondary-transparent"
-        },
-
-        alternate: {
-            default: "alternate",
-            lighter: "alternate-tint",
-            darker: "alternate-shade",
-            saturated: "alternate-strong",
-            desaturated: "alternate-weak",
-            transparent: "alternate-transparent"
-        },
-
-        accent: {
-            default: "accent",
-            lighter: "accent-tint",
-            darker: "accent-shade",
-            saturated: "accent-strong",
-            desaturated: "accent-weak",
-            transparent: "accent-transparent"
-        },
-
-        success: {
-            default: "success",
-            lighter: "success-tint",
-            darker: "success-shade",
-            saturated: "success-strong",
-            desaturated: "success-weak",
-            transparent: "success-transparent"
-        },
-
-        warning: {
-            default: "warning",
-            lighter: "warning-tint",
-            darker: "warning-shade",
-            saturated: "warning-strong",
-            desaturated: "warning-weak",
-            transparent: "warning-transparent"
-        },
-
-        alert: {
-            default: "alert",
-            lighter: "alert-tint",
-            darker: "alert-shade",
-            saturated: "alert-strong",
-            desaturated: "alert-weak",
-            transparent: "alert-transparent"
-        }
-    }
-};
-
-// Allows for users to edit the wowStyles object.
-// @param palette = name of the background color palette
-// @param colorGroup = object with the color class label and the color class.
-function wowStylesBackgroundSet(palette, colorGroup) {
-    if(palette !== undefined && colorGroup !== undefined) {
-        wowStyles.background[palette] = colorGroup;
-    }
-} wowStylesBackgroundSet("primary", {
-    label1: 'primary',
-    label2: 'primary-tint'
-});
-
-// Allows user to remove a palette.
-function wowStylesBackgroundRemove(palette) {
-    delete wowStyles.background[palette];
-}
-
 // Sets up the list of palettes and the panels for containing the color classes. Gets the color classes from the wowStyles object.
 function wowColorClasses() {
     // Adds in the none/no background color option as the default option.
@@ -147,9 +51,18 @@ function wowColorClasses() {
 }
 
 // Removes all color classes that are in the component and replaces it with the currently selected class.
+function wowColorClassClear(component) {
+    $.each(wowStyles.background, function(color, palette) {
+        $.each(palette, function(label, name) {
+            $(component).removeClass(name);
+        });
+    });
+}
 
+// Returns the color class of the
 
 // When a color is clicked, the preview displays the selected color class.
 function wowColorChange(component) {
-    console.log($(component).attr('class'));
+    wowColorClassClear(component);
+    $(component).addClass($('[name=backgroundColor]:checked').val());
 }

@@ -63,12 +63,25 @@ The Wow-Grid will have the following functions:
 Run 'gulp' to spin up a server and get to the test page.
 
 ### Customizable Styles
-1. Background colors  
-```javascript
-palette: {
-    labelName: className,
-    labelName2: className2
-}
-```
-  - Palette names must be unique. Otherwise, class names should be valid and labels should be in camel case.
+1. Background colors
+  - Palette names must be unique. Otherwise, class names should match any background classes in the stylesheet. Labels need to be one word.
   - Palettes can be changed or added via ```wowStylesBackgroundSet()``` or removed ```wowStylesBackgroundRemove()```.
+    - Multiple palettes can be added/edited via:  
+    ```javascript
+    wowStylesBackgroundSet({
+        palette1: {
+            labelName1: className1,
+            labelName2: className2
+        },
+
+        palette2: {
+            labelName1: className1,
+            labelName2: className2,
+            labelName3: className3
+        }
+    });
+    ```
+    - Individual palettes can be removed via:  
+    ```javascript
+    wowStylesBackgroundRemove(palette);
+    ```

@@ -10,6 +10,7 @@
         padding: $squishi-padding;
         font-weight: 700;
         text-align: center;
+        cursor: pointer;
 
         &.active {
             box-shadow: $squishi-shadow;

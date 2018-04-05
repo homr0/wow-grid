@@ -126,7 +126,15 @@
 
     // Modal for editing a component.
     &.wow-modal-edit {
+        .wow-modal-preview {
+            width: 90%;
+            height: 75%;
 
+            p {
+                padding: 25%;
+            }
+
+        }
         #colorChoice {
             #colorBackground {
                 .wow-color-choice.squishi {
@@ -163,10 +171,12 @@
                 }
 
                 input[type=radio]:checked + .wow-color-button {
-                    opacity: 0.9;
+                    //opacity: 0.75;
 
                     :before {
                         content: '\2714';
+                        font-size: 2rem;
+                        display: block;
                     }
                 }
             }
