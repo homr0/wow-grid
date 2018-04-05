@@ -1,5 +1,6 @@
 // Script for setting up demo.
 $(document).ready(function() {
+    // Sets the background color classes.
     wowStylesBackgroundSet({
         grayscale: {
             white: "white",
@@ -76,5 +77,21 @@ $(document).ready(function() {
         }
     });
 
+    // Gets the correct prompts.
     wow.strings = "https://homr0.github.io/wow-grid/js/grid.html";
+
+    // Initiates editor.
+    $('.ou-btn.button').on('click', function() {
+        $(this).parent().addClass('ou-justedit-region mce-content-body mce-edit-focus');
+    });
+
+    // Emulates the save functionality.
+    $('[aria-label="Save and Exit"]').on('click', function() {
+        console.log("Saved the document.");
+    });
+
+    // Emulates the exit without saving functionality
+    $('[aria-label="Exit Without Saving"]').on('click', function() {
+        $('.ou-justedit-region.mce-content-body').removeClass('ou-justedit-region mce-content-body');
+    });
 });
