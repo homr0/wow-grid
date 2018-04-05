@@ -34,11 +34,13 @@ The Wow-Grid will have the following functions:
 - Components can be deleted.
 - Blank components can be added.
 - Rows and sections can be added with a specific layout.
+- Row layout can be adjusted.
 
 ---
 
 ## Known Issues
 - Issue with dragging and dropping rows and sections vertically.
+- Issue with getting initial columns for an uneven row for editing.
 ---
 
 ## Dependencies
@@ -59,3 +61,14 @@ The Wow-Grid will have the following functions:
     ```
 ### Testing Environment
 Run 'gulp' to spin up a server and get to the test page.
+
+### Customizable Styles
+1. Background colors  
+```javascript
+palette: {
+    labelName: className,
+    labelName2: className2
+}
+```
+  - Palette names must be unique. Otherwise, class names should be valid and labels should be in camel case.
+  - Palettes can be changed or added via ```wowStylesBackgroundSet()``` or removed ```wowStylesBackgroundRemove()```.
