@@ -76,5 +76,5 @@ $(document).ready(function() {
         }
     });
 
-    //wow.strings = "https://homr0.github.io/wow-grid/js/grid.html";
+    wow.strings = "https://homr0.github.io/wow-grid/js/grid.html";
 });
