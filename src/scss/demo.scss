@@ -4,3 +4,59 @@
 @import
     "demo/settings",
     "demo/colors";
+
+// Original embedded styles.
+html {
+    font-size: 100%;
+    font-family: sans-serif;
+}
+
+header {
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: relative;
+    top: 100px;
+
+    .left-sidebar, .right-sidebar {
+        max-width: 25%;
+        width: 100%;
+        z-index: auto !important;
+        min-width: 0;
+        flex: 0 0 25%;
+    }
+
+    main {
+        max-width: 100%;
+        min-width: 0;
+        position: relative;
+        flex: 1 1 0px;
+    }
+}
+
+.btn-toolbar {
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    .mce-widget.mce-btn {
+        position: absolute;
+        z-index: 999;
+        top: 25px;
+
+        &.mce-first {
+            left: 120px;
+        }
+
+        &.mce-last {
+            left: 240px;
+        }
+    }
+}

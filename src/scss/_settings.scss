@@ -67,10 +67,10 @@ $hover-row: $pastel-green;
 $hover-column: $magenta;
 $hover-module: $pink;
 
-$editor-section: $seagull;
-$editor-row: $green;
-$editor-column: $moon-raker;
-$editor-module: $sundown;
+$editor-section: rgba($seagull, 0.25);
+$editor-row: rgba($green, 0.25);
+$editor-column: rgba($moon-raker, 0.25);
+$editor-module: rgba($sundown, 0.25);
 $editor-shadow: inset 0px 0px 0px 3px;
 
 //  3. Editor Components
