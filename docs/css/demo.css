@@ -998,4 +998,58 @@
         }
     }*/ }
 
-/*# sourceMappingURL=demo.css.map */
+/* line 9, src/scss/demo.scss */
+html {
+  font-size: 100%;
+  font-family: sans-serif; }
+
+/* line 14, src/scss/demo.scss */
+header {
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center; }
+
+/* line 20, src/scss/demo.scss */
+.page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  top: 100px; }
+  /* line 28, src/scss/demo.scss */
+  .page .left-sidebar, .page .right-sidebar {
+    max-width: 25%;
+    width: 100%;
+    z-index: auto !important;
+    min-width: 0;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%; }
+  /* line 36, src/scss/demo.scss */
+  .page main {
+    max-width: 100%;
+    min-width: 0;
+    position: relative;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 0px;
+            flex: 1 1 0px; }
+
+/* line 44, src/scss/demo.scss */
+.btn-toolbar {
+  margin: 0;
+  padding: 0;
+  position: relative; }
+  /* line 49, src/scss/demo.scss */
+  .btn-toolbar .mce-widget.mce-btn {
+    position: absolute;
+    z-index: 999;
+    top: 25px; }
+    /* line 54, src/scss/demo.scss */
+    .btn-toolbar .mce-widget.mce-btn.mce-first {
+      left: 120px; }
+    /* line 58, src/scss/demo.scss */
+    .btn-toolbar .mce-widget.mce-btn.mce-last {
+      left: 240px; }
