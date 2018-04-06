@@ -60,7 +60,6 @@ gulp.task('javascript', function() {
             conditionals: true,
             booleans: true,
             if_return: true,
-            screw_ie8: true,
             drop_console: true
         }
     })).on('error', onError);
