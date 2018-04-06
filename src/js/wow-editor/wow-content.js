@@ -158,6 +158,26 @@ function wowEdit(wowFocus) {
         }
     }, '[name=backgroundColor]');
 
+    // When the tab for the color palette is clicked, the first shade is picked.
+    $('.wow-color-choice .squishi-title').on({
+        click: function() {
+            $($(this).children('a').attr('href')).children('[name=backgroundColor]').first().trigger('click');
+            wowColorChange('#wowPreviewColor');
+        }
+    });
+
+    // Gets the current color class for the component.
+    var colorClass = wowColorClassGet(wowFocus);
+    if(colorClass == false) {
+        // Clicks the "No Background Color" tab.
+        $('#colorNone').trigger('click');
+    } else {
+        // Finds the value of the color class and then clicks on the correct tab.
+        var colorTab = "#" + $('[name=backgroundColor][value='+ colorClass + ']').parent().attr('id');
+        $('.wow-color-choice').find('a[href="' + colorTab + '"]').trigger('click');
+        $('[name=backgroundColor][value='+ colorClass + ']').trigger('click');
+    }
+
     // Layout tab is called.
     if((wowFocus).hasClass(wow.row.slice(1))) {
         $('.squishi-title a[href="#selectLayout"]').parent().show();

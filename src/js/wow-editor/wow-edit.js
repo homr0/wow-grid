@@ -59,10 +59,23 @@ function wowColorClassClear(component) {
     });
 }
 
-// Returns the color class of the
+// Returns the color class of the component.
+function wowColorClassGet(component) {
+    var colorClass = false;
+    $.each(wowStyles.background, function(color, palette) {
+        $.each(palette, function(label, name) {
+            if($(component).hasClass(name)) {
+                colorClass = name;
+            }
+        });
+    });
+    return colorClass;
+}
 
 // When a color is clicked, the preview displays the selected color class.
 function wowColorChange(component) {
     wowColorClassClear(component);
-    $(component).addClass($('[name=backgroundColor]:checked').val());
+    if($('[name=backgroundColor]:checked').val() !== "none") {
+        $(component).addClass($('[name=backgroundColor]:checked').val());
+    }
 }
