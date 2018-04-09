@@ -150,6 +150,7 @@ function wowEdit(wowFocus) {
     // Hides all of the title tabs.
     $('.wow-modal-edit').children('.squishi').first().children('.squishi-title').hide();
 
+    //--------------------------------------------------------------------------
     // Background color/image and id change functionality called.
     $('.squishi-title a[href="#selectStyle"]').parent().show().trigger('click');
     $('body').on({
@@ -178,6 +179,45 @@ function wowEdit(wowFocus) {
         $('[name=backgroundColor][value='+ colorClass + ']').trigger('click');
     }
 
+    // If the component has a background image, then that is also loaded on to the preview.
+    if($(wowFocus).css('background-image') !== "none") {
+        $('#wowPreviewColor').css('background-image', $(wowFocus).css('background-image'));
+    }
+
+    // Functionality for inserting a background image.
+    $('body').on('click', '.wow-modal-image-insert', function() {
+    	$(imageChoice).trigger('click');
+    	$(imageBrowse).trigger('click');
+
+    	$('body', parent.document).off().on('click', imageInsert, function() {
+    		setTimeout(function() {
+    			var imageUrl = $('html ' + imageChoice + ' input').first().val();
+    			if(imageUrl !== undefined) {
+    				// Checks if binary management is being used if.
+    				if(imageUrl.charAt(0) === "{") {
+    					imageUrl = $('html ' + imageChoice + ' ' + imageLegend).first().text();
+    				}
+
+    				if(imageUrl === imageLabel) { // If it is LEGEND, then user will need to click insert again.
+    					$(imageBrowse).trigger("click");
+    				} else {
+    					$('body', parent.document).off('click', imageInsert);
+    					$('.wow-modal-image-remove').removeClass('disabled');
+    					$('#wowPreviewColor').css('background-image', 'url(' + imageUrl + ')');
+    					$(imageChoice + ' ' + imageClose).trigger('click');
+    				}
+    			}
+    		}, 0);
+    	});
+    });
+
+    // Functionality for removing a background image.
+    $('body').on('click', '.wow-modal-image-remove', function() {
+    	$('.wow-modal-image-remove').addClass('disabled');
+    	$('#wowPreviewColor').css("background-image", "none");
+    });
+
+    //--------------------------------------------------------------------------
     // Layout tab is called.
     if((wowFocus).hasClass(wow.row.slice(1))) {
         $('.squishi-title a[href="#selectLayout"]').parent().show();
@@ -195,6 +235,9 @@ function wowEdit(wowFocus) {
 
             // Changes the background color class.
             wowColorChange(wowFocus);
+
+            // Changes the background image.
+            $(wowFocus).css('background-image', $('#wowPreviewColor').css('background-image'));
         }
     })
 }
@@ -318,40 +361,4 @@ function wowAdd(wowFocus, wowAddButton) {
 
         $(wowFocus).next().animateCss('zoomIn');
     }
-}
-
-// Checks to make sure that the component name is valid.
-function wowCheckName(name) {
-    var uniqueId = true;
-
-    // Checks name to make sure there are no spaces or invalid characters.
-    if(name.index(' ') >= 0) {
-        $('.layoutError').hide();
-        $('#errorSpace').show();
-        uniqueId = false;
-    }
-
-    // Checks to make sure that the name is alphanumerical and has only dashes or underscores.
-    uniqueId = /^[a-zA-z0-9-_]+$/.test(name);
-    if(!uniqueId) {
-        $('.layoutError').hide();
-        $('#errorInvalid').show();
-    }
-
-    // Cycles through the id names to make sure that it doesn't already exist.
-    $(wow.editor + ' .wow-editor').each(function() {
-        if($(this).attr('id') === name) {
-            $('.layoutError').hide();
-            $('#errorRepeat').show();
-            uniqueId = false;
-        }
-    });
-
-    // Checks that the name is not blank.
-    if(name === "") {
-        $('.layoutError').hide();
-        uniqueId = true;
-    }
-
-    return uniqueId;
 }

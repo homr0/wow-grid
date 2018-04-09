@@ -129,12 +129,14 @@
         .wow-modal-preview {
             width: 90%;
             height: 75%;
+            margin: auto;
 
             p {
                 padding: 25%;
             }
 
         }
+
         #colorChoice {
             #colorBackground {
                 .wow-color-choice.squishi {
@@ -179,6 +181,12 @@
                         display: block;
                     }
                 }
+            }
+        }
+
+        #idChoice {
+            .layoutError {
+                display: none;
             }
         }
     }

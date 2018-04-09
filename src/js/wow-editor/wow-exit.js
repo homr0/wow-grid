@@ -19,6 +19,7 @@ function wowClean() {
         }
     });
     $('*[style=""]').removeAttr('style');
+    $('*[style="background-image: none;"]').removeAttr('style');
 
     // Saves module content.
     $('#wow-container ' + wow.column).each(function(index) {

@@ -5,6 +5,16 @@ var wow = {
     editor: '.ou-justedit-region',                  // Edit region class, tag, or id.
     editFocus: '.mce-content-body',                 // Focused region class, tag, or id.
 
+    saveExit: '[aria-label="Save and Exit"]',       // Button for saving and exiting
+    noSave: '[aria-label="Exit Without Saving"]',   // Button for exiting without saving
+
+    imageChoice: '[aria-label="Insert/edit image"]',// Button for opening image modal.
+    imageBrowse: '.mce-i-browse',                   // Button for browsing images.
+    imageInsert: '[data-confirm="insert-image"]',   // Button for inserting the background image.
+    imageClose: '.mce-close',                       // Button for closing image modal.
+    imageLegend: '.mce-dmtag-legend',               // Area for the file name if binary management is used.
+    imageLabel: 'LEGEND',                           // Label for filename.
+
     section: '.section',                            // Section class name
     row: '.grid-x',                                 // Row class name
     column: '.cell',                                // Column class name
@@ -13,9 +23,6 @@ var wow = {
     sidebar: '.sidebar',                            // Sidebar class name.
     leftSide: '.left-sidebar',                      // Left sidebar class name
     rightSide: '.right-sidebar',                    // Right sidebar class name
-
-    saveExit: '[aria-label="Save and Exit"]',       // Element for saving and exiting
-    noSave: '[aria-label="Exit Without Saving"]',   // Element for exiting without saving
 
     small: 'small',                                 // Small scale layout
     medium: 'medium',                               // Medium scale layout

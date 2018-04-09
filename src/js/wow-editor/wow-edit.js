@@ -79,3 +79,39 @@ function wowColorChange(component) {
         $(component).addClass($('[name=backgroundColor]:checked').val());
     }
 }
+
+// Checks to make sure that the component id is valid.
+function wowCheckName(name) {
+    var uniqueId = true;
+
+    // Checks name to make sure there are no spaces or invalid characters.
+    if(name.index(' ') >= 0) {
+        $('.layoutError').hide();
+        $('#errorSpace').show();
+        uniqueId = false;
+    }
+
+    // Checks to make sure that the name is alphanumerical and has only dashes or underscores.
+    uniqueId = /^[a-zA-z0-9-_]+$/.test(name);
+    if(!uniqueId) {
+        $('.layoutError').hide();
+        $('#errorInvalid').show();
+    }
+
+    // Cycles through the id names to make sure that it doesn't already exist.
+    $(wow.editor + ' .wow-editor').each(function() {
+        if($(this).attr('id') === name) {
+            $('.layoutError').hide();
+            $('#errorRepeat').show();
+            uniqueId = false;
+        }
+    });
+
+    // Checks that the name is not blank.
+    if(name === "") {
+        $('.layoutError').hide();
+        uniqueId = true;
+    }
+
+    return uniqueId;
+}
