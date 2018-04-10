@@ -150,7 +150,7 @@
                         text-transform: none;
 
                         &.active {
-                            box-shadow: none;
+                            box-shadow: inset 3px 3px 0 0 $squishi-color, inset -3px -3px 0 0 $squishi-color;
                             opacity: 1;
                         }
                     }
@@ -173,7 +173,8 @@
                 }
 
                 input[type=radio]:checked + .wow-color-button {
-                    //opacity: 0.75;
+                    border: 1px solid  $module;
+                    box-shadow: inset 1px 1px 1px 1px $module, inset -1px -1px 1px 1px $module;
 
                     :before {
                         content: '\2714';

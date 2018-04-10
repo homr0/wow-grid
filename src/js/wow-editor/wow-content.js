@@ -217,6 +217,41 @@ function wowEdit(wowFocus) {
     	$('#wowPreviewColor').css("background-image", "none");
     });
 
+    // Gets the component's id.
+    $('#idChoice #componentId').val("");
+    if(!(($(wowFocus).attr('id') == undefined) && ($(wowFocus).attr('id') == ""))) {
+        $('#idChoice #componentId').val($(wowFocus).attr('id'));
+    }
+
+    // Checks if the component id is valid.
+    $('#idChoice #componentId').on('keyup change paste', function() {
+        $('.layoutError').hide();
+        $('.wow-modal-confirm').removeClass('disabled');
+
+        var componentId = $('#idChoice #componentId').val();
+        if(($(wowFocus).attr('id') !== componentId) && (componentId !== "")) {
+            var valid = true;
+            $(wow.editor + ' .wow-editor').each(function() {
+                if($(this).attr('id') === componentId) {
+                    $('#errorRepeat').show();
+                    valid = false;
+                }
+            });
+
+            if(componentId.indexOf(" ") >= 0) {
+                $('#errorSpace').show();
+                valid = false;
+            } else if(!(/^[a-zA-z0-9-_]+$/.test(componentId))) {
+                $('#errorInvalid').show();
+                valid = false;
+            }
+
+            if(!valid) {
+                $('.wow-modal-confirm').addClass('disabled');
+            }
+        }
+    });
+
     //--------------------------------------------------------------------------
     // Layout tab is called.
     if((wowFocus).hasClass(wow.row.slice(1))) {
@@ -224,6 +259,7 @@ function wowEdit(wowFocus) {
         wowLayout(wowFocus, true);
     }
 
+    //--------------------------------------------------------------------------
     // Adds in the confirmation area.
     $('.wow-modal-edit').append(mfp.confirm);
 
@@ -236,8 +272,8 @@ function wowEdit(wowFocus) {
             // Changes the background color class.
             wowColorChange(wowFocus);
 
-            // Changes the background image.
-            $(wowFocus).css('background-image', $('#wowPreviewColor').css('background-image'));
+            // Changes the background image and id.
+            $(wowFocus).css('background-image', $('#wowPreviewColor').css('background-image')).attr('id', $('#idChoice #componentId').val());
         }
     })
 }
