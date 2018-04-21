@@ -37,6 +37,8 @@ The Wow-Grid will have the following functions:
 - Row layout can be adjusted.
 - Background color classes can be added to components.
 - Background color classes can be adjusted.
+- Background image can be set.
+- Components can be given an id.
 ---
 
 ## Known Issues

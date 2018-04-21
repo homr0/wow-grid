@@ -37,6 +37,7 @@ var wow = {
 // Class names for styles.
 var wowStyles = {
     background: {},
+    collapse: {},
     align: {}
 };
 

@@ -1,0 +1,24 @@
+/* Alignment and collapse classes. */
+.row {
+    &-collapse-vertical {
+        margin-top: 0 !important;
+    }
+
+    &-collapse-horizontal {
+        max-width: 100% !important;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &-collapse-columns {
+        padding-top: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 2rem;
+
+         [class*='column-'] {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

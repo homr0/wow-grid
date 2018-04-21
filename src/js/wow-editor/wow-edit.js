@@ -50,32 +50,40 @@ function wowColorClasses() {
     $('#colorBackground .wow-color-choice').html(colorPalettes);
 }
 
-// Removes all color classes that are in the component and replaces it with the currently selected class.
-function wowColorClassClear(component) {
-    $.each(wowStyles.background, function(color, palette) {
-        $.each(palette, function(label, name) {
+// Removes all style classes for a certain style from the component.
+function wowStyleClear(component, style) {
+    $.each(style, function(type, name) {
+        if(style == wowStyles.background) {
+            $.each(name, function(palette, color) {
+                $(component).removeClass(color);
+            });
+        } else {
             $(component).removeClass(name);
-        });
+        }
     });
 }
 
-// Returns the color class of the component.
-function wowColorClassGet(component) {
-    var colorClass = false;
-    $.each(wowStyles.background, function(color, palette) {
-        $.each(palette, function(label, name) {
-            if($(component).hasClass(name)) {
-                colorClass = name;
-            }
-        });
+// Returns the class of a certain style of the component.
+function wowStyleGet(component, style) {
+    var styleClass = false;
+    $.each(style, function(type, name) {
+        if(style == wowStyles.background) {
+            $.each(name, function(palette, color) {
+                if($(component).hasClass(color)) {
+                    styleClass = color;
+                }
+            });
+        } else if($(component).hasClass(name)) {
+            styleClass = name;
+        }
     });
-    return colorClass;
+    return styleClass;
 }
 
-// When a color is clicked, the preview displays the selected color class.
-function wowColorChange(component) {
-    wowColorClassClear(component);
-    if($('[name=backgroundColor]:checked').val() !== "none") {
-        $(component).addClass($('[name=backgroundColor]:checked').val());
+// Changes the class of a certain style of the component.
+function wowStyleChange(component, style, input) {
+    wowStyleClear(component, style);
+    if($(input + ":checked").val() !== "none") {
+        $(component).addClass($(input + ":checked").val());
     }
 }

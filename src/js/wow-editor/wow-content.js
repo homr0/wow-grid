@@ -155,7 +155,7 @@ function wowEdit(wowFocus) {
     $('.squishi-title a[href="#selectStyle"]').parent().show().trigger('click');
     $('body').on({
         change: function() {
-            wowColorChange('#wowPreviewColor');
+            wowStyleChange('#wowPreviewColor', wowStyles.background, "[name=backgroundColor]");
         }
     }, '[name=backgroundColor]');
 
@@ -163,12 +163,12 @@ function wowEdit(wowFocus) {
     $('.wow-color-choice .squishi-title').on({
         click: function() {
             $($(this).children('a').attr('href')).children('[name=backgroundColor]').first().trigger('click');
-            wowColorChange('#wowPreviewColor');
+            wowStyleChange('#wowPreviewColor', wowStyles.background, "[name=backgroundColor]");
         }
     });
 
     // Gets the current color class for the component.
-    var colorClass = wowColorClassGet(wowFocus);
+    var colorClass = wowStyleGet(wowFocus, wowStyles.background);
     if(colorClass == false) {
         // Clicks the "No Background Color" tab.
         $('#colorNone').trigger('click');
@@ -253,10 +253,14 @@ function wowEdit(wowFocus) {
     });
 
     //--------------------------------------------------------------------------
-    // Layout tab is called.
+    // Tabs for rows are shown.
     if((wowFocus).hasClass(wow.row.slice(1))) {
+        // Layout tab is called.
         $('.squishi-title a[href="#selectLayout"]').parent().show();
         wowLayout(wowFocus, true);
+
+        // Collapse tab is called.
+        $('.squishi-title a[href="#selectCollapse"]').parent().show();
     }
 
     //--------------------------------------------------------------------------
@@ -270,7 +274,7 @@ function wowEdit(wowFocus) {
             $.magnificPopup.close();
 
             // Changes the background color class.
-            wowColorChange(wowFocus);
+            wowStyleChange(wowFocus, wowStyles.background, "[name=backgroundColor]");
 
             // Changes the background image and id.
             $(wowFocus).css('background-image', $('#wowPreviewColor').css('background-image')).attr('id', $('#idChoice #componentId').val());

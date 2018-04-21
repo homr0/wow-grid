@@ -78,7 +78,7 @@ $(document).ready(function() {
     });
 
     // Gets the correct prompts.
-    wow.strings = "https://homr0.github.io/wow-grid/js/grid.html";
+    //wow.strings = "https://homr0.github.io/wow-grid/js/grid.html";
 
     // Initiates editor.
     $('.ou-btn.button').on('click', function() {
