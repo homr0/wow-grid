@@ -77,8 +77,15 @@ $(document).ready(function() {
         }
     });
 
+    // Sets the collapse classes.
+    wowStylesCollapseSet({
+        collapseRowHorizontally: "row-collapse-horizontal",
+        collapseRowVertically: "row-collapse-vertical",
+        collapseColumns: "row-collapse-columns"
+    });
+
     // Gets the correct prompts.
-    //wow.strings = "https://homr0.github.io/wow-grid/js/grid.html";
+    wow.strings = "https://homr0.github.io/wow-grid/js/grid.html";
 
     // Initiates editor.
     $('.ou-btn.button').on('click', function() {

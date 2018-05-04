@@ -169,14 +169,14 @@ function wowEdit(wowFocus) {
 
     // Gets the current color class for the component.
     var colorClass = wowStyleGet(wowFocus, wowStyles.background);
-    if(colorClass == false) {
+    if(colorClass.length == 0) {
         // Clicks the "No Background Color" tab.
         $('#colorNone').trigger('click');
     } else {
         // Finds the value of the color class and then clicks on the correct tab.
-        var colorTab = "#" + $('[name=backgroundColor][value='+ colorClass + ']').parent().attr('id');
+        var colorTab = "#" + $('[name=backgroundColor][value='+ colorClass[0] + ']').parent().attr('id');
         $('.wow-color-choice').find('a[href="' + colorTab + '"]').trigger('click');
-        $('[name=backgroundColor][value='+ colorClass + ']').trigger('click');
+        $('[name=backgroundColor][value='+ colorClass[0] + ']').trigger('click');
     }
 
     // If the component has a background image, then that is also loaded on to the preview.
@@ -261,6 +261,15 @@ function wowEdit(wowFocus) {
 
         // Collapse tab is called.
         $('.squishi-title a[href="#selectCollapse"]').parent().show();
+        wowCollapseClasses();
+
+        // Gets the current existing collapse classes.
+        var collapseClass = wowStyleGet(wowFocus, wowStyles.collapse);
+        if(collapseClass.length > 0) {
+            for(var i = 0; i < collapseClass.length; ++i) {
+                $('[name=collapseClass][value="' + collapseClass[i] + '"]').prop("checked", true);
+            }
+        }
     }
 
     //--------------------------------------------------------------------------
@@ -278,6 +287,9 @@ function wowEdit(wowFocus) {
 
             // Changes the background image and id.
             $(wowFocus).css('background-image', $('#wowPreviewColor').css('background-image')).attr('id', $('#idChoice #componentId').val());
+
+            // Changes the collapse classes.
+            wowStyleChange(wowFocus, wowStyles.collapse, "[name=collapseClass]");
         }
     })
 }

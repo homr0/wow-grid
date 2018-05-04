@@ -52,3 +52,15 @@ function wowStylesBackgroundSet(backgrounds) {
 function wowStylesBackgroundRemove(palette) {
     delete wowStyles.background[palette];
 }
+
+// Allows for users to edit collapse classes by passing in an object with the class name in camelcase and the class name.
+function wowStylesCollapseSet(collapse) {
+    $.each(collapse, function(name, collapse) {
+        wowStyles.collapse[name] = collapse;
+    });
+}
+
+// Allows user to remove a collapse class.
+function wowStylesCollapseRemove(collapse) {
+    delete wowStyles.collapse[collapse];
+}

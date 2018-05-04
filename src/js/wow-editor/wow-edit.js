@@ -19,35 +19,50 @@ function wowColorClasses() {
         // Gets the color palette and its different shades.
         $.each(palette, function(label, name) {
             var colorId = paletteName + label[0].toUpperCase() + label.slice(1);
-
-            // Sets up the color class's label.
-            var positions = [];
-            for(var i = 1; i < label.length; ++i) {
-                if(label[i].match(/[A-Z]/) !== null) {
-                    positions.push(i);
-                }
-            }
-
-            var colorName = label[0].toUpperCase();
-            if(positions.length == 0) {
-                colorName += label.slice(1);
-            } else {
-                colorName += label.slice(1, positions[0]);
-                for(var i = 0; i < positions.length; ++i) {
-                    colorName += " ";
-                    if((i + 1) < positions.length) {
-                        colorName += label.slice(positions[i], positions[i + 1]);
-                    } else {
-                        colorName += label.slice(positions[i]);
-                    }
-                }
-            }
-
-            colorButtons += '<input type="radio" name="backgroundColor" id="wowColor' + colorId + '" value="' + name + '"><label for="wowColor' + colorId + '" class="wow-color-button ' + name + '"><p>' + colorName + '</p></label>';
+            colorButtons += '<input type="radio" name="backgroundColor" id="wowColor' + colorId + '" value="' + name + '"><label for="wowColor' + colorId + '" class="wow-color-button ' + name + '"><p>' + wowCamelCase(label) + '</p></label>';
         });
         $('#' + color).html(colorButtons);
     });
     $('#colorBackground .wow-color-choice').html(colorPalettes);
+}
+
+// Sets up the collapse classes.
+function wowCollapseClasses() {
+    var collapseClasses = '';
+    $.each(wowStyles.collapse, function(name, collapse) {
+        var collapseId = name[0].toUpperCase() + name.slice(1);
+        collapseClasses += '<input type="checkbox" name="collapseClass" id="wowCollapse' + collapseId + '" value="' + collapse + '"><label for="wowCollapse' + collapseId + '"><p>' + wowCamelCase(name) + '</p></label>';
+    });
+    $('#collapseOptions').html(collapseClasses);
+}
+
+// Generates a label from camelcase name.
+function wowCamelCase(name) {
+    // Gets the positions of where there are capital letters.
+    var positions = [];
+    for(var i = 1; i < name.length; ++i) {
+        if(name[i].match(/[A-Z]/) !== null) {
+            positions.push(i);
+        }
+    }
+
+    // Sets up the rest of the label.
+    var label = name[0].toUpperCase();
+    if(positions.length == 0) {
+        label += name.slice(1);
+    } else {
+        label  += name.slice(1, positions[0]);
+        for(var i = 0; i < positions.length; ++i) {
+            label += " ";
+            if((i + 1) < positions.length) {
+                label += name.slice(positions[i], positions[i + 1]);
+            } else {
+                label += name.slice(positions[i]);
+            }
+        }
+    }
+
+    return label;
 }
 
 // Removes all style classes for a certain style from the component.
@@ -65,16 +80,16 @@ function wowStyleClear(component, style) {
 
 // Returns the class of a certain style of the component.
 function wowStyleGet(component, style) {
-    var styleClass = false;
+    var styleClass = [];
     $.each(style, function(type, name) {
         if(style == wowStyles.background) {
             $.each(name, function(palette, color) {
                 if($(component).hasClass(color)) {
-                    styleClass = color;
+                    styleClass.push(color);
                 }
             });
         } else if($(component).hasClass(name)) {
-            styleClass = name;
+            styleClass.push(name);
         }
     });
     return styleClass;
@@ -84,6 +99,8 @@ function wowStyleGet(component, style) {
 function wowStyleChange(component, style, input) {
     wowStyleClear(component, style);
     if($(input + ":checked").val() !== "none") {
-        $(component).addClass($(input + ":checked").val());
+        $(input + ":checked").each(function() {
+            $(component).addClass($(this).val());
+        });
     }
 }
